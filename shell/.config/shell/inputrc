@@ -1,0 +1,16 @@
+set bell-style none
+
+set meta-flag on
+set input-meta on
+set convert-meta off
+set output-meta on
+
+set completion-ignore-case On
+set completion-map-case On
+set completion-query-items 100
+
+set editing-mode vi
+
+set show-mode-in-prompt on
+set vi-cmd-mode-string "\1\e[2 q\2"
+set vi-ins-mode-string "\1\e[6 q\2"

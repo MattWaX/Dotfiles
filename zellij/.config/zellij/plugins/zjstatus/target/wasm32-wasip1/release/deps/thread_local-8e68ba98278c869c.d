@@ -1,0 +1,10 @@
+/home/MattWaX/Dotfiles/zellij/.config/zellij/plugins/zjstatus/target/wasm32-wasip1/release/deps/libthread_local-8e68ba98278c869c.rmeta: /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/lib.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/cached.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/thread_id.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/unreachable.rs
+
+/home/MattWaX/Dotfiles/zellij/.config/zellij/plugins/zjstatus/target/wasm32-wasip1/release/deps/libthread_local-8e68ba98278c869c.rlib: /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/lib.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/cached.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/thread_id.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/unreachable.rs
+
+/home/MattWaX/Dotfiles/zellij/.config/zellij/plugins/zjstatus/target/wasm32-wasip1/release/deps/thread_local-8e68ba98278c869c.d: /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/lib.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/cached.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/thread_id.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/unreachable.rs
+
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/lib.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/cached.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/thread_id.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thread_local-1.1.8/src/unreachable.rs:

@@ -1,0 +1,28 @@
+#!/bin/sh
+# shellcheck disable=SC2155
+
+# Profile file, runs on login. Environmental variables are set here.
+
+# Add all directories in `~/.local/bin` to $PATH
+export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
+
+unsetopt PROMPT_SP 2>/dev/null
+
+
+# Default programs:
+export TERMINAL="kitty"
+export EDITOR="nvim"
+export BROWSER="zen-browser"
+
+export PATH=$PATH:/home/MattWaX/.cargo/bin:/home/MattWaX/.local/bin:/home/MattWaX/.scripts
+
+# ~/ Clean-up:
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# GTK theming
+export GTK_THEME=Adwaita-dark

@@ -1,0 +1,90 @@
+#!/bin/sh
+
+usage() {
+    >&2 echo "Usage: makeinit [-h] [-v] [-i PROJECT_NAME] [-t TEMPLATE_NAME] [-n TEMPLATE_NAME]"
+    >&2 echo "  -h  Help. Display this message and quit."
+    >&2 echo "  -v  Version. Print version number and quit."
+    >&2 echo "  -i  Initialize the project with PROJECT_NAME."
+    >&2 echo "  -t  Specify the template to use when creating a new project TEMPLATE_NAME."
+    >&2 echo "  -n  Specify the name of the new template TEMPLATE_NAME to create."
+    exit 2
+}
+
+confdir="$HOME/.config/makeinit/"
+template="default"
+init=false
+newtemplate=false
+
+# Parse arguments
+while getopts "hvt:i:n:" optchar; do
+    case "${optchar}" in
+    h)
+        usage
+        ;;
+    v)
+        version
+        exit 0
+        ;;
+    t)
+        template=${OPTARG}
+        if [ ! -d "$confdir" ]; then
+            mkdir "$confdir"
+        fi
+        if [ ! -d "${confdir}$template" ]; then
+            >&2 echo "Template [$1] does not exist"
+            exit 1
+        fi
+        ;;
+    i)
+        if [ "${OPTARG}" = "" ]; then
+            >&2 echo "The new project must have a name"
+            exit 1
+        fi
+        prgname=${OPTARG}
+        init=true
+        ;;
+    n)
+        if [ "${OPTARG}" = "" ]; then
+            >&2 echo "The new template must have a name"
+            exit 1
+        fi
+        template=${OPTARG}
+        newtemplate=true
+        ;;
+    *)
+        usage
+        ;;
+    esac
+done
+
+# init the project
+if [ $init = true ]; then
+    if [ ! -d "${confdir}${template}" ]; then
+        confdir="/etc/makeinit/"
+        template="default_template"
+        if [ ! -d "${confdir}${template}" ]; then
+            >&2 echo "No default template found, please create one at $HOME/.config/makeinit/default/"
+            exit 1
+        fi
+    fi
+
+    cp -r "${confdir}${template}" "$PWD/$prgname"
+
+    exit 0
+fi
+
+# create a new template
+if [ $newtemplate = true ]; then
+    default_path="/etc/makeinit/default_template"
+    if [ ! -d "$default_path" ]; then
+        >&2 echo "No default template found, please create one at /etc/makeinit/default_template/"
+        exit 1
+    fi
+
+    cp -r "${default_path}" "${confdir}${template}"
+    echo "The new template is located in ${confdir}${template}"
+
+    exit 0
+fi
+
+usage

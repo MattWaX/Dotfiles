@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ -f $HOME/.scripts/.env ]; then
+    eval "$(cat $HOME/.scripts/.env)"
+
+    lftp -f "
+    set ssl:verify-certificate false
+    open $ALTERVISTA_HOST
+    user $ALTERVISTA_USER $ALTERVISTA_PASS
+    lcd $ALTERVISTA_SOURCEFOLDER
+    mirror --reverse --delete --verbose $ALTERVISTA_SOURCEFOLDER $ALTERVISTA_TARGETFOLDER
+    bye
+    "
+fi

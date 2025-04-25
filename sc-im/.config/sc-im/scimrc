@@ -1,0 +1,4 @@
+set overlap
+set input_bar_bottom
+
+nmap ";" ":"

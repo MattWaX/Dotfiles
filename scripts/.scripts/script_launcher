@@ -1,0 +1,5 @@
+#!/bin/sh
+
+scripts_path="$HOME/.scripts/.globrun/"
+
+sh -c "$scripts_path$(ls "$scripts_path" | wofi -p "Script launcher" --show dmenu )"

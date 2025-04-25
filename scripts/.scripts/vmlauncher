@@ -1,0 +1,5 @@
+#!/bin/sh
+
+vm_folder="$HOME/VM/"
+
+sh -c "$vm_folder$(ls "$vm_folder" | wofi -p "Script launcher" --show dmenu )/boot"

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+slide_path="$HOME/Documents/presentations/"
+terminal="wezterm start" 
+
+$terminal presenterm -x --image-protocol auto "$slide_path$(find "$slide_path" | sed "s|$slide_path||g" | grep -E ".md$" | exec wofi --show dmenu)"

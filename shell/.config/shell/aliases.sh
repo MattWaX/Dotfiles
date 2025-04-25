@@ -1,0 +1,4 @@
+source "$HOME/.config/shell/aliases/misc.sh"
+source "$HOME/.config/shell/aliases/cargo.sh"
+source "$HOME/.config/shell/aliases/ls.sh"
+source "$HOME/.config/shell/aliases/zellij.sh"

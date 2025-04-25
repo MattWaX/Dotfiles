@@ -1,0 +1,228 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 27, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "network",
+        "custom/openbr",
+        "hyprland/workspaces",
+        "custom/closebr",
+        "custom/pacman",
+        "mpd",
+        "hyprland/submap"
+
+    ],
+    "modules-center": [
+        "custom/openbr",
+        "hyprland/window",
+        "custom/closebr"
+    ],
+    "modules-right": [
+        "custom/openbr",
+        "tray",
+        "custom/closebr",
+        "memory",
+        "cpu",
+        "temperature",
+        "backlight",
+        "pulseaudio",
+        "custom/notification",
+        "battery",
+        "battery#bat2",
+        "clock",
+        "custom/power"
+    ],
+    "hyprland/window": {
+        "max-length": 34,
+        "tooltip": true,
+        "tooltip-format": "{title}"
+    },
+    //Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            //"active": "[x]",
+            //"default": "[ ]",
+            "1":" ",
+            "2":"󰈹 ",
+            "3":" "
+        },
+        "persistent-workspaces": {
+            "1":[],
+            "2":[],
+            "3":[]
+        }
+    },
+    "hyprland/submap": {
+        "format": "{}"
+    },
+    "hyprland/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "custom/pacman": {
+        "format": "[ {}]",
+        "interval": 1800,                     // every half-hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "test $(checkupdates | wc -l) -gt 0",
+        "on-click": "pkill -RTMIN+8 waybar",
+        "signal": 8
+    },
+    "mpd": {
+        "max-length": 45,
+        "format": "{stateIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - \"{title}\" ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "",
+        "unknown-tag": "???",
+        "interval": 1,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": "󰑖 "
+        },
+        "single-icons": {
+            "on": "󰑘 "
+        },
+        "state-icons": {
+            "paused": " ",
+            "playing": " "
+        },
+        "tooltip-format": "MPD (connected)\n[ {elapsedTime:%M:%S} / {totalTime:%M:%S} ]\nPlaying: \"{title}\"\nby {artist} in \"{album}\"",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "mpc toggle"
+    },
+    "tray": {
+        "icon-size": 17,
+        "spacing": 5
+    },
+    "clock": {
+        "format": "[{:%H:%M}]",
+        "format-alt": "{:%d/%m/%Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months": "<span color='#e4a382'><b>{}</b></span>",
+                "days": "<span color='#cbced0'><b>{}</b></span>",
+                "weeks": "<span color='#24a8b4'><b>W{}</b></span>",
+                "weekdays": "<span color='#b072d1'><b>{}</b></span>",
+                "today": "<span color='#df5273'><b><u>{}</u></b></span>"
+            },
+            "actions": {
+                "on-click-right": "mode",
+                "on-scroll-up": "tz_up",
+                "on-scroll-down": "tz_down",
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down"
+            }
+        }
+    },
+    "cpu": {
+        "format": " :[{usage}%]",
+        "tooltip": true
+    },
+    "memory": {
+        "format": " :[{}%]",
+        "tooltip": true
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon}:[{temperatureC}°C]",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} :[{percent}%]",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "bat": "BAT1",
+        "states": {
+            // "good": 95,
+        },
+        "format": "{icon} :[{capacity}%]",
+        "format-full": "{icon} :[{capacity}%]",
+        "format-charging": "󰂄:[{capacity}%]",
+        "format-plugged": ":[{capacity}%]",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": " :[{signalStrength}%]",
+        "format-ethernet": " :[{ipaddr}/{cidr}]",
+        "tooltip-format": "connected to {essid}\n{ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": " :[/]"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon}:[{volume}%]",
+        "format-bluetooth": "{icon}:[ {volume}%]",
+        "format-bluetooth-muted": "{icon}:[ /]",
+        "format-muted": "{icon}:[/]",
+        "format-source": ":[{volume}%]",
+        "format-source-muted": ":[/]",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": ["", " ", " "]
+        },
+        "on-click": "hyprctl dispatch exec \"[float; size 60% 50%] kitty pulsemixer\""
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂞 ",
+            "none": "󰂚 ",
+            "dnd-notification": "󰂛 ",
+            "dnd-none": "󰪓 "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/power": {
+        "format" : "  ",
+        "tooltip": false,
+        "on-click": "wlogout --protocol layer-shell -s"
+    },
+    "custom/openbr": {
+        "format": "[",
+            "tooltip": false
+    },
+    "custom/closebr": {
+        "format": "] ",
+        "tooltip": false
+    }
+}
+

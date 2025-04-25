@@ -1,0 +1,11 @@
+/home/MattWaX/Dotfiles/zellij/.config/zellij/plugins/zjstatus/target/wasm32-wasip1/release/deps/libgetrandom-eabf5c0e47f27d1e.rmeta: /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lib.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/util.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error_impls.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/wasi.rs
+
+/home/MattWaX/Dotfiles/zellij/.config/zellij/plugins/zjstatus/target/wasm32-wasip1/release/deps/libgetrandom-eabf5c0e47f27d1e.rlib: /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lib.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/util.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error_impls.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/wasi.rs
+
+/home/MattWaX/Dotfiles/zellij/.config/zellij/plugins/zjstatus/target/wasm32-wasip1/release/deps/getrandom-eabf5c0e47f27d1e.d: /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lib.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/util.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error_impls.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/wasi.rs
+
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lib.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/util.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error_impls.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/wasi.rs:

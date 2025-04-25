@@ -1,0 +1,9 @@
+/home/MattWaX/Dotfiles/zellij/.config/zellij/plugins/zjstatus/target/release/deps/libcached_proc_macro-6a61a5c4d8aab2f2.so: /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/lib.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/cached.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/helpers.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/io_cached.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/once.rs
+
+/home/MattWaX/Dotfiles/zellij/.config/zellij/plugins/zjstatus/target/release/deps/cached_proc_macro-6a61a5c4d8aab2f2.d: /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/lib.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/cached.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/helpers.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/io_cached.rs /home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/once.rs
+
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/lib.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/cached.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/helpers.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/io_cached.rs:
+/home/MattWaX/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cached_proc_macro-0.23.0/src/once.rs:
