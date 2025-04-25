@@ -1,0 +1,12 @@
+ncmpcpp/.config/ncmpcpp/*.log
+
+ncmpcpp/.config/ncmpcpp/error.log
+nvim/.config/nvim/lazy-lock.json
+zellij/.config/zellij/plugins/zjstatus/target/.rustc_info.json
+zsh/.config/zsh/.zcompdump
+nvim/.config/nvim/spell
+aerc/.config/aerc/accounts.conf
+w3m/.w3m/cookie
+w3m/.w3m
+scripts/.scripts/m4a2mp3.sh
+scripts/.scripts/.env
