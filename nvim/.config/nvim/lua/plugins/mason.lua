@@ -45,6 +45,8 @@ return {
                 "asmfmt",
                 -- java
                 "jdtls",
+                -- php
+                "phpactor",
                 -- tex
                 "texlab",
                 "bibtex-tidy",
