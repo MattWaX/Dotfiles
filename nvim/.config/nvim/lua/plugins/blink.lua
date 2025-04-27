@@ -1,3 +1,11 @@
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        vim.api.nvim_set_hl(0, "PmenuSel", { link = "Visual" })
+        vim.api.nvim_set_hl(0, "BlinkCmpLabelMatch", { link = "Title" })
+        vim.api.nvim_set_hl(0, "BlinkCmpLabelDeprecated", { link = "SpellBad" })
+    end,
+})
+
 return {
     {
         "saghen/blink.cmp",
@@ -49,6 +57,8 @@ return {
             appearance = {
                 nerd_font_variant = "mono",
             },
+
+            -- local hl = require("vim.api.nvim_set_hl")
 
             -- (Default) Only show the documentation popup when manually triggered
             completion = { documentation = { auto_show = true } },
