@@ -1,0 +1,4 @@
+# `ghostty +show-config --default --docs`
+theme = Hacktober
+font-size = 13
+# gtk-single-instance = false
