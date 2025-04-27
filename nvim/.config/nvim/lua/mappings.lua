@@ -72,10 +72,10 @@ map("n", "<C-d>", "<C-d>zz", { desc = "Half Page Down" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Half Page Up" })
 
 map("n", "<leader>cw", "<cmd>cd %:h<cr>", { desc = "Set cwd to current buffer" })
-map("n", "<A-h>", "<C-w>h")
-map("n", "<A-j>", "<C-w>j")
-map("n", "<A-k>", "<C-w>k")
-map("n", "<A-l>", "<C-w>l")
+-- map("n", "<A-h>", "<C-w>h")
+-- map("n", "<A-j>", "<C-w>j")
+-- map("n", "<A-k>", "<C-w>k")
+-- map("n", "<A-l>", "<C-w>l")
 
 -- DBUI
 map("n", "<Leader>db", "<cmd>DBUIToggle<CR>", { desc = "Toggle DBUI" })
