@@ -61,3 +61,15 @@ g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, "/") .. ":" .. vim.env.PATH
+
+-- WinBar only if more than one split
+vim.api.nvim_create_autocmd({ "WinEnter", "WinClosed" }, {
+    callback = function()
+        local win_amount = #vim.api.nvim_tabpage_list_wins(0)
+        if win_amount <= 1 then
+            opt.winbar = nil
+        else
+            opt.winbar = "%f %m"
+        end
+    end,
+})
