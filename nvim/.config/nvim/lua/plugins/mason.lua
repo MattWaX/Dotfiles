@@ -28,6 +28,7 @@ return {
                 "stylua",
                 -- shell
                 "bash-language-server",
+                "bash-debug-adapter",
                 "shfmt",
                 -- web
                 "css-lsp",
@@ -45,8 +46,10 @@ return {
                 "asmfmt",
                 -- java
                 "jdtls",
+                "java-debug-adapter",
                 -- php
                 "phpactor",
+                "php-debug-adapter",
                 -- tex
                 "texlab",
                 "bibtex-tidy",
