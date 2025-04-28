@@ -40,14 +40,23 @@ return {
                 ["codelldb"] = { "c", "cpp", "rust" },
             })
 
-            vim.keymap.set("n", "<leader>dp", dap.toggle_breakpoint, { desc = "Debugger toggle breakpoint" })
+            vim.keymap.set("n", "<leader>dd", ui.toggle, { desc = "Debugger toggle breakpoint" })
+            vim.keymap.set({ "n", "v" }, "<leader>dp", dap.toggle_breakpoint, { desc = "Debugger toggle breakpoint" })
             -- vim.keymap.set(
             --     "n",
             --     "<Leader>dd",
             --     dap.set_breakpoint(vim.fn.input "Breakpoint condition: "),
             --     { desc = "Debugger set conditional breakpoint" }
             -- )
-            vim.keymap.set("n", "<leader>dc", dap.run_to_cursor, { desc = "Debugger run under cursor" })
+            vim.keymap.set("n", "<leader>dq", function()
+                dap.list_breakpoints()
+                vim.cmd "copen"
+            end, { desc = "Debugger list breakpoints" })
+            vim.keymap.set("n", "<leader>dc", function()
+                dap.clear_breakpoints()
+                vim.cmd "cclose"
+            end, { desc = "Debugger clear all breakpoints" })
+            vim.keymap.set("n", "<leader>dh", dap.run_to_cursor, { desc = "Debugger Here run under cursor" })
             vim.keymap.set("n", "<leader>dr", dap.restart, { desc = "Debugger restart" })
 
             -- Eval var under cursor
