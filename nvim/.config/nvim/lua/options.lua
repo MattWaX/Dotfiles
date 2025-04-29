@@ -63,11 +63,12 @@ g.loaded_ruby_provider = 0
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, "/") .. ":" .. vim.env.PATH
 
 -- WinBar only if more than one split
-vim.api.nvim_create_autocmd({ "WinEnter", "WinClosed" }, {
+-- (if these two events will bug out a bit i'll add again "TextChanged" event)
+vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave" }, {
     callback = function()
         local win_amount = #vim.api.nvim_tabpage_list_wins(0)
         if win_amount <= 1 then
-            opt.winbar = nil
+            opt.winbar = ""
         else
             opt.winbar = "%f %m"
         end
