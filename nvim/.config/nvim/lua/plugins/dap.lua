@@ -34,7 +34,35 @@ return {
                 },
             }
             dap.configurations.cpp = dap.configurations.c
-            dap.configurations.rust = dap.configurations.c
+            dap.configurations.rust = {
+                {
+                    name = "Launch file",
+                    type = "codelldb",
+                    request = "launch",
+                    program = function()
+                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                },
+            }
+
+            dap.adapters.java = {
+                type = "server",
+                host = "127.0.0.1",
+                port = 5005,
+            }
+
+            dap.configurations.java = {
+                {
+                    type = "java",
+                    name = "Debug (Attach)",
+                    request = "attach",
+                    hostName = "127.0.0.1",
+                    port = 5005,
+                },
+            }
+
             -- Add configurations from launch.json
             require("dap.ext.vscode").load_launchjs(nil, {
                 ["codelldb"] = { "c", "cpp", "rust" },
