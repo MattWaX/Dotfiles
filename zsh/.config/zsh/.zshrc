@@ -19,7 +19,7 @@ setopt inc_append_history
 
 # Basic auto/tab complete:
 autoload -Uz +X compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
@@ -76,10 +76,11 @@ bindkey -r '^R'
 bindkey '^R' clear-screen
 bindkey -M vicmd '^R' clear-screen
 
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' 
+export CARAPACE_BRIDGES='zsh' 
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
-CARAPACE_MATCH=1
+export CARAPACE_MATCH=1
+export CARAPACE_LENIENT=1
 
 source ~/.config/zsh/zellij_tab_title.zsh
 
