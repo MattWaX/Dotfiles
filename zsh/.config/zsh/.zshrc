@@ -47,7 +47,7 @@ preexec() { echo -ne '\e[3 q' ;} # Use _ shape cursor for each new prompt.
 # }
 
 # zle -N zle-line-init
-zle -N zle-keymap-select
+# zle -N zle-keymap-select
 
 bindkey '^[[P' delete-char
 
