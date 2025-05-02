@@ -1,7 +1,7 @@
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[blue]%}%D{%H:%M:%S} %{$fg[white]%}%n@%M %{$fg[cyan]%}%1~%b%{$fg[red]%} "
-PS1FALLBACK="%B%{$fg[blue]%}%D{%H:%M:%S} %{$fg[white]%}%n@%M %{$fg[cyan]%}%1~%b%{$fg[red]%} "
+# PS1="%B%{$fg[blue]%}%D{%H:%M:%S} %{$fg[white]%}%n@%M %{$fg[cyan]%}%1~%b%{$fg[red]%} "
+# PS1FALLBACK="%B%{$fg[blue]%}%D{%H:%M:%S} %{$fg[white]%}%n@%M %{$fg[cyan]%}%1~%b%{$fg[red]%} "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -40,16 +40,19 @@ bindkey -M vicmd '^H' backward-kill-word
 
 preexec() { echo -ne '\e[3 q' ;} # Use _ shape cursor for each new prompt.
 
-function zle-line-init zle-keymap-select {
-    PS1="$PS1FALLBACK${${KEYMAP/vicmd/=!=}/(main|viins)/~~>}%{$reset_color%} "
-    PS2=$PS1
-    zle reset-prompt
-}
+# function zle-line-init zle-keymap-select {
+    # PS1="$PS1FALLBACK${${KEYMAP/vicmd/=!=}/(main|viins)/~~>}%{$reset_color%} "
+    # PS2=$PS1
+    # zle reset-prompt
+# }
 
 zle -N zle-line-init
 zle -N zle-keymap-select
 
 bindkey '^[[P' delete-char
+
+# starship init
+eval "$(starship init zsh)"
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
