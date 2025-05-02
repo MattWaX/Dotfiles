@@ -3,7 +3,19 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
-        image = { enable = true },
+        image = { enabled = true },
+        indent = {
+            indent = {
+                priority = 1,
+                enabled = true, -- enable indent guides
+                char = "│",
+                only_scope = true, -- only show indent guides of the scope
+                only_current = true,
+            },
+            animate = {
+                enabled = false,
+            },
+        },
         picker = {
             enabled = true,
             on_close = function()
@@ -16,7 +28,7 @@ return {
                 end
             end,
         },
-        scratch = { enable = true },
+        scratch = { enabled = true },
     },
     keys = {
         -- Top Pickers & Explorer
