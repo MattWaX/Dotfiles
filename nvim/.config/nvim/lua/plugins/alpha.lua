@@ -2,7 +2,7 @@ return {
     "goolord/alpha-nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        local dashboard = require "alpha.themes.startify"
+        local dashboard = require "alpha.themes.dashboard"
         local header = {
             " ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓",
             " ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒",
@@ -17,8 +17,13 @@ return {
             "                                                   ",
         }
 
-        dashboard.file_icons.provider = "devicons"
+        -- dashboard.file_icons.provider = "devicons"
         dashboard.section.header.val = header
+        dashboard.section.buttons.val = {
+            dashboard.button( "-", "  Open file explorer", ":Oil<CR>"),
+            dashboard.button( "p", "  Open fuzzy picker", " fs"),
+            dashboard.button( "q", " 󰩈 Quit NVIM", ":qa<CR>"),
+        }
         require("alpha").setup(dashboard.config)
 
         vim.api.nvim_create_autocmd("User", {
