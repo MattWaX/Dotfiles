@@ -14,7 +14,7 @@ export TERMINAL="kitty"
 export EDITOR="nvim"
 export BROWSER="zen-browser"
 
-export PATH=$PATH:/home/MattWaX/.cargo/bin:/home/MattWaX/.local/bin:/home/MattWaX/.scripts
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.scripts"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
