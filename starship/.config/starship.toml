@@ -2,8 +2,7 @@
 
 # Use custom format
 format = '''
-[┌─\[](purple)$time[\]─](purple)[\[$username@$hostname\]](bold purple)
-[├──\[](purple)$directory[\]](purple)
+[┌─\[$time\]─\[$username@$hostname\]─\[$directory\]](purple)
 [└](purple)${character}[─](purple)[>](red) 
 '''
 
