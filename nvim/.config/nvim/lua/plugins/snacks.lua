@@ -20,7 +20,7 @@ return {
             enabled = true,
             on_close = function()
                 local win_amount = #vim.api.nvim_tabpage_list_wins(0)
-                print(win_amount)
+                -- print(win_amount)
                 if win_amount <= 7 then
                     vim.o.winbar = ""
                 else
