@@ -19,8 +19,8 @@ end, { desc = "general format file" })
 
 -- buffer actions
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
-map("n", "<tab>", "<cmd>bnext<CR>", { desc = "buffer goto next" })
-map("n", "<S-tab>", "<cmd>bprev<CR>", { desc = "buffer goto prev" })
+-- map("n", "<tab>", "<cmd>bnext<CR>", { desc = "buffer goto next" })
+-- map("n", "<S-tab>", "<cmd>bprev<CR>", { desc = "buffer goto prev" })
 map("n", "gb", "<cmd>BufferLinePick<CR>", { desc = "buffer goto prev" })
 map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "buffer close" })
 
