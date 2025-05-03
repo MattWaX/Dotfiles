@@ -25,7 +25,8 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format = '[$hostname](cyan bold)'
+format = '[$hostname$ssh_symbol](cyan bold)'
+ssh_symbol = " 󰢩 "
 disabled = false
 
 [time]
