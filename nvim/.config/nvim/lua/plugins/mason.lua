@@ -53,6 +53,9 @@ return {
                 -- tex
                 "texlab",
                 "bibtex-tidy",
+                -- R
+                "r-languageserver",
+                "air",
             },
 
             auto_update = false,

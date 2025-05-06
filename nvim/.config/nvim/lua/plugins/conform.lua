@@ -7,7 +7,8 @@ return {
                 c = { "clang-format" },
                 lua = { "stylua" },
                 sh = { "shfmt" },
-                tex = { "bibtex-tidy" }
+                tex = { "bibtex-tidy" },
+                r = { "air" },
                 -- css = { "prettier" },
                 -- html = { "prettier" },
             },
