@@ -22,7 +22,6 @@ album-art-update() {
 # cd aliases
 alias home='cd ~'
 alias ..='cd ..'
-alias ...='cd ../..'
 
 # yazi aliases
 alias y='yazi'
@@ -45,15 +44,15 @@ alias nzo="~/.scripts/zoxide_openfiles_nvim.sh"
 
 alias sudovi='sudo -E -s nvim'
 
+# zathura pdf reader
+zt() { ( zathura "$@" &> /dev/null & ) &> /dev/null }
+
 # spredcheet - improvided 
 alias scim='sc-im'
 alias sc='scim'
 
 # music player controller
 alias mp='ncmpcpp'
-
-# hyprland
-alias hyprupdate='paru --devel'
 
 # presenterm
 alias presenterm='presenterm -x --image-protocol auto'
