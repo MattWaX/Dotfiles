@@ -43,6 +43,60 @@ return {
                     },
                 },
             },
+            mappings = {
+                -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+                ["gf"] = {
+                    action = function()
+                        return require("obsidian").util.gf_passthrough()
+                    end,
+                    opts = { noremap = false, expr = true, buffer = true },
+                },
+                -- Toggle check-boxes.
+                ["g<CR>"] = {
+                    action = function()
+                        return require("obsidian").util.toggle_checkbox()
+                    end,
+                    opts = { buffer = true },
+                },
+                -- Smart action depending on context, either follow link or toggle checkbox.
+                -- ["<CR>"] = {
+                --     action = function()
+                --         return require("obsidian").util.smart_action()
+                --     end,
+                --     opts = { buffer = true, expr = true },
+                -- },
+            },
         },
+    },
+    {
+        "jbyuki/nabla.nvim",
+        dependencies = {
+            -- "nvim-neo-tree/neo-tree.nvim",
+            "williamboman/mason.nvim",
+        },
+        lazy = false,
+
+        config = function()
+            require("nvim-treesitter.configs").setup {
+                ensure_installed = { "latex" },
+                auto_install = true,
+                sync_install = false,
+            }
+        end,
+
+        keys = function()
+            return {
+                {
+                    "<leader>np",
+                    ':lua require("nabla").popup()<cr>',
+                    desc = "NablaPopUp",
+                },
+                {
+                    "<leader>nt",
+                    ':lua require("nabla").toggle_virt()<cr>',
+                    desc = "NablaToggle",
+                },
+            }
+        end,
     },
 }
