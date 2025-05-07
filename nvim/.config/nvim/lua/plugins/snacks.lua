@@ -3,7 +3,27 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
-        image = { enabled = true },
+        image = {
+            enabled = true,
+            math = {
+                enabled = false,
+                -- latex = {
+                --     font_size = "small", -- see https://www.sascha-frank.com/latex-font-size.html
+                --     -- for latex documents, the doc packages are included automatically,
+                --     -- but you can add more packages here. Useful for markdown documents.
+                --     packages = { "amsmath", "amssymb", "amsfonts", "amscd", "mathtools" },
+                --     tpl = [[
+                --         \documentclass[preview,border=0pt,12pt]{standalone}
+                --         \usepackage{${packages}}
+                --         \begin{document}
+                --         ${header}
+                --         { \${font_size} \selectfont
+                --           \color[HTML]{${color}}
+                --         ${content}}
+                --         \end{document}]],
+                -- },
+            },
+        },
         indent = {
             indent = {
                 priority = 1,

@@ -71,17 +71,11 @@ return {
     {
         "jbyuki/nabla.nvim",
         dependencies = {
-            -- "nvim-neo-tree/neo-tree.nvim",
             "williamboman/mason.nvim",
         },
         lazy = false,
 
         config = function()
-            require("nvim-treesitter.configs").setup {
-                ensure_installed = { "latex" },
-                auto_install = true,
-                sync_install = false,
-            }
         end,
 
         keys = function()
@@ -95,6 +89,11 @@ return {
                     "<leader>nt",
                     ':lua require("nabla").toggle_virt()<cr>',
                     desc = "NablaToggle",
+                },
+                {
+                    "<leader>nr",
+                    ':lua require("nabla").enable_virt()<cr>',
+                    desc = "NablaRefresh",
                 },
             }
         end,

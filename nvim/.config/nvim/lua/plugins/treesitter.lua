@@ -5,7 +5,20 @@ return {
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
         build = ":TSUpdate",
         opts = {
-            ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc" },
+            ensure_installed = {
+                "lua",
+                "luadoc",
+                "printf",
+                "vim",
+                "vimdoc",
+                "markdown",
+                "markdown_inline",
+                "latex",
+                "c",
+                "cpp",
+                "rust",
+                "java",
+            },
 
             highlight = {
                 enable = true,
