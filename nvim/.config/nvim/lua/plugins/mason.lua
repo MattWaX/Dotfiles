@@ -56,6 +56,10 @@ return {
                 -- R
                 "r-languageserver",
                 "air",
+                -- XML
+                "lemminx",
+                -- treesitter
+                "tree-sitter-cli",
             },
 
             auto_update = false,
