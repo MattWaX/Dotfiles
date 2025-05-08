@@ -54,6 +54,7 @@ return {
                 "air",
                 -- XML
                 "lemminx",
+                "xmlformatter",
                 -- treesitter
                 "tree-sitter-cli",
             },
