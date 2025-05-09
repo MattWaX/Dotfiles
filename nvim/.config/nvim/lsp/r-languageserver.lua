@@ -1,5 +1,6 @@
 ---@type vim.lsp.Config
 return {
-    cmd = { "r-languageserver" },
+    cmd = { "air", "language-server" },
     filetypes = { "r" },
+    root_markers = { "air.toml", ".air.toml", ".git" },
 }

@@ -50,7 +50,7 @@ return {
                 "texlab",
                 "bibtex-tidy",
                 -- R
-                "r-languageserver",
+                -- "r-languageserver",
                 "air",
                 -- XML
                 "lemminx",
