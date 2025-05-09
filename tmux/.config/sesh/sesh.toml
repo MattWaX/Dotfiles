@@ -1,0 +1,7 @@
+[default_session]
+preview_command = "lsd --color auto {}"
+
+[[session]]
+name = "Appunti"
+path = "~/Documents/Appunti"
+startup_command = "~/.config/sesh/scripts/Appunti; clear"

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+path_appunti="$HOME/Documents/Appunti"
+
+tmux rename-window "Index"
+tmux new-window -n "Dump" -c "$path_appunti/_Note/" 
+tmux new-window -n "Informatica" -c "$path_appunti/Informatica/"
+tmux new-window -n "TPSIT" -c "$path_appunti/TPSIT/"
+
+tmux select-window -t 0
+tmux select-window -t 1
+tmux send-keys "vi Dump.md; clear" Enter
