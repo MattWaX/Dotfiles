@@ -15,6 +15,7 @@ return {
         dependencies = {
             -- Required.
             "nvim-lua/plenary.nvim",
+            "saghen/blink.cmp",
         },
         opts = {
             workspaces = {
@@ -43,6 +44,7 @@ return {
                     },
                 },
             },
+            completion = { blink = true, nvim_cmp = false },
             mappings = {
                 -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
                 ["gf"] = {
@@ -66,6 +68,29 @@ return {
                 --     opts = { buffer = true, expr = true },
                 -- },
             },
+
+            preferred_link_style = "markdown",
+
+            disable_frontmatter = false,
+
+            note_frontmatter_func = function(note)
+                -- Add the title of the note as an alias.
+                if note.title then
+                    note:add_alias(note.title)
+                end
+
+                local out = { id = note.id, tags = note.tags }
+
+                -- `note.metadata` contains any manually added fields in the frontmatter.
+                -- So here we just make sure those fields are kept in the frontmatter.
+                if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+                    for k, v in pairs(note.metadata) do
+                        out[k] = v
+                    end
+                end
+
+                return out
+            end,
         },
     },
     {
@@ -75,8 +100,7 @@ return {
         },
         lazy = false,
 
-        config = function()
-        end,
+        config = function() end,
 
         keys = function()
             return {

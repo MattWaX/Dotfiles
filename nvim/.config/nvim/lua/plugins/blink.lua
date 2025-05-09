@@ -70,6 +70,7 @@ return {
                 per_filetype = {
                     sql = { "snippets", "dadbod", "buffer" },
                     mysql = { "snippets", "dadbod", "buffer" },
+                    -- markdown = { "obsidian", "obsidian_new", "obsidian_tags" }
                 },
                 -- add vim-dadbod-completion to your completion providers
                 providers = {
