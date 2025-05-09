@@ -38,9 +38,13 @@ Y () {
 alias vim='nvim'
 alias vi='vim'
 alias vidb='vi -c DBUI'
-alias nvim-start-screen='vi -c Nvdash'
-alias viss='nvim-start-screen'
 alias nzo="~/.scripts/zoxide_openfiles_nvim.sh"
+
+dump_path="$HOME/Documents/Appunti/_Note/Dump.md"
+if [ -f "$dump_path" ]; then
+    alias dump='vi $dump_path'
+    alias dp='dump'
+fi
 
 alias sudovi='sudo -E -s nvim'
 
