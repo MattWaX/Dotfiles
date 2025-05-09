@@ -10,9 +10,10 @@ unsetopt PROMPT_SP 2>/dev/null
 
 
 # Default programs:
-export TERMINAL="kitty"
+export TERMINAL="ghostty"
 export EDITOR="nvim"
 export BROWSER="zen-browser"
+export MANPAGER='nvim +Man!'
 
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.scripts"
 
