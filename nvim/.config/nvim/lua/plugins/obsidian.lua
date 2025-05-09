@@ -1,6 +1,6 @@
 return {
     {
-        "epwalsh/obsidian.nvim",
+        "obsidian-nvim/obsidian.nvim",
         version = "*", -- recommended, use latest release instead of latest commit
         lazy = true,
         ft = "markdown",
@@ -44,6 +44,24 @@ return {
                     },
                 },
             },
+            picker = {
+                -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', 'mini.pick' or 'snacks.pick'.
+                name = "snacks.pick",
+                -- Optional, configure key mappings for the picker. These are the defaults.
+                -- Not all pickers support all mappings.
+                note_mappings = {
+                    -- Create a new note from your query.
+                    new = "<C-x>",
+                    -- Insert a link to the selected note.
+                    insert_link = "<C-l>",
+                },
+                tag_mappings = {
+                    -- Add tag(s) to current note.
+                    tag_note = "<C-x>",
+                    -- Insert a tag at the current location.
+                    insert_tag = "<C-l>",
+                },
+            },
             completion = { blink = true, nvim_cmp = false },
             mappings = {
                 -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
@@ -71,7 +89,7 @@ return {
 
             preferred_link_style = "markdown",
 
-            disable_frontmatter = false,
+            disable_frontmatter = true,
 
             note_frontmatter_func = function(note)
                 -- Add the title of the note as an alias.
