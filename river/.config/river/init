@@ -1,0 +1,5 @@
+#!/bin/sh
+
+exec "$HOME/.config/river/startup" &
+exec "$HOME/.config/river/mappings" &
+exec "$HOME/.config/river/general" &

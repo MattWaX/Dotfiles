@@ -51,28 +51,28 @@ button:hover {
     background: #E4A382;
 }
 
-#workspaces {
+#workspaces, #tags {
     padding: 3px;
 }
 
-#workspaces button {
+#workspaces button, #tags button {
     padding: 0 3px;
 }
 
-#workspaces button.active {
+#workspaces button.active, #tags button.focused {
     color: #B072D1;
 }
 
-#workspaces button.active:hover {
+#workspaces button.active:hover, #tags button.focused:hover {
     background-color: #B072D1;
     color: #1C1E26;
 }
 
-#workspaces button.urgent {
+#workspaces button.urgent, #tags button.urgent {
     color: #E93C58;
 }
 
-#workspaces button.urgent:hover {
+#workspaces button.urgent:hover, #tags button.urgent:hover {
     background-color: #E93C58;
     color: #1C1E26;
 }

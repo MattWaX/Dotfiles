@@ -2,7 +2,7 @@
 
 theme = Hacktober
 background = #080808
-font-size = 13
+font-size = 12
 
 window-decoration = none
 auto-update = off

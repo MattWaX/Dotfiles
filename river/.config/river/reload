@@ -1,0 +1,17 @@
+#!/bin/sh
+
+#################
+# RELOAD SCRIPT #
+#################
+
+killall waybar
+exec waybar &
+
+killall swaync
+exec swaync &
+
+killall hyprpaper
+exec hyprpaper &
+
+exec "$HOME/.config/river/mappings" &
+exec "$HOME/.config/river/general" &

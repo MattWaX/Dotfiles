@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#############
+# VARIABLES #
+#############
+
+terminal=ghostty
+terminal_launch="$terminal -e" # ghotty start
+dmenu="wofi -i --show drun"
+browser="zen-browser"
+
+get_tag() {
+    tag=$((1 << ($1 - 1)))
+    echo $tag
+}

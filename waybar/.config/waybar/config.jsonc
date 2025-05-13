@@ -10,6 +10,7 @@
         "network",
         "custom/openbr",
         "hyprland/workspaces",
+        "river/tags",
         "custom/closebr",
         "custom/pacman",
         "mpd",
@@ -19,6 +20,7 @@
     "modules-center": [
         "custom/openbr",
         "hyprland/window",
+        "river/window",
         "custom/closebr"
     ],
     "modules-right": [
@@ -41,6 +43,9 @@
         "tooltip": true,
         "tooltip-format": "{title}"
     },
+    "river/window": {
+        "max-length": 34
+    },
     //Modules configuration
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -59,6 +64,11 @@
             "2":[],
             "3":[]
         }
+    },
+    "river/tags": {
+        "num-tags": 10,
+        "hide-vacant": true,
+        "tag-labels": [ " ", "󰈹 ", " ", "4", "5", "6", "7", "8", "9", "10" ]
     },
     "hyprland/submap": {
         "format": "{}"

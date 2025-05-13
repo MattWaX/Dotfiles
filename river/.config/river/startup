@@ -1,0 +1,25 @@
+#!/bin/sh
+
+###########
+# STARTUP #
+###########
+
+. "$HOME/.config/river/variables"
+
+killall waybar
+exec waybar &
+
+killall swaync
+exec swaync &
+
+killall hyprpaper
+exec hyprpaper &
+
+exec mpd &
+
+exec $terminal --title="music_controller.sh" -e "zsh -ci music_controller.sh" &
+exec $browser &
+exec $terminal --title="general" -e "zsh -ci 'tmux new-session -s general'" &
+exec $terminal --title="btop" -e "btop" &
+
+riverctl set-focused-tags "$(get_tag 3)"
