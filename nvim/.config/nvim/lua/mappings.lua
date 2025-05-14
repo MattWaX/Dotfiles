@@ -66,10 +66,6 @@ map("n", "-", "<cmd>Oil<cr>", { desc = "Open file explorer" })
 map("i", "<C-BS>", "")
 map("i", "<C-h>", "")
 
--- center the cursor when using ctrl-d and ctrl-u
-map("n", "<C-d>", "<C-d>zz", { desc = "Half Page Down" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Half Page Up" })
-
 map("n", "<leader>cw", "<cmd>cd %:h<cr>", { desc = "Set cwd to current buffer" })
 -- map("n", "<A-h>", "<C-w>h")
 -- map("n", "<A-j>", "<C-w>j")
