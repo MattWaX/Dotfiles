@@ -203,7 +203,7 @@
             "car": " ",
             "default": ["", " ", " "]
         },
-        "on-click": "hyprctl dispatch exec \"[float; size 60% 50%] kitty pulsemixer\""
+        "on-click": "ghostty --x11-instance-name=com.popup.app --class=com.popup.app -e pulsemixer"
     },
     "custom/notification": {
         "tooltip": false,
