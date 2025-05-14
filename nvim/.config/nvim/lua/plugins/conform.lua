@@ -12,6 +12,7 @@ return {
                 css = { "prettier" },
                 html = { "prettier" },
                 -- xml = { "xmlformatter" },
+                php = { "pretty-php" }
             },
         },
     },
