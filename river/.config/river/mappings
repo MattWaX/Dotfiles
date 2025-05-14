@@ -35,6 +35,9 @@ riverctl map normal Super Left spawn "mpc prev"     #Super+Left prev song
 # Super+Shift+R reload the config
 riverctl map normal Super+Shift R spawn "$HOME/.config/river/reload"
 
+# Super+Esc to lock the session
+riverctl map normal Super Escape spawn "hyprlock"
+
 # Super+Q to close the focused view
 riverctl map normal Super Q close
 
