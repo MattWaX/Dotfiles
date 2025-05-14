@@ -12,8 +12,9 @@ exec waybar &
 killall swaync
 exec swaync &
 
-killall hyprpaper
-exec hyprpaper &
+swww kill
+swww-daemon
+swww img "$HOME/.config/wallpapers/streetcleaner.jpg"
 
 exec mpd &
 

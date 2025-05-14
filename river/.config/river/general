@@ -20,6 +20,7 @@ riverctl rule-add -title "music_controller.sh" tags "$(get_tag 1)"
 riverctl rule-add -app-id "music" tags "$(get_tag 1)"
 riverctl rule-add -app-id "zen" tags "$(get_tag 2)"
 riverctl rule-add -title "general" tags "$(get_tag 3)"
+riverctl rule-add -app-id "obsidian" tags "$(get_tag 4)"
 
 riverctl rule-add -app-id "im.dino.Dino" tags "$(get_tag 7)"
 riverctl rule-add -app-id "discord" tags "$(get_tag 8)"
@@ -27,7 +28,12 @@ riverctl rule-add -app-id "steam" tags "$(get_tag 9)"
 riverctl rule-add -title "btop" tags "$(get_tag 10)"
 
 riverctl rule-add -app-id "Pinentry-gtk" float
-riverctl rule-add -app-id "Pinentry-gtk" float
+riverctl rule-add -app-id "mpv" float
+riverctl rule-add -app-id "mpv" dimensions 1500 800
+riverctl rule-add -app-id "vimiv" float
+
+riverctl rule-add -app-id "com.popup.app" float
+riverctl rule-add -app-id "com.popup.app" dimensions 1000 500
 
 # server side border decorations
 riverctl rule-add ssd
