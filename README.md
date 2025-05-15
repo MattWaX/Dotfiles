@@ -27,6 +27,13 @@ Using `stow *` is the easiest way to link all the dotfiles in the right place, b
 Instead use `stow name_of_the_package`, so that you clutter less your home folder.
 Also please read the stow man pages before using it.
 
+The modules I'm currently using are:
+```sh
+stow river nvim tmux zsh shell scripts starship ghostty yazi\
+makeinit aerc fastfetch clang gdb git ncmpcpp sc-im hypr\
+vimiv swaync wallpapers waybar wlogout wofi 
+```
+
 ### Using wofi to launch terminal application
 I like sometimes to launch applications like `yazi` and `btop` from wofi, by default the terminal emulator used to do that is xterm, to change the terminal you just need to uninstall xterm from your system and then run these commands:
 
