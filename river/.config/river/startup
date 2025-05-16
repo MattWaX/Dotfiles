@@ -6,6 +6,8 @@
 
 . "$HOME/.config/river/variables"
 
+# TODO: switch exec with riverctl spawn
+
 killall waybar
 exec waybar &
 
