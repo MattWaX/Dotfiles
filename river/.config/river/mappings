@@ -10,13 +10,13 @@
 riverctl map normal Super Return spawn $terminal 
 
 # Super+Space opens wofi
-riverctl map normal Super Space spawn "$dmenu"
+riverctl map normal Super Space spawn "killall wofi; $dmenu"
 
-#Super+Shift+Space
-riverctl map normal Super+Shift Space spawn "$HOME/.scripts/script_launcher"
+#Super+Shift+Space scripts selector from the folder ~/.scripts/.globrun
+riverctl map normal Super+Shift Space spawn "killall wofi; $HOME/.scripts/script_launcher"
 
-#Super+W
-riverctl map normal Super W spawn "$HOME/.scripts/wallpaper_selector"
+#Super+W wallpaper selector
+riverctl map normal Super W spawn "killall wofi; $HOME/.scripts/wallpaper_selector"
 
 #Super+N opens the notification center (swaync)
 riverctl map normal Super N spawn "swaync-client -t -sw"
