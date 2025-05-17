@@ -2,4 +2,4 @@
 
 wallpapers_folder="$HOME/.config/wallpapers/"
 
-sh -c "swww img ${wallpapers_folder}$(ls "$wallpapers_folder" | wofi -p "Select a wallpaper..." --show dmenu )"
+sh -c "swww img ${wallpapers_folder}$(find "$wallpapers_folder" -printf '%P\n' | grep --invert-match "^$" | wofi -p "Select a wallpaper..." --show dmenu )"
