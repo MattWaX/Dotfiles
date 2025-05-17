@@ -36,6 +36,7 @@ riverctl map normal Super A spawn "$terminal --x11-instance-name=com.popup.app -
 
 #Super+Down pauses mpd
 riverctl map normal Super Down spawn "mpc toggle"
+riverctl map normal Super Up spawn "$HOME/.scripts/songinfo.sh"
 riverctl map normal Super Right spawn "mpc next"    #Super+Right next song
 riverctl map normal Super Left spawn "mpc prev"     #Super+Left prev song
 
