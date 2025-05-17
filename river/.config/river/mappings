@@ -18,6 +18,13 @@ riverctl map normal Super+Shift Space spawn "killall wofi; $HOME/.scripts/script
 #Super+W wallpaper selector
 riverctl map normal Super W spawn "killall wofi; $HOME/.scripts/wallpaper_selector"
 
+# Home/Stamp to take a screeshot of a region in the clipboard
+riverctl map normal None Home spawn "killall hyprshot; hyprshot -m region --clipboard-only"
+riverctl map normal None Stamp spawn "killall hyprshot; hyprshot -m region --clipboard-only"
+# Super+Home/Stamp to take a screeshot
+riverctl map normal Super Home spawn "grim \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S).png\"; notify-send \"Screenshot saved\" \"Image writen in $HOME/Pictures/Screenshots/\""
+riverctl map normal Super Stamp spawn "grim \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S).png\"; notify-send \"Screenshot saved\" \"Image writen in $HOME/Pictures/Screenshots/\""
+
 #Super+N opens the notification center (swaync)
 riverctl map normal Super N spawn "swaync-client -t -sw"
 
