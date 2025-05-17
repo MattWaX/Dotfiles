@@ -10,6 +10,7 @@ resize-overlay = never
 window-height = 30
 window-width = 130
 window-vsync = false
+background-opacity = 0.93
 
 # removing all keybinds
 keybind = clear
