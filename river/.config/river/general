@@ -5,6 +5,9 @@
 # uk keyboard layout
 riverctl keyboard-layout gb
 
+# cursor theme
+riverctl xcursor-theme capitaine-cursors 31
+
 # Set background and border color
 riverctl background-color 0x101010
 riverctl border-color-focused 0xe4a382 # ee
@@ -41,13 +44,8 @@ riverctl rule-add ssd
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
+killall rivertile
 riverctl default-layout rivertile
 rivertile -view-padding 2 -outer-padding 2 &
 
 riverctl default-attach-mode below
-
-# screencast fix
-# export XDG_CURRENT_DESKTOP=river
-# systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-# dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
-# systemctl --user restart xdg-desktop-portal
