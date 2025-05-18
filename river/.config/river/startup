@@ -6,23 +6,21 @@
 
 . "$HOME/.config/river/variables"
 
-# TODO: switch exec with riverctl spawn
-
 killall waybar
-exec waybar &
+riverctl spawn waybar &
 
 killall swaync
-exec swaync &
+riverctl spawn swaync &
 
 swww kill
 swww-daemon
-swww img "$HOME/.config/wallpapers/streetcleaner.jpg"
+# swww img "$HOME/.config/wallpapers/streetcleaner.jpg"
 
 exec mpd &
 
-exec $terminal --title="music_controller.sh" -e "zsh -ci music_controller.sh" &
-exec $browser &
-exec $terminal --title="general" -e "zsh -ci 'tmux new-session -s general'" &
-exec $terminal --title="btop" -e "btop" &
+riverctl spawn $terminal --title="music_controller.sh" -e "zsh -ci music_controller.sh" &
+riverctl spawn $browser &
+riverctl spawn $terminal --title="general" -e "zsh -ci 'tmux new-session -s general'" &
+riverctl spawn $terminal --title="btop" -e "btop" &
 
 riverctl set-focused-tags "$(get_tag 3)"

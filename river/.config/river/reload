@@ -5,11 +5,11 @@
 #################
 
 killall waybar
-exec waybar &
+riverctl spawn waybar &
 
 swww kill
 swww-daemon
-swww img "$HOME/.config/wallpapers/streetcleaner.jpg"
+# swww img "$HOME/.config/wallpapers/streetcleaner.jpg"
 
 exec "$HOME/.config/river/mappings" &
 exec "$HOME/.config/river/general" &
