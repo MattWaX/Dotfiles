@@ -8,7 +8,7 @@ if [ -f $HOME/.scripts/.env ]; then
     open $ALTERVISTA_HOST
     user $ALTERVISTA_USER $ALTERVISTA_PASS
     lcd $ALTERVISTA_SOURCEFOLDER
-    mirror --reverse --delete --verbose $ALTERVISTA_SOURCEFOLDER $ALTERVISTA_TARGETFOLDER
+    mirror -x \.git --reverse --delete --verbose $ALTERVISTA_SOURCEFOLDER $ALTERVISTA_TARGETFOLDER 
     bye
     "
 fi
