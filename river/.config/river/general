@@ -18,6 +18,7 @@ riverctl set-repeat 100 400
 
 riverctl hide-cursor when-typing enabled
 riverctl focus-follows-cursor always
+riverctl set-cursor-warp on-focus-change
 
 # Rules
 riverctl rule-add -title "music_controller.sh" tags "$(get_tag 1)"
