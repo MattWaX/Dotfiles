@@ -56,7 +56,7 @@ alias scim='sc-im'
 alias sc='scim'
 
 # music player controller
-alias mp='ncmpcpp'
+alias mp='rmpc'
 
 # presenterm
 alias presenterm='presenterm -x --image-protocol auto'
