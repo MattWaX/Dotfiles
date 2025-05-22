@@ -58,6 +58,9 @@ riverctl map normal Super K focus-view previous
 riverctl map normal Super+Shift J swap next
 riverctl map normal Super+Shift K swap previous
 
+# Super+; focus the last group of tags
+riverctl map normal Super semicolon focus-previous-tags
+
 # Super+[ and Super+] to focus the next/previous output
 riverctl map normal Super bracketright focus-output next
 riverctl map normal Super bracketleft focus-output previous
