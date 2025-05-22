@@ -38,7 +38,7 @@ riverctl map normal Super A spawn "$terminal --x11-instance-name=com.popup.app -
 riverctl map normal Super+Shift R spawn "$HOME/.config/river/reload"
 
 # Super+Esc to lock the session
-riverctl map normal Super Escape spawn "hyprlock"
+riverctl map normal Super Escape spawn "$HOME/.config/river/lockscreen"
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close

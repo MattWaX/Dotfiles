@@ -1,0 +1,9 @@
+#!/bin/sh
+
+which swaylock
+if [ $? != 0 ]; then
+    notify-send "ERROR" "swaylock may not be in path"
+fi
+
+query=$(swww query)
+swaylock -i "${query##* }"
