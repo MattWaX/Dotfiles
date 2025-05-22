@@ -7,7 +7,7 @@
 ############
 
 # Super+Return to start an instance of ghostty
-riverctl map normal Super Return spawn $terminal 
+riverctl map normal Super Return spawn $terminal
 
 # Super+Space opens wofi
 riverctl map normal Super Space spawn "killall wofi; $dmenu"
@@ -34,12 +34,6 @@ riverctl map normal Super D spawn "killall wlogout; wlogout --protocol layer-she
 #Super+A opens the audio controller
 riverctl map normal Super A spawn "$terminal --x11-instance-name=com.popup.app --class=com.popup.app -e pulsemixer"
 
-#Super+Down pauses mpd
-riverctl map normal Super Down spawn "mpc toggle"
-riverctl map normal Super Up spawn "$HOME/.scripts/songinfo.sh"
-riverctl map normal Super Right spawn "mpc next"    #Super+Right next song
-riverctl map normal Super Left spawn "mpc prev"     #Super+Left prev song
-
 # Super+Shift+R reload the config
 riverctl map normal Super+Shift R spawn "$HOME/.config/river/reload"
 
@@ -65,11 +59,11 @@ riverctl map normal Super semicolon focus-previous-tags
 riverctl map normal Super bracketright focus-output next
 riverctl map normal Super bracketleft focus-output previous
 
-# Super+Shift+{Period,Comma} to send the focused view to the next/previous output
+# Super+Shift+"["/"]" to send the focused view to the next/previous output
 riverctl map normal Super+Shift bracketright send-to-output next
 riverctl map normal Super+Shift bracketleft send-to-output previous
 
-# Super+Return to bump the focused view to the top of the layout stack
+# Super+M to bump the focused view to the top of the layout stack
 riverctl map normal Super M zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
@@ -107,8 +101,7 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 # Super + Middle Mouse Button to toggle float
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
-for i in $(seq 1 10)
-do
+for i in $(seq 1 10); do
     tags=$((1 << ($i - 1)))
     if [ "$i" = 10 ]; then
         i=0
@@ -135,7 +128,7 @@ riverctl map normal Super+Shift F set-view-tags $all_tags
 
 # The scratchpad will live on an unused tag. Which tags are used depends on your
 # config, but rivers default uses the first 9 tags.
-scratch_tag=$((1 << 20 ))
+scratch_tag=$((1 << 20))
 
 # Toggle the scratchpad with Super+P
 riverctl map normal Super P toggle-focused-tags ${scratch_tag}
@@ -145,7 +138,7 @@ riverctl map normal Super+Shift P set-view-tags ${scratch_tag}
 
 # Set spawn tagmask to ensure new windows don't have the scratchpad tag unless
 # explicitly set.
-all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $scratch_tag ))
+all_but_scratch_tag=$((((1 << 32) - 1) ^ $scratch_tag))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 
 # Super+Space to toggle float
@@ -158,26 +151,31 @@ riverctl map normal None F11 toggle-fullscreen
 # normal mode. This makes it useful for testing a nested wayland compositor
 riverctl declare-mode passthrough
 
-# Super+F11 to enter passthrough mode
+# Super+F12 to enter passthrough mode
 riverctl map normal Super F12 enter-mode passthrough
 
-# Super+F11 to return to normal mode
+# Super+F12 to return to normal mode
 riverctl map passthrough Super F12 enter-mode normal
 
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
-for mode in normal locked
-do
+for mode in normal locked; do
     # Eject the optical drive (well if you still have one that is)
     riverctl map $mode None XF86Eject spawn 'eject -T'
 
     # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
-    riverctl map $mode None XF86AudioMute         spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
-    riverctl map $mode None XF86AudioMicMute      spawn 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
+    riverctl map $mode None XF86AudioRaiseVolume spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
+    riverctl map $mode None XF86AudioLowerVolume spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+    riverctl map $mode None XF86AudioMute spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
+    riverctl map $mode None XF86AudioMicMute spawn 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
 
     # Control screen backlight brightness with brightnessctl (https://github.com/Hummer12007/brightnessctl)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
+    riverctl map $mode None XF86MonBrightnessUp spawn 'brightnessctl set +5%'
     riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+
+    #Super+Down pauses mpd
+    riverctl map normal Super Down spawn "mpc toggle"
+    riverctl map normal Super Up spawn "$HOME/.scripts/songinfo.sh"
+    riverctl map normal Super Right spawn "mpc next" #Super+Right next song
+    riverctl map normal Super Left spawn "mpc prev"  #Super+Left prev song
 done
