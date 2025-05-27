@@ -9,6 +9,7 @@ if [ -f $HOME/.scripts/.env ]; then
     user $ALTERVISTA_USER $ALTERVISTA_PASS
     lcd $ALTERVISTA_SOURCEFOLDER
     mirror -x \.git --reverse --delete --verbose $ALTERVISTA_SOURCEFOLDER $ALTERVISTA_TARGETFOLDER 
+    chmod 777 /Esempi/esempio7bis/usrpic
     bye
     "
 fi
