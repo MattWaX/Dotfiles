@@ -70,6 +70,11 @@ riverctl map normal Super M zoom
 riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
 
+# Super -/+ remove/add view to the master zone
+riverctl map normal Super Minus send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super Equal send-layout-cmd rivertile "main-count 1"
+riverctl map normal Super Plus send-layout-cmd rivertile "main-count +1"
+
 # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
 riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
