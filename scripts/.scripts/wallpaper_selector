@@ -1,5 +1,6 @@
 #!/bin/sh
+. "$HOME/.scripts/variables"
 
 wallpapers_folder="$HOME/.config/wallpapers/"
 
-sh -c "swww img ${wallpapers_folder}$(find "$wallpapers_folder" -printf '%P\n' | grep --invert-match "^$" | wofi -p "Select a wallpaper..." --show dmenu )"
+sh -c "swww img ${wallpapers_folder}$(find "$wallpapers_folder" -printf '%P\n' | grep --invert-match "^$" | $DMENU --placeholder="Select a wallpaper...")"

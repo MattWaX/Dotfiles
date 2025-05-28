@@ -10,13 +10,13 @@
 riverctl map normal Super Return spawn $terminal
 
 # Super+Space opens wofi
-riverctl map normal Super Space spawn "killall wofi; $dmenu"
+riverctl map normal Super Space spawn "$drun"
 
 #Super+Shift+Space scripts selector from the folder ~/.scripts/.globrun
-riverctl map normal Super+Shift Space spawn "killall wofi; $HOME/.scripts/script_launcher"
+riverctl map normal Super+Shift Space spawn "$HOME/.scripts/script_launcher"
 
 #Super+W wallpaper selector
-riverctl map normal Super W spawn "killall wofi; $HOME/.scripts/wallpaper_selector"
+riverctl map normal Super W spawn "$HOME/.scripts/wallpaper_selector"
 
 # Home/Stamp to take a screeshot of a region in the clipboard
 riverctl map normal None Home spawn "killall hyprshot; hyprshot -m region --clipboard-only"

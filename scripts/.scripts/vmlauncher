@@ -1,5 +1,6 @@
 #!/bin/sh
+. "$HOME/.scripts/variables"
 
 vm_folder="$HOME/VM/"
 
-sh -c "$vm_folder$(ls "$vm_folder" | wofi -p "Choose a virtual machine..." --show dmenu )/boot"
+sh -c "$vm_folder$(ls "$vm_folder" | $DMENU --placeholder='Choose a virtual machine...')/boot"

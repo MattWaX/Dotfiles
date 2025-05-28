@@ -1,5 +1,6 @@
 #!/bin/sh
+. "$HOME/.scripts/variables"
 
 scripts_path="$HOME/.scripts/.globrun/"
 
-sh -c "$scripts_path$(ls "$scripts_path" | wofi -p "Script launcher" --show dmenu )"
+sh -c "$scripts_path$(ls "$scripts_path" | $DMENU --placeholder='Script launcher')"

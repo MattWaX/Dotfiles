@@ -1,9 +1,0 @@
-#!/bin/zsh
-
-id_list="$(hyprctl workspaces | grep "workspace ID" | awk '{ print $3 }')"
-name_list="$(hyprctl workspaces | grep "lastwindowtitle" | awk '{ $1=""; print }')"
-
-list=$(paste <(echo "$id_list") <(echo "$name_list") -d '')
-
-hyprctl dispatch workspace $(printf %s "$list" | wofi -di | awk '{ print $1 }')
-   

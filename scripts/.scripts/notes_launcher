@@ -1,9 +1,10 @@
 #!/bin/sh
+. "$HOME/.scripts/variables"
 
 notes_path="$HOME/Documents/Appunti/"
 terminal="wezterm start" 
 
-note="$notes_path$(find "$notes_path" | sed "s|$notes_path||g" | grep "_notebook.md" | exec wofi --show dmenu)"
+note="$notes_path$(find "$notes_path" | sed "s|$notes_path||g" | grep "_notebook.md" | $DMENU)"
 
 if [ "$note" != "$notes_path" ]; then
     $terminal nvim "$note"

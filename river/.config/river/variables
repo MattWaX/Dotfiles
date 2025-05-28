@@ -6,7 +6,7 @@
 
 terminal=ghostty
 terminal_launch="$terminal -e" # ghotty start
-dmenu="wofi -i --show drun"
+drun="fuzzel"
 browser="zen-browser"
 
 get_tag() {

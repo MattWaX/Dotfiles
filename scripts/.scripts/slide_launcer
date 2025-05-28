@@ -1,6 +1,7 @@
 #!/bin/sh
+. "$HOME/.scripts/variables"
 
 slide_path="$HOME/Documents/presentations/"
 terminal="ghostty --font-size=21 -e"
 
-$terminal presenterm -x --image-protocol auto "$slide_path$(find "$slide_path" | sed "s|$slide_path||g" | grep -E ".md$" | exec wofi --show dmenu)"
+$terminal presenterm -x --image-protocol auto "$slide_path$(find "$slide_path" | sed "s|$slide_path||g" | grep -E ".md$" | $DMENU --placeholder='Choose a presentation')"
