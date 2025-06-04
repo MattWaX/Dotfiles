@@ -11,7 +11,7 @@ opt.cursorcolumn = true
 
 -- Numbers
 opt.number = true
-opt.numberwidth = 2
+opt.numberwidth = 4
 opt.relativenumber = true
 opt.ruler = false
 
@@ -43,6 +43,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.timeoutlen = 400
 opt.undofile = true
+opt.swapfile = false
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
