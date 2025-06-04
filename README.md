@@ -29,7 +29,7 @@ Also please read the stow man pages before using it.
 
 The modules I'm currently using are:
 ```sh
-stow river nvim tmux zsh shell scripts starship ghostty yazi\
+stow river nvim tmux zsh shell scripts starship lsd ghostty yazi\
 makeinit aerc fastfetch clang gdb git rmpc sc-im hypr\
 vimiv swaync wallpapers waybar wlogout wofi 
 ```
