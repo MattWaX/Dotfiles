@@ -1,8 +1,12 @@
 require "options"
 
 local opt = vim.o
+local map = vim.keymap.set
 
 opt.spell = true
+
+map("n", "<F5>", ":Make!<CR>", { desc = "Silent Make"})
+map("n", "<F6>", ":Make<CR>", { desc = "Make"})
 
 -- local nabla = require "nabla"
 --
