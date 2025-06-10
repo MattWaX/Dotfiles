@@ -1,6 +1,11 @@
 #!/bin/sh
 . "$HOME/.scripts/variables"
 
-wallpapers_folder="$HOME/.config/wallpapers/"
+exist() {
+    command -v "$1" >/dev/null 2>&1
+}
 
-sh -c "swww img ${wallpapers_folder}$(find "$wallpapers_folder" -printf '%P\n' | grep --invert-match "^$" | $DMENU --placeholder="Select a wallpaper...")"
+wallpapers_folder="$HOME/.config/wallpapers/"
+wallpaper="${wallpapers_folder}$(find "$wallpapers_folder" -printf '%P\n' | grep --invert-match "^$" | $DMENU --placeholder="Select a wallpaper...")"
+swww img "$wallpaper"
+exist wal && wal -stnqei $wallpaper
