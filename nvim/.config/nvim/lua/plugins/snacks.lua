@@ -28,18 +28,6 @@ return {
                 -- },
             },
         },
-        indent = {
-            indent = {
-                priority = 1,
-                enabled = true, -- enable indent guides
-                char = "│",
-                only_scope = true, -- only show indent guides of the scope
-                only_current = true,
-            },
-            animate = {
-                enabled = false,
-            },
-        },
         picker = {
             enabled = true,
             on_close = function()
