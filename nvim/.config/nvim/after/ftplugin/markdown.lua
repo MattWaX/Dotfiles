@@ -5,6 +5,9 @@ local map = vim.keymap.set
 
 opt.spell = true
 
+opt.textwidth = 79
+opt.colorcolumn = "+1"
+
 map("n", "<F5>", ":Make!<CR>", { desc = "Silent Make"})
 map("n", "<F6>", ":Make<CR>", { desc = "Make"})
 
