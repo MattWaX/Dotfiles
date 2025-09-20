@@ -3,31 +3,7 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
-        image = {
-            enabled = true,
-            doc = {
-                inline = false,
-                float = true,
-            },
-            math = {
-                enabled = false,
-                -- latex = {
-                --     font_size = "small", -- see https://www.sascha-frank.com/latex-font-size.html
-                --     -- for latex documents, the doc packages are included automatically,
-                --     -- but you can add more packages here. Useful for markdown documents.
-                --     packages = { "amsmath", "amssymb", "amsfonts", "amscd", "mathtools" },
-                --     tpl = [[
-                --         \documentclass[preview,border=0pt,12pt]{standalone}
-                --         \usepackage{${packages}}
-                --         \begin{document}
-                --         ${header}
-                --         { \${font_size} \selectfont
-                --           \color[HTML]{${color}}
-                --         ${content}}
-                --         \end{document}]],
-                -- },
-            },
-        },
+        image = { enabled = false },
         picker = {
             enabled = true,
             on_close = function()
@@ -40,7 +16,6 @@ return {
                 end
             end,
         },
-        scratch = { enabled = true },
     },
     keys = {
         -- Top Pickers & Explorer
@@ -289,20 +264,6 @@ return {
         },
         -- Other
         {
-            "<leader>.",
-            function()
-                Snacks.scratch()
-            end,
-            desc = "Toggle Scratch Buffer",
-        },
-        {
-            "<leader>S",
-            function()
-                Snacks.scratch.select()
-            end,
-            desc = "Select Scratch Buffer",
-        },
-        {
             "<leader>:",
             function()
                 Snacks.picker.command_history()
@@ -315,13 +276,6 @@ return {
                 Snacks.picker.command_history()
             end,
             desc = "Command History",
-        },
-        {
-            "<leader>z",
-            function()
-                Snacks.zen()
-            end,
-            desc = "Toggle Zen Mode",
         },
         {
             "<leader>ls",
