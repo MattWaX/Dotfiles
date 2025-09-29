@@ -24,9 +24,9 @@ if exist zotify; then
     alias zotify='zotify --config-location ~/.config/zotify/config.json --credentials-location ~/.config/zotify/credentials.json'
 fi
 album-art-update() {
-    sacad_r ~/Music 1024 cover.png
-    mogrify -format png ~/Music/*/*/*.jpg
-    rm ~/Music/*/*/*.jpg
+    sacad_r ~/Music 512 cover.jpg
+    mogrify -format jpg -resize 512x512 ~/Music/*/*/*.png
+    rm ~/Music/*/*/*.png
 }
 
 # cd aliases
