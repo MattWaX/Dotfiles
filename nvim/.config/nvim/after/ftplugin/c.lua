@@ -9,5 +9,5 @@ opt.shiftwidth = 8
 
 opt.makeprg = "make"
 
-map("n", "<F5>", ":Make -s run<CR>", { desc = "Build and run the c project"})
+map("n", "<F5>", ":Start -wait=always make -s run<CR>", { desc = "Build and run the c project"})
 map("n", "<F6>", ":Make build<CR>", { desc = "Build the c project"})
