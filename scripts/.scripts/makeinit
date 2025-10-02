@@ -1,5 +1,7 @@
 #!/bin/sh
 
+COPY_COMMAND="cp -rL"
+
 usage() {
     >&2 echo "Usage: makeinit [-h] [-v] [-i PROJECT_NAME] [-t TEMPLATE_NAME] [-n TEMPLATE_NAME]"
     >&2 echo "  -h  Help. Display this message and quit."
@@ -68,7 +70,7 @@ if [ $init = true ]; then
         fi
     fi
 
-    cp -r "${confdir}${template}" "$PWD/$prgname"
+    $COPY_COMMAND "${confdir}${template}" "$PWD/$prgname"
 
     exit 0
 fi
@@ -81,7 +83,7 @@ if [ $newtemplate = true ]; then
         exit 1
     fi
 
-    cp -r "${default_path}" "${confdir}${template}"
+    $COPY_COMMAND "${default_path}" "${confdir}${template}"
     echo "The new template is located in ${confdir}${template}"
 
     exit 0
