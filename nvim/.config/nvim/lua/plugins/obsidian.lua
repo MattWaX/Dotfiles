@@ -18,6 +18,7 @@ return {
             "saghen/blink.cmp",
         },
         opts = {
+            legacy_commands = false,
             workspaces = {
                 {
                     name = "Appunti",
@@ -63,29 +64,6 @@ return {
                 },
             },
             completion = { blink = true, nvim_cmp = false },
-            mappings = {
-                -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-                ["gf"] = {
-                    action = function()
-                        return require("obsidian").util.gf_passthrough()
-                    end,
-                    opts = { noremap = false, expr = true, buffer = true },
-                },
-                -- Toggle check-boxes.
-                ["g<CR>"] = {
-                    action = function()
-                        return require("obsidian").util.toggle_checkbox()
-                    end,
-                    opts = { buffer = true },
-                },
-                -- Smart action depending on context, either follow link or toggle checkbox.
-                -- ["<CR>"] = {
-                --     action = function()
-                --         return require("obsidian").util.smart_action()
-                --     end,
-                --     opts = { buffer = true, expr = true },
-                -- },
-            },
 
             preferred_link_style = "markdown",
 
@@ -94,6 +72,12 @@ return {
                 update_debounce = 200, -- update delay after a text change (in milliseconds)
                 max_file_length = 5000, -- disable UI features for files with more than this many lines
                 -- Define how various check-boxes are displayed
+                checkbox = {
+                    enabled = true,
+                    create_new = true,
+                    order = { " ", "x", ">", "+", "-", "~", "!" },
+                },
+                -- deprecated --
                 checkboxes = {
                     -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
                     [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
