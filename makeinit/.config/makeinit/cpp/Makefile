@@ -24,5 +24,12 @@ run: build $(MAIN.C)
 
 r: run
 
+debug: build $(MAIN.C)
+	if [ "$$?" -eq "0" ]; then\
+		gdb ./$(TARGET);\
+	fi
+
+db: debug
+
 clean:
 	$(RM) $(TARGET)
