@@ -5,7 +5,7 @@ local map = vim.keymap.set
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
 
--- 
+
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
@@ -58,8 +58,8 @@ map("n", "<leader>wk", function()
 end, { desc = "whichkey query lookup" })
 
 -- misc
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map({"n", "v"}, "q;", "q:", { desc = "CMD history" })
+-- map("n", ";", ":", { desc = "CMD enter command mode" })
+-- map({"n", "v"}, "q;", "q:", { desc = "CMD history" })
 
 map("n", "-", "<cmd>Oil<cr>", { desc = "Open file explorer" })
 
