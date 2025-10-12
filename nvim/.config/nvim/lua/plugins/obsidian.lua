@@ -68,27 +68,24 @@ return {
             preferred_link_style = "markdown",
 
             ui = {
-                enable = true, -- set to false to disable all additional syntax features
+                enable = false, -- set to false to disable all additional syntax features
                 update_debounce = 200, -- update delay after a text change (in milliseconds)
                 max_file_length = 5000, -- disable UI features for files with more than this many lines
-                -- Define how various check-boxes are displayed
-                checkbox = {
-                    enabled = true,
-                    create_new = true,
-                    order = { " ", "x", ">", "+", "-", "~", "!" },
-                },
-                -- deprecated --
-                checkboxes = {
-                    -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
-                    [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-                    ["x"] = { char = "", hl_group = "ObsidianDone" },
-                    [">"] = { char = "", hl_group = "ObsidianRightArrow" },
-                    ["+"] = { char = "", hl_group = "ObsidianRightArrow" },
-                    ["-"] = { char = "", hl_group = "ObsidianTilde" },
-                    ["~"] = { char = "", hl_group = "ObsidianTilde" },
-                    ["!"] = { char = "", hl_group = "ObsidianImportant" },
-
-                },
+                -- checkboxes = {
+                --     [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+                --     ["x"] = { char = "", hl_group = "ObsidianDone" },
+                --     [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+                --     ["+"] = { char = "", hl_group = "ObsidianRightArrow" },
+                --     ["-"] = { char = "", hl_group = "ObsidianTilde" },
+                --     ["~"] = { char = "", hl_group = "ObsidianTilde" },
+                --     ["!"] = { char = "", hl_group = "ObsidianImportant" },
+                -- },
+            },
+            -- Define how various check-boxes are displayed
+            checkbox = {
+                enabled = false,
+                create_new = false,
+                order = { " ", "x", ">", "+", "-", "~", "!" },
             },
 
             disable_frontmatter = true,
@@ -113,33 +110,67 @@ return {
             end,
         },
     },
-    {
-        "jbyuki/nabla.nvim",
-        dependencies = {
-            "williamboman/mason.nvim",
-        },
-        lazy = false,
-
-        config = function() end,
-
-        keys = function()
-            return {
-                {
-                    "<leader>np",
-                    ':lua require("nabla").popup()<cr>',
-                    desc = "NablaPopUp",
-                },
-                {
-                    "<leader>nt",
-                    ':lua require("nabla").toggle_virt()<cr>',
-                    desc = "NablaToggle",
-                },
-                {
-                    "<leader>nr",
-                    ':lua require("nabla").enable_virt()<cr>',
-                    desc = "NablaRefresh",
-                },
-            }
-        end,
-    },
+    -- {
+    --     "MeanderingProgrammer/render-markdown.nvim",
+    --     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+    --     config = function()
+    --         require("render-markdown").setup {
+    --             latex = {
+    --                 enabled = true,
+    --                 render_modes = false,
+    --                 converter = { "utftex", "latex2text" },
+    --                 highlight = "RenderMarkdownMath",
+    --                 position = "center",
+    --                 top_pad = 0,
+    --                 bottom_pad = 0,
+    --             },
+    --         }
+    --     end,
+    -- },
+    -- {
+    --     "OXY2DEV/markview.nvim",
+    --     lazy = false,
+    --     dependencies = {
+    --         "saghen/blink.cmp",
+    --     },
+    --     config = function()
+    --         local presets = require "markview.presets"
+    --         require("markview").setup {
+    --             markdown = {
+    --                 headings = presets.headings.glow,
+    --                 horizontal_rules = presets.horizontal_rules.thick,
+    --                 tables = presets.tables.single,
+    --             },
+    --         }
+    --     end,
+    -- },
+    -- {
+    --     "jbyuki/nabla.nvim",
+    --     dependencies = {
+    --         "williamboman/mason.nvim",
+    --     },
+    --     lazy = false,
+    --
+    --     config = function() end,
+    --
+    --     keys = function()
+    --         return {
+    --             {
+    --                 "<leader>np",
+    --                 ':lua require("nabla").popup()<cr>',
+    --                 desc = "NablaPopUp",
+    --             },
+    --             {
+    --                 "<leader>nt",
+    --                 ':lua require("nabla").toggle_virt()<cr>',
+    --                 desc = "NablaToggle",
+    --             },
+    --             {
+    --                 "<leader>nr",
+    --                 ':lua require("nabla").enable_virt()<cr>',
+    --                 desc = "NablaRefresh",
+    --             },
+    --         }
+    --     end,
+    -- },
 }
