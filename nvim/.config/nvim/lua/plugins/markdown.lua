@@ -45,7 +45,7 @@ return {
             },
             bullet = {
                 enabled = true,
-                icons = { "󰧞" },
+                icons = { "󰨔" },
             },
             checkbox = {
                 enabled = true,
