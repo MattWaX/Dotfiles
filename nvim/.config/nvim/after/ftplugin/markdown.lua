@@ -12,7 +12,6 @@ local setreg = vim.fn.setreg
 setreg("b", "ciw****hhpb") -- bold macro
 setreg("i", "ciw**hpb") -- italic macro
 setreg("l", "ciW$$hpb") -- latex word macro
-setreg("e", "o> [!Esempio]j0") -- esempio macro
 
 map("n", "<F5>", ":Make!<CR>", { desc = "Silent Make" })
 map("n", "<F6>", ":Make<CR>", { desc = "Make" })
