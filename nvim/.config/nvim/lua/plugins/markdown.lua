@@ -98,6 +98,12 @@ return {
                     highlight = "RenderMarkdownWarn",
                     category = "obsidian",
                 },
+                dimostrazione = {
+                    raw = "[!DIM]",
+                    rendered = "󰡱 Dimostrazione",
+                    highlight = "RenderMarkdownWarn",
+                    category = "obsidian",
+                },
                 teorema = {
                     raw = "[!TEOREMA]",
                     rendered = " Teorema",
