@@ -2,6 +2,10 @@
 
 COPY_COMMAND="cp -rL"
 
+exist() {
+    command -v "$1" >/dev/null 2>&1
+}
+
 usage() {
     >&2 echo "Usage: makeinit [-h] [-v] [-i PROJECT_NAME] [-t TEMPLATE_NAME] [-n TEMPLATE_NAME]"
     >&2 echo "  -h  Help. Display this message and quit."
@@ -9,6 +13,7 @@ usage() {
     >&2 echo "  -i  Initialize the project with PROJECT_NAME."
     >&2 echo "  -t  Specify the template to use when creating a new project TEMPLATE_NAME."
     >&2 echo "  -n  Specify the name of the new template TEMPLATE_NAME to create."
+    >&2 echo "  -z  Add the new PROJECT_NAME to zoxide database."
     exit 2
 }
 
@@ -16,9 +21,10 @@ confdir="$HOME/.config/makeinit/"
 template="default"
 init=false
 newtemplate=false
+zoxide=false
 
 # Parse arguments
-while getopts "hvt:i:n:" optchar; do
+while getopts "hvt:i:n:z" optchar; do
     case "${optchar}" in
     h)
         usage
@@ -53,6 +59,11 @@ while getopts "hvt:i:n:" optchar; do
         template=${OPTARG}
         newtemplate=true
         ;;
+    z)
+        if exist zoxide; then
+            zoxide=true
+        fi
+        ;;
     *)
         usage
         ;;
@@ -71,6 +82,9 @@ if [ $init = true ]; then
     fi
 
     $COPY_COMMAND "${confdir}${template}" "$PWD/$prgname"
+    if [ $zoxide = true ]; then
+        zoxide add "$PWD/$prgname"
+    fi
 
     exit 0
 fi
