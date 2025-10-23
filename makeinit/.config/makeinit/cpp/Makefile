@@ -1,46 +1,34 @@
-CC      = g++
-DFLAGS	= -g -Wall -Wextra -O0 # Debug flags
-CFLAGS  = -Wall -Wextra -O3
-MAIN 	= main
-MAIN.C 	= $(MAIN).cpp
-SRC	= $(MAIN.C)
-TARGET.D= target
-TARGET  = $(TARGET.D)/a.out
-DCOMPILE= $(CC) $(DFLAGS) -o $(TARGET) $(MAIN.C)
-COMPILE = $(CC) $(CFLAGS) -o $(TARGET) $(MAIN.C)
-RM      = rm -f
+CC		= g++
+DEBUGFLAGS	?= -g -Wall -Wextra -O0
+RELFLAGS	?= -Wall -Wextra -O3 	# flags for optimized binary
+SRC		= main.cpp
+TARGET.D	= target
+TARGET		= $(TARGET.D)/a.out
+COMPILE		= $(CC) $(DEBUGFLAGS) -o $(TARGET) $(SRC)
+RELNAME 	?= $(TARGET.D)/bin
+RELCOMPILE	= $(CC) $(RELFLAGS) -o $(RELNAME) $(SRC)
+RM		= rm -f
 
-default: all
+build: $(TARGET)
 
-all: build
+$(TARGET): $(SRC) $(TARGET.D)
+	$(COMPILE)
 
-build: $(SRC)
-	if [ ! -d $(TARGET.D) ]; then\
-		mkdir target;\
-	fi;\
-		$(COMPILE);\
+$(TARGET.D):
+	mkdir $(TARGET.D)
 
-debug_build: $(SRC)
-	if [ ! -d $(TARGET.D) ]; then\
-		mkdir target;\
-	fi;\
-		$(DCOMPILE);\
-
-dbuild: debug_build
-
-run: build $(SRC)
-	if [ "$$?" -eq "0" ]; then\
-		./$(TARGET) $(args);\
-	fi
+run: $(TARGET)
+	./$(TARGET) $(args)
 
 r: run
 
-debug: debug_build $(SRC)
-	if [ "$$?" -eq "0" ]; then\
-		gdb ./$(TARGET);\
-	fi
+debug: $(TARGET)
+	gdb ./$(TARGET)
 
 db: debug
+
+release: $(SRC) $(TARGET.D)
+	$(RELCOMPILE)
 
 clean:
 	$(RM) $(TARGET)
