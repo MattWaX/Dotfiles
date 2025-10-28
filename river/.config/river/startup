@@ -19,7 +19,7 @@ swww-daemon
 exec mpd &
 
 (exec $terminal --class="music_controller.sh" --title="music_controller.sh" -e ~/.scripts/music_controller.sh) &
-exec $browser &
+(exec "$HOME/.scripts/browser_select") &
 (exec $terminal --class="general" --title="general" -e tmux new-session -s general) &
 # (exec $terminal --class="Btop" --title="Btop" -e btop) &
 

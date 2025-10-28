@@ -24,6 +24,7 @@ riverctl set-cursor-warp on-focus-change
 riverctl rule-add -app-id "music_controller.sh" tags "$(get_tag 1)"
 riverctl rule-add -app-id "music" tags "$(get_tag 1)"
 riverctl rule-add -app-id "zen" tags "$(get_tag 2)"
+riverctl rule-add -app-id "org.qutebrowser.qutebrowser" tags "$(get_tag 2)"
 riverctl rule-add -app-id "general" tags "$(get_tag 3)"
 riverctl rule-add -app-id "obsidian" tags "$(get_tag 4)"
 

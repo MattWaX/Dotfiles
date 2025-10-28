@@ -56,7 +56,7 @@
             //"active": "[x]",
             //"default": "[ ]",
             "1":" ",
-            "2":"󰈹 ",
+            "2":" ",
             "3":" "
         },
         "persistent-workspaces": {
@@ -68,7 +68,7 @@
     "river/tags": {
         "num-tags": 10,
         "hide-vacant": true,
-        "tag-labels": [ " ", "󰈹 ", " ", "4", "5", "6", "7", "8", "9", "10" ]
+        "tag-labels": [ " ", " ", " ", "4", "5", "6", "7", "8", "9", "10" ]
     },
     "hyprland/submap": {
         "format": "{}"
