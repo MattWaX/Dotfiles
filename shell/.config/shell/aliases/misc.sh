@@ -3,8 +3,8 @@
 # misc aliases
 src() {
     shell=$(readlink /proc/$$/exe)
-    echo $shell | grep bash &> /dev/null && source ~/.bashrc
-    echo $shell | grep zsh &> /dev/null && source ~/.zshrc
+    echo $shell | grep bash &>/dev/null && source ~/.bashrc
+    echo $shell | grep zsh &>/dev/null && source ~/.zshrc
 }
 
 alias syctl='systemctl'
@@ -47,9 +47,18 @@ if exist yazi; then
 fi
 
 # zathura pdf reader
-zt() {
-    (zathura "$@" &>/dev/null &) &>/dev/null
-}
+if exist zathura; then
+    zt() {
+        (zathura "$@" &>/dev/null &) &>/dev/null
+    }
+fi
+
+# vimiv: vim like img viewer
+if exist vimiv; then
+    vimg() {
+        (vimiv "$@" &>/dev/null &) &>/dev/null
+    }
+fi
 
 # spredcheet - improvided
 if exist sc-im; then
