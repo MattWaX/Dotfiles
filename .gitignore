@@ -4,6 +4,7 @@ ncmpcpp/.config/ncmpcpp/error.log
 nvim/.config/nvim/lazy-lock.json
 zellij/.config/zellij/plugins/zjstatus/target/.rustc_info.json
 zsh/.config/zsh/.zcompdump
+zsh/.config/zsh/.zcompcache/
 nvim/.config/nvim/spell
 aerc/.config/aerc/accounts.conf
 w3m/.w3m/cookie
