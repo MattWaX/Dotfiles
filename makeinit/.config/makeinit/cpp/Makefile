@@ -1,34 +1,34 @@
-CC		= g++
+CC		?= g++
 DEBUGFLAGS	?= -g -Wall -Wextra -O0
 RELFLAGS	?= -Wall -Wextra -O3 	# flags for optimized binary
-SRC		= main.cpp
-TARGET.D	= target
-TARGET		= $(TARGET.D)/a.out
-COMPILE		= $(CC) $(DEBUGFLAGS) -o $(TARGET) $(SRC)
+SRC		?= main.cpp
+TARGET.D	?= target
+TARGET		?= $(TARGET.D)/a.out
 RELNAME 	?= $(TARGET.D)/bin
-RELCOMPILE	= $(CC) $(RELFLAGS) -o $(RELNAME) $(SRC)
-RM		= rm -f
+RM		?= rm -f
 
 build: $(TARGET)
 
 $(TARGET): $(SRC) $(TARGET.D)
-	$(COMPILE)
+	$(CC) $(DEBUGFLAGS) -o $@ $<
 
 $(TARGET.D):
-	mkdir $(TARGET.D)
+	mkdir $@
 
 run: $(TARGET)
-	./$(TARGET) $(args)
-
-r: run
+	./$< $(args)
 
 debug: $(TARGET)
-	gdb ./$(TARGET)
+	gdb ./$<
 
 db: debug
 
-release: $(SRC) $(TARGET.D)
-	$(RELCOMPILE)
+$(RELNAME): $(SRC) $(TARGET.D)
+	$(CC) $(RELFLAGS) -o $@ $<
+
+release: $(RELNAME)
 
 clean:
 	$(RM) $(TARGET)
+
+.PHONY: build run debug db release clean
