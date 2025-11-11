@@ -71,29 +71,30 @@ config.set("content.geolocation", False)
 config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
 config.set("content.cookies.accept", "all")
 config.set("content.cookies.store", True)
+config.set("tabs.position", "left")
 # config.set("content.javascript.enabled", False) # tsh keybind to toggle
 
 # Adblocking 
 c.content.blocking.enabled = True
 c.content.blocking.method = 'adblock' # uncomment this if you install python-adblock
-c.content.blocking.adblock.lists = [
-        "https://github.com/ewpratten/youtube_ad_blocklist/blob/master/blocklist.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2022.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2023.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2024.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
+# c.content.blocking.adblock.lists = [
+#         "https://github.com/ewpratten/youtube_ad_blocklist/blob/master/blocklist.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2022.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2023.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2024.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
+#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
 
 config.source('qutewal.py')

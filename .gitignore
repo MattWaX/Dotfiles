@@ -11,3 +11,4 @@ w3m/.w3m/cookie
 w3m/.w3m/*.html
 scripts/.scripts/m4a2mp3.sh
 scripts/.scripts/.env
+qutebrowser/.config/qutebrowser/autoconfig.yml
