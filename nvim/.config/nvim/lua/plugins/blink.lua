@@ -41,8 +41,8 @@ return {
                 ["<C-y>"] = { "accept", "fallback" },
                 -- ["<CR>"] = { "accept", "fallback" },
 
-                ["<Tab>"] = { "select_prev", "fallback_to_mappings" },
-                ["<S-Tab>"] = { "select_next", "fallback_to_mappings" },
+                -- ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
+                -- ["<Tab>"] = { "select_next", "fallback_to_mappings" },
                 ["<Up>"] = { "select_prev", "fallback" },
                 ["<Down>"] = { "select_next", "fallback" },
                 ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
