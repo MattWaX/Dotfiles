@@ -86,15 +86,21 @@ return {
                 highlight = "RenderMarkdownInlineHighlight",
             },
             callout = {
-                esempio = {
-                    raw = "[!ESEMPIO]",
-                    rendered = "󰉹 Esempio",
-                    highlight = "RenderMarkdownHint",
-                    category = "obsidian",
-                },
                 definizione = {
                     raw = "[!DEF]",
                     rendered = " Definizione",
+                    highlight = "RenderMarkdownWarn",
+                    category = "obsidian",
+                },
+                formulario = {
+                    raw = "[!FORMULARIO]",
+                    rendered = "󰒠 Formulario",
+                    highlight = "RenderMarkdownError",
+                    category = "obsidian",
+                },
+                teorema = {
+                    raw = "[!TEOREMA]",
+                    rendered = " Teorema",
                     highlight = "RenderMarkdownWarn",
                     category = "obsidian",
                 },
@@ -104,16 +110,16 @@ return {
                     highlight = "RenderMarkdownWarn",
                     category = "obsidian",
                 },
-                teorema = {
-                    raw = "[!TEOREMA]",
-                    rendered = " Teorema",
-                    highlight = "RenderMarkdownWarn",
-                    category = "obsidian",
-                },
                 osservazione = {
                     raw = "[!OSS]",
                     rendered = " Osservazione",
                     highlight = "RenderMarkdownWarn",
+                    category = "obsidian",
+                },
+                esempio = {
+                    raw = "[!ESEMPIO]",
+                    rendered = "󰉹 Esempio",
+                    highlight = "RenderMarkdownHint",
                     category = "obsidian",
                 },
 
