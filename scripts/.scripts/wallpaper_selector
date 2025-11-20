@@ -7,5 +7,7 @@ exist() {
 
 wallpapers_folder="$HOME/.config/wallpapers/"
 wallpaper="${wallpapers_folder}$(find "$wallpapers_folder" -printf '%P\n' | grep --invert-match "^$" | $DMENU --placeholder="Select a wallpaper...")"
-swww img "$wallpaper"
-exist wal && wal -stnqei $wallpaper
+if [ "$wallpaper" != "$wallpapers_folder" ]; then
+    swww img "$wallpaper"
+    exist wal && wal -stnqei $wallpaper
+fi
