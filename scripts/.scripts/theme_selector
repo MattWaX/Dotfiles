@@ -1,0 +1,24 @@
+#!/bin/sh
+. "$HOME/.scripts/variables"
+
+exist() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+wallpapers_folder="$HOME/.config/wallpapers/"
+theme="${wallpapers_folder}$(
+    printf "default\n%s" "$(
+        find "$wallpapers_folder" -printf '%P\n' |
+            grep --invert-match "^$"
+    )" |
+        $DMENU --placeholder="Select a theme..."
+
+)"
+
+if [ "$theme" != "$wallpapers_folder" ]; then
+    swww img "$theme"
+    exist wal && wal -stnqei $theme
+    cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors.css
+elif [ "$theme" = "${wallpapers_folder}default" ]; then
+    cp ~/.config/waybar/default_colors.css ~/.config/waybar/colors.css
+fi
