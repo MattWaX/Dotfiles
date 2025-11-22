@@ -12,3 +12,7 @@ w3m/.w3m/*.html
 scripts/.scripts/m4a2mp3.sh
 scripts/.scripts/.env
 qutebrowser/.config/qutebrowser/autoconfig.yml
+ghostty/.config/ghostty/themes/wal
+river/.config/river/colors
+swaync/.config/swaync/colors.css
+waybar/.config/waybar/colors.css
