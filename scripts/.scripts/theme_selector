@@ -7,18 +7,23 @@ exist() {
 
 wallpapers_folder="$HOME/.config/wallpapers/"
 theme="${wallpapers_folder}$(
-    printf "default\n%s" "$(
-        find "$wallpapers_folder" -printf '%P\n' |
-            grep --invert-match "^$"
-    )" |
-        $DMENU --placeholder="Select a theme..."
+    find "$wallpapers_folder" -printf '%P\n' |
+        grep --invert-match "^$" | $DMENU --placeholder="Select a theme..."
 
 )"
 
 if [ "$theme" != "$wallpapers_folder" ]; then
-    swww img "$theme"
-    exist wal && wal -stnqei $theme
+    swww img "$theme" &&
+        exist wal && wal --cols16 lighten -nqei "$theme"
+    # color reload
+    # waybar
     cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors.css
-elif [ "$theme" = "${wallpapers_folder}default" ]; then
-    cp ~/.config/waybar/default_colors.css ~/.config/waybar/colors.css
+    # sway nc
+    cp ~/.cache/wal/colors.css ~/.config/swaync/colors.css
+    swaync-client --reload-css
+    # ghostty
+    cp ~/.cache/wal/ghostty.conf ~/.config/ghostty/themes/wal
+    # river
+    awk 'NR==2 {print $1}' ~/.cache/wal/colors | sed 's/#/0x/' > ~/.config/river/colors
+    cat "$HOME"/.config/river/colors | xargs riverctl border-color-focused 
 fi

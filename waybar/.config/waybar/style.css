@@ -1,3 +1,5 @@
+@import url("colors.css");
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrainsMono Nerd Font, Blobmoji;
@@ -5,80 +7,74 @@
     font-weight: bold;
 }
 
-.modules-right {
-    /*padding: 0 10px;*/
-    color: #E4A382;
+.modules-left, .modules-right, #workspace button, #tags button {
+	background-color: @color1;
+	color: @color0;
+	padding: 0px 0px 0px 0px;
 }
 
 window#waybar {
-    background-color: #040404;
+    background-color: @background;
     opacity: 0.8;
-    color: #E4A382;
+    color: @color1;
     transition-property: background-color;
     transition-duration: 0s;
 }
 
-#custom-openbr, #custom-closebr {
-    padding: 0 0;
-    margin: 0 0;
-}
-
-#custom-notification:hover,
-#custom-pacman:hover,
-#tray:hover,
-#network:hover,
-#cpu:hover,
-#memory:hover,
-#temperature:hover,
-#backlight:hover,
-#battery:hover,
-#pulseaudio:hover,
-#window:hover {
-    color: #1C1E26;
-    background-color: #E4A382;  
-}
-
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    /* Avoid rounded borders under each button name */
-    border: none;
-    color: #E4A382;
+    border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-    border-radius: 0;
-    color: #1C1E26;
-    background: #E4A382;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    transition-duration: 0s;
+    color: @color1;
+    background: @color0;
 }
 
 #workspaces, #tags {
-    padding: 3px;
+    padding: 0px;
+    /* border-right: 2px solid @color1; */
 }
 
 #workspaces button, #tags button {
-    padding: 0 3px;
+    /* padding: 0px 11px 0px 11px;  */
+    /* min-width: 1px; */
+    margin: 0;
+    border: none;
+    padding: 0 9px;
+}
+
+#workspaces button:hover, #tags button:hover {
+    /* padding: 0px 11px 0px 11px;  */
+    /* min-width: 1px; */
+    color: @color1;
+    background: @color0;
 }
 
 #workspaces button.active, #tags button.focused {
-    color: #B072D1;
+    color: @color1;
+    background: @color0;  
 }
 
 #workspaces button.active:hover, #tags button.focused:hover {
-    background-color: #B072D1;
-    color: #1C1E26;
+    color: @color0;
+    background-color: @color1;
 }
 
 #workspaces button.urgent, #tags button.urgent {
-    color: #E93C58;
+    color: @color5;
 }
 
 #workspaces button.urgent:hover, #tags button.urgent:hover {
-    background-color: #E93C58;
-    color: #1C1E26;
+    background-color: @color5;
+    color: @color0;
 }
 
 #window,
+#custom-notification,
 #clock,
 #battery,
 #cpu,
@@ -92,15 +88,16 @@ button:hover {
 #tray,
 #mode,
 #idle_inhibitor,
+#custom-pacman,
 #scratchpad,
 #mpd {
-    padding: 0 5px;
+    padding: 0 9px;
 }
 
 #window,
 #scratchpad {
     padding: 0 10px;
-    color: #E4A382;
+    color: @color1;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -114,30 +111,31 @@ button:hover {
 }
 
 #mpd.playing {
-    color: #B072D1;    
+    color: @color14;    
 }
 
 #mpd.playing:hover {
-    color: #1C1E26;
-    background-color: #B072D1;    
+    color: @color0;
+    background-color: @color14;    
 }
 
 #mpd:hover {
-    color: #1C1E26;
-    background-color: #E4A382;
+    color: @color0;
+    background-color: @color1;
 }
 
 #clock {
-    color: #DF5273;
+    background-color: @color10;
+    color: @color0;
 }
 
 #clock:hover {
-    background-color: #DF5273;
-    color: #1C1E26;
+    background-color: @color0;
+    color: @color10;
 }
 
 #battery.charging, #battery.plugged {
-    color: #24A8B4;
+    color: @color3;
 }
 
 @keyframes blink {
@@ -149,7 +147,7 @@ button:hover {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    color: #E93C58;
+    color: @color5;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -162,21 +160,22 @@ label:focus {
 }
 
 #network {
-    color: #24A8B4;
+    background-color: @color10;
+    color: @color0;
 }
 
-#network:hover {
-    color: #1C1E26;
-    background-color: #24A8B4;
+#network.wifi:hover {
+    color: @color10;
+    background-color: @color0;
 }
 
 #network.disconnected {
-    color: #E93C58;
+    color: @color14;
 }
 
 #network.disconnected:hover {
-    color: #1C1E26;
-    background-color: #E93C58;
+    color: @color0;
+    background-color: @color14;
 }
 
 #tray > .passive {
@@ -185,7 +184,7 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    color: #E93C58;
+    color: @color5;
 }
 
 #scratchpad {
@@ -196,19 +195,25 @@ label:focus {
 	background-color: transparent;
 }
 
-#custom-notification {
-  padding-left: 6px;
+/* #custom-notification { */
+/*   padding-left: 6px; */
+/* } */
+
+#custom-notification:hover,
+#custom-pacman:hover,
+#tray:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#battery:hover,
+#pulseaudio:hover {
+    color: @color1;
+    background-color: @color0;  
 }
 
-#custom-power {
-  font-size: 19px;
-  color: #B072D1;
-  padding-right: 7px;
-  padding-top: 0; 
-  margin-top: 0;
-}
-
-#custom-power:hover {
-  color: #1C1E26;
-  background-color: #B072D1;
+#window:hover {
+    color: @color0;
+    background-color: @color1;  
 }

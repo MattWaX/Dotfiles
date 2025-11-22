@@ -10,7 +10,7 @@ riverctl xcursor-theme capitaine-cursors 31
 
 # Set background and border color
 riverctl background-color 0x101010
-riverctl border-color-focused 0xe4a382 # ee
+riverctl border-color-focused "$(cat "$HOME"/.config/river/colors)"
 riverctl border-color-unfocused 0x6f6f7099
 
 # Set keyboard repeat rate

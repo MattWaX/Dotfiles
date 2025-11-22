@@ -1,33 +1,26 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
     "height": 27, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 0, // Gaps between modules (4px)
+    "spacing": 0, // Gaps between modules
     "reload_style_on_change": true,
     // Choose the order of the modules
     "modules-left": [
         "network",
-        "custom/openbr",
         "hyprland/workspaces",
         "river/tags",
-        "custom/closebr",
-        "custom/pacman",
-        "mpd",
-        "hyprland/submap"
+        "mpd"
 
     ],
     "modules-center": [
-        "custom/openbr",
         "hyprland/window",
-        "river/window",
-        "custom/closebr"
+        "river/window"
     ],
     "modules-right": [
-        "custom/openbr",
         "tray",
-        "custom/closebr",
+        "custom/pacman",
         "memory",
         "cpu",
         "temperature",
@@ -36,8 +29,7 @@
         "custom/notification",
         "battery",
         "battery#bat2",
-        "clock",
-        "custom/power"
+        "clock"
     ],
     "hyprland/window": {
         "max-length": 34,
@@ -82,7 +74,7 @@
         "tooltip-format": "{app}: {title}"
     },
     "custom/pacman": {
-        "format": "[ {}]",
+        "format": " {}",
         "interval": 1800,                     // every half-hour
         "exec": "checkupdates | wc -l",       // # of updates
         "exec-if": "test $(checkupdates | wc -l) -gt 0",
@@ -121,8 +113,8 @@
         "spacing": 5
     },
     "clock": {
-        "format": "[{:%H:%M}]",
-        "format-alt": "{:%d/%m/%Y}",
+        "format": "{:%a %e %b %R}",
+        // "format-alt": "{:%d/%m/%Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "year",
@@ -146,21 +138,21 @@
         }
     },
     "cpu": {
-        "format": " :[{usage}%]",
+        "format": " {usage}%",
         "tooltip": true
     },
     "memory": {
-        "format": " :[{}%]",
+        "format": " {}%",
         "tooltip": true
     },
     "temperature": {
         "critical-threshold": 80,
-        "format": "{icon}:[{temperatureC}°C]",
-        "format-icons": ["", "", ""]
+        "format": "{icon}{temperatureC}°C",
+        "format-icons": ["", "", ""]
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon} :[{percent}%]",
+        "format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
@@ -168,10 +160,10 @@
         "states": {
             // "good": 95,
         },
-        "format": "{icon} :[{capacity}%]",
-        "format-full": "{icon} :[{capacity}%]",
-        "format-charging": "󰂄:[{capacity}%]",
-        "format-plugged": ":[{capacity}%]",
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󰂄{capacity}%",
+        "format-plugged": "{capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -181,27 +173,20 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " :[{signalStrength}%]",
-        "format-ethernet": " :[{ipaddr}/{cidr}]",
+        "format-wifi": "󰖩 {signalStrength}%",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
         "tooltip-format": "connected to {essid}\n{ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}",
-        "format-linked": "{ifname} (No IP)  ",
-        "format-disconnected": " :[/]"
+        "format-linked": "{ifname} 󰌹 ",
+        "format-disconnected": "󰖪 "
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}:[{volume}%]",
-        "format-bluetooth": "{icon}:[ {volume}%]",
-        "format-bluetooth-muted": "{icon}:[ /]",
-        "format-muted": "{icon}:[/]",
-        "format-source": ":[{volume}%]",
-        "format-source-muted": ":[/]",
+        "format": "{icon}{volume}%",
+        "format-bluetooth": "{icon}{volume}%",
+        "format-bluetootj-muted": " ",
+        "format-muted": " ",
         "format-icons": {
             "headphone": " ",
-            "hands-free": " ",
-            "headset": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
             "default": ["", " ", " "]
         },
         "on-click": "ghostty --x11-instance-name=com.popup.app --class=com.popup.app -e pulsemixer"
@@ -211,9 +196,9 @@
         "format": "{icon}",
         "format-icons": {
             "notification": "󰂞 ",
-            "none": "󰂚 ",
+            "none": "󰂜 ",
             "dnd-notification": "󰂛 ",
-            "dnd-none": "󰪓 "
+            "dnd-none": "󰪑 "
         },
         "return-type": "json",
         "exec-if": "which swaync-client",

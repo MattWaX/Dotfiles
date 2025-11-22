@@ -16,7 +16,7 @@ riverctl map normal Super Space spawn "$drun"
 riverctl map normal Super+Shift Space spawn "$HOME/.scripts/script_launcher"
 
 #Super+W wallpaper selector
-riverctl map normal Super W spawn "$HOME/.scripts/wallpaper_selector"
+riverctl map normal Super T spawn "$HOME/.scripts/theme_selector"
 
 # Home/Stamp to take a screeshot of a region in the clipboard
 riverctl map normal None Home spawn "killall hyprshot; hyprshot -m region --clipboard-only"
