@@ -22,4 +22,4 @@ require "options"
 require "mappings"
 require "lsp"
 
-vim.cmd 'colorscheme basalt'
+vim.cmd 'colorscheme wal'
