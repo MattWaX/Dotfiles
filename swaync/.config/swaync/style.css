@@ -7,6 +7,8 @@
     JetBrainsMono Nerd Font,
     Blobmoji;
   transition: 200ms;
+  box-shadow: none;
+  border-radius: 0px;
 }
 
 .notification {
@@ -14,13 +16,8 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  box-shadow:
-    0 0 8px 0 rgba(0, 0, 0, 0.8),
-    inset 0 0 0 1px var(--background);
-  border-radius: 0px;
   margin: 12px;
   background-color: var(--background);
-  /*background: transparent;*/
   color: var(--foreground);
   padding: 0;
 }
@@ -31,13 +28,6 @@
   .notification {
   padding: 7px;
   border-radius: 0px;
-}
-
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification.critical {
-  box-shadow: inset 0 0 7px 0 var(--color5);
 }
 
 .floating-notifications.background
@@ -165,12 +155,10 @@
 }
 
 .control-center {
-  box-shadow:
-    0 0 8px 0 rgba(0, 0, 0, 0.9),
-    inset 0 0 0 1px var(--background);
   border-radius: 0px;
   margin: 18px;
   background-color: alpha(var(--background), 0.8);
+  border: 2px solid alpha(var(--color1), 0.6);
   color: var(--foreground);
   padding: 14px;
 }
@@ -184,18 +172,15 @@
   border-radius: 0px;
   color: var(--foreground);
   background-color: var(--background);
-  box-shadow: inset 0 0 0 1px var(--color1);
   padding: 8px;
 }
 
 .control-center .widget-title button:hover {
-  box-shadow: inset 0 0 0 1px var(--color1);
   background-color: #98971a;
   color: var(--foreground);
 }
 
 .control-center .widget-title button:active {
-  box-shadow: inset 0 0 0 1px var(--color1);
   background-color: #83a598;
   color: var(--background);
 }
@@ -204,7 +189,6 @@
   border-radius: 0px;
   color: var(--foreground);
   background-color: var(--background);
-  box-shadow: inset 0 0 0 1px var(--color1);
   margin-top: 14px;
 }
 
@@ -217,7 +201,6 @@
   .notification-row
   .notification-background
   .notification.critical {
-  box-shadow: inset 0 0 7px 0 var(--color5);
 }
 
 .control-center
@@ -274,7 +257,6 @@
   border-radius: 0px;
   color: var(--foreground);
   background-color: var(--background);
-  box-shadow: inset 0 0 0 1px var(--color1);
   margin: 7px;
 }
 
@@ -285,7 +267,6 @@
   > *:last-child
   > *
   .notification-action:hover {
-  box-shadow: inset 0 0 0 1px var(--color1);
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -297,7 +278,6 @@
   > *:last-child
   > *
   .notification-action:active {
-  box-shadow: inset 0 0 0 1px var(--color1);
   background-color: #83a598;
   color: var(--foreground);
 }
@@ -324,13 +304,11 @@
 }
 
 .control-center .notification-row .notification-background:hover {
-  box-shadow: inset 0 0 0 1px var(--color1);
   background-color: #458588;
   color: var(--foreground);
 }
 
 .control-center .notification-row .notification-background:active {
-  box-shadow: inset 0 0 0 1px var(--color1);
   background-color: #83a598;
   color: var(--foreground);
 }
@@ -339,10 +317,6 @@ progressbar,
 progress,
 trough {
   border-radius: 0px;
-}
-
-progressbar {
-  box-shadow: inset 0 0 0 1px var(--color1);
 }
 
 .notification.critical progress {
@@ -367,7 +341,6 @@ trough {
   border-radius: 0px;
   background: var(--background);
   border: 1px solid var(--color1);
-  box-shadow: none;
 }
 
 .control-center-dnd:checked {
@@ -400,6 +373,35 @@ trough {
   background: var(--color1);
   border-radius: 0px;
   border: 1px solid var(--color10);
+}
+
+/* Mpris widget */
+.widget-mpris {
+  color: var(--color1); 
+}
+.widget-mpris-player > box {
+  background: var(--background); 
+}
+.widget-mpris-player {
+  margin: 8px;
+  background: var(--background);
+  border: 2px solid var(--color1);
+  padding: 5px;
+}
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--foreground); 
+}
+.widget-mpris-subtitle {
+  font-size: 1.1rem;
+  color: var(--foreground); 
+}
+.widget-mpris>box>button
+.widget-mpris-album-art {
+  box-shadow: none;
+  padding: 5px 10px;
+  margin: 10px 0 0 0;
 }
 
 .notification-row
