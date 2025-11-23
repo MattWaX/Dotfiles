@@ -7,6 +7,18 @@
     font-weight: bold;
 }
 
+tooltip label {
+    color: @color1;
+    padding: 0px;
+    margin: 0px;
+}
+
+tooltip {
+    background-color: @color0;
+    border: 2px solid @color1;
+    border-radius: 0px;
+}
+
 .modules-left, .modules-right, #workspace button, #tags button {
 	background-color: @color1;
 	color: @color0;
@@ -120,8 +132,8 @@ button:hover {
 }
 
 #mpd:hover {
-    color: @color0;
-    background-color: @color1;
+    color: @color1;
+    background-color: @color0;
 }
 
 #clock {
@@ -155,10 +167,6 @@ button:hover {
     animation-direction: alternate;
 }
 
-label:focus {
-    background-color: #000000;
-}
-
 #network {
     background-color: @color10;
     color: @color0;
@@ -186,18 +194,6 @@ label:focus {
     -gtk-icon-effect: highlight;
     color: @color5;
 }
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-	background-color: transparent;
-}
-
-/* #custom-notification { */
-/*   padding-left: 6px; */
-/* } */
 
 #custom-notification:hover,
 #custom-pacman:hover,
