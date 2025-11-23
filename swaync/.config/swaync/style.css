@@ -170,7 +170,7 @@
     inset 0 0 0 1px var(--background);
   border-radius: 0px;
   margin: 18px;
-  background-color: var(--background);
+  background-color: alpha(var(--background), 0.8);
   color: var(--foreground);
   padding: 14px;
 }
