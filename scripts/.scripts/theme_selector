@@ -7,14 +7,14 @@ exist() {
 
 wallpapers_folder="$HOME/.config/wallpapers/"
 theme="${wallpapers_folder}$(
-    find "$wallpapers_folder" -printf '%P\n' |
+    find "$wallpapers_folder" -type f -printf '%P\n' |
         grep --invert-match "^$" | $DMENU --placeholder="Select a theme..."
 
 )"
 
 if [ "$theme" != "$wallpapers_folder" ]; then
     swww img "$theme" &&
-        exist wal && wal --cols16 lighten -nqei "$theme"
+        exist wal && wal --cols16 lighten -tnqei "$theme"
     # color reload
     # waybar
     cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors.css
