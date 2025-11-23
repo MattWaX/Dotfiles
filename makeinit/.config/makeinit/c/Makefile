@@ -1,4 +1,4 @@
-CC		?= gcc
+CC		= gcc
 DEBUGFLAGS	?= -g -Wall -Wextra -O0
 RELFLAGS	?= -Wall -Wextra -O3 	# flags for optimized binary
 SRC		?= main.c
