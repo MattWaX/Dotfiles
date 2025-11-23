@@ -5,8 +5,12 @@ return {
         event = "User FilePost",
         opts = {
             signs = {
-                delete = { text = " " },
-                changedelete = { text = " " },
+                add = { text = "+" },
+                change = { text = "c" },
+                delete = { text = "_" },
+                topdelete = { text = "‾" },
+                changedelete = { text = "~" },
+                untracked = { text = "/" },
             },
         },
     },
