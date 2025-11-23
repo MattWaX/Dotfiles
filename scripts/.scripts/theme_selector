@@ -27,4 +27,6 @@ if [ "$theme" != "$wallpapers_folder" ]; then
     # river
     awk 'NR==2 {print $1}' ~/.cache/wal/colors | sed 's/#/0x/' > ~/.config/river/colors
     cat "$HOME"/.config/river/colors | xargs riverctl border-color-focused 
+    # fuzzel
+    cp ~/.cache/wal/colors-fuzzel.ini ~/.config/fuzzel/colors
 fi
