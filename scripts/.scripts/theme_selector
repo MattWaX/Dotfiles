@@ -22,6 +22,7 @@ if [ "$theme" != "$wallpapers_folder" ]; then
     cp ~/.cache/wal/colors.css ~/.config/swaync/colors.css
     swaync-client --reload-css
     # ghostty
+    if [ -d ~/.config/ghostty/themes ]; then mkdir ~/.config/ghostty/themes; fi; 
     cp ~/.cache/wal/ghostty.conf ~/.config/ghostty/themes/wal
     # river
     awk 'NR==2 {print $1}' ~/.cache/wal/colors | sed 's/#/0x/' > ~/.config/river/colors
