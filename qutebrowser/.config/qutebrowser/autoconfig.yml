@@ -12,6 +12,8 @@ settings:
     global: true
   content.cookies.accept:
     global: no-unknown-3rdparty
+  content.javascript.clipboard:
+    https://github.com: access-paste
   content.javascript.enabled:
     global: true
   content.notifications.enabled:

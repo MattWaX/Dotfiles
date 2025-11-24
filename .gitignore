@@ -17,3 +17,5 @@ river/.config/river/colors
 swaync/.config/swaync/colors.css
 waybar/.config/waybar/colors.css
 fuzzel/.config/fuzzel/colors
+qutebrowser/.config/qutebrowser/autoconfig.yml
+qutebrowser/.config/qutebrowser/bookmarks/urls
