@@ -23,4 +23,6 @@ exec mpd &
 (exec $terminal --class="general" --title="general" -e tmux new-session -s general) &
 # (exec $terminal --class="Btop" --title="Btop" -e btop) &
 
+tmux new -ds mails 'while true; do; aerc; done' &
+
 riverctl set-focused-tags "$(get_tag 3)"
