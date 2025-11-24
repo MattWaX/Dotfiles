@@ -1,0 +1,23 @@
+#!/bin/sh
+. "$HOME/.scripts/variables"
+
+exist() { command -v "$1" >/dev/null 2>&1; }
+
+power_off() { systemctl poweroff; }
+
+reboot() { systemctl reboot; }
+
+lock() { swaylock; }
+
+sleep() { systemctl sleep; }
+
+logout() {  riverctl exit; }
+
+options=$(printf "power_off\t󰐥\nreboot\t󰑧\nlock\t󰌾\nsleep\t󰒲\nlogout\t󰍃\n" | column -t -o '\t')
+lines="$(echo "$options" | wc -l)"
+width="$(echo "$options" | wc -L | xargs -I _ echo '1+_' | bc)"
+cmd=$(echo "$options" | $DMENU -w "$width" -l "$lines" --accept-nth=1)
+
+if [ "$cmd" != "" ]; then
+    $cmd &
+fi
