@@ -1,10 +1,10 @@
 #!/bin/sh
 . "$HOME/.scripts/variables"
 
-run() {
-    nohup "$1" >/dev/null 2>&1 &
+spawn() {
+    riverctl spawn "$1"
 }
 
 browser_list="qutebrowser zen-browser"
 
-run $(echo $browser_list | sed 's/ /\n/g' | $DMENU --placeholder="Select a startup Browser..." -l 3)
+spawn "$(echo "$browser_list" | sed 's/ /\n/g' | $DMENU --placeholder="Select a startup Browser..." -l 3)"
