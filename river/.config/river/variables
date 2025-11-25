@@ -13,3 +13,7 @@ get_tag() {
     tag=$((1 << ($1 - 1)))
     echo $tag
 }
+
+spawn() {
+    riverctl spawn "$@"
+}

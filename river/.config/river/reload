@@ -4,12 +4,10 @@
 # RELOAD SCRIPT #
 #################
 
-killall waybar
-riverctl spawn waybar &
+. "$HOME/.config/river/variables"
 
-swww kill
-swww-daemon
-# swww img "$HOME/.config/wallpapers/streetcleaner.jpg"
+killall waybar; spawn waybar
+killall swww-daemon; spawn swww-daemon
 
-exec "$HOME/.config/river/mappings" &
-exec "$HOME/.config/river/general" &
+spawn "$HOME/.config/river/general"
+spawn "$HOME/.config/river/mappings"

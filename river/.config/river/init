@@ -5,5 +5,5 @@ dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 systemctl --user restart xdg-desktop-portal
 
 "$HOME/.config/river/general"
-exec "$HOME/.config/river/mappings" &
-exec "$HOME/.config/river/startup" &
+"$HOME/.config/river/mappings"
+"$HOME/.config/river/startup"

@@ -6,23 +6,17 @@
 
 . "$HOME/.config/river/variables"
 
-killall waybar
-riverctl spawn waybar &
+# daemons
+spawn swww-daemon 
+spawn waybar
+spawn swaync
+spawn mpd
 
-killall swaync
-riverctl spawn swaync &
+# startup applications
+spawn "$terminal --class=mpc --title=mpc -e ~/.scripts/tmux_rmpc"
+spawn "$HOME/.scripts/browser_select"
+spawn "$terminal --class=general --title=general -e tmux new -s general"
 
-swww kill
-swww-daemon
-# swww img "$HOME/.config/wallpapers/streetcleaner.jpg"
-
-exec mpd &
-
-(exec $terminal --class="music_controller.sh" --title="music_controller.sh" -e ~/.scripts/music_controller.sh) &
-(exec "$HOME/.scripts/browser_select") &
-(exec $terminal --class="general" --title="general" -e tmux new-session -s general) &
-# (exec $terminal --class="Btop" --title="Btop" -e btop) &
-
-tmux new -ds mails 'while true; do; aerc; done' &
+spawn "tmux new -ds mail 'while true; do; aerc; done'"
 
 riverctl set-focused-tags "$(get_tag 3)"

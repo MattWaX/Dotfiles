@@ -9,7 +9,7 @@
 # Super+Return to start an instance of ghostty
 riverctl map normal Super Return spawn $terminal
 
-# Super+Space opens wofi
+# Super+Space opens fuzzel
 riverctl map normal Super Space spawn "$drun"
 
 #Super+Shift+Space scripts selector from the folder ~/.scripts/.globrun
@@ -28,17 +28,14 @@ riverctl map normal Super Stamp spawn "grim \"$HOME/Pictures/Screenshots/$(date 
 #Super+N opens the notification center (swaync)
 riverctl map normal Super N spawn "swaync-client -t -sw"
 
-#Super+D opens wlogout
-riverctl map normal Super D spawn "killall wlogout; wlogout --protocol layer-shell -s"
-
 #Super+A opens the audio controller
-riverctl map normal Super A spawn "$terminal --x11-instance-name=com.popup.app --class=com.popup.app -e pulsemixer"
+riverctl map normal Super A spawn "$terminal --class=com.popup.app -e pulsemixer"
 
 # Super+Shift+R reload the config
 riverctl map normal Super+Shift R spawn "$HOME/.config/river/reload"
 
 # Super+Esc to lock the session
-riverctl map normal Super Escape spawn "$HOME/.config/river/lockscreen"
+riverctl map normal Super Escape spawn "$HOME/.scripts/logout_selector"
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
@@ -146,10 +143,10 @@ riverctl map normal Super+Shift P set-view-tags ${scratch_tag}
 all_but_scratch_tag=$((((1 << 32) - 1) ^ $scratch_tag))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 
-# Super+Space to toggle float
+# Super+V to toggle float
 riverctl map normal Super V toggle-float
 
-# Super+F to toggle fullscreen
+# F11 to toggle fullscreen
 riverctl map normal None F11 toggle-fullscreen
 
 # Declare a passthrough mode. This mode has only a single mapping to return to
