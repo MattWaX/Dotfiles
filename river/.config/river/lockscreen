@@ -3,5 +3,5 @@
 query=$(swww query)
 
 if ! swaylock -i "${query##* }"; then
-    notify-send "ERROR" "swaylock may not be in path"
+    notify-send -a swaylock "ERROR" "swaylock may not be in path"
 fi

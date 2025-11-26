@@ -21,7 +21,7 @@ riverctl focus-follows-cursor always
 riverctl set-cursor-warp on-focus-change
 
 # Rules
-riverctl rule-add -app-id "mpc" tags "$(get_tag 1)"
+riverctl rule-add -app-id "mpc.mpd" tags "$(get_tag 1)"
 riverctl rule-add -app-id "music" tags "$(get_tag 1)"
 riverctl rule-add -app-id "zen" tags "$(get_tag 2)"
 riverctl rule-add -app-id "org.qutebrowser.qutebrowser" tags "$(get_tag 2)"

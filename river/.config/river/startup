@@ -13,7 +13,7 @@ spawn swaync
 spawn mpd
 
 # startup applications
-spawn "$terminal --class=mpc --title=mpc -e ~/.scripts/tmux_rmpc"
+spawn "$terminal --class=mpc.mpd --title=mpc -e ~/.scripts/tmux_rmpc.sh"
 spawn "$HOME/.scripts/browser_select"
 spawn "$terminal --class=general --title=general -e tmux new -s general"
 
