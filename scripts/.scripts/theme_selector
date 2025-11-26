@@ -5,16 +5,7 @@ exist() {
     command -v "$1" >/dev/null 2>&1
 }
 
-wallpapers_folder="$HOME/.config/wallpapers/"
-theme="${wallpapers_folder}$(
-    find "$wallpapers_folder" -type f -printf '%P\n' |
-        grep --invert-match "^$" | $DMENU --placeholder="Select a theme..."
-
-)"
-
-if [ "$theme" != "$wallpapers_folder" ]; then
-    swww img "$theme" &&
-        exist wal && wal --cols16 lighten -tnqei "$theme"
+pywal_update() {
     # color reload
     # waybar
     cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors.css
@@ -22,11 +13,32 @@ if [ "$theme" != "$wallpapers_folder" ]; then
     cp ~/.cache/wal/colors.css ~/.config/swaync/colors.css
     swaync-client --reload-css
     # ghostty
-    if [ -d ~/.config/ghostty/themes ]; then mkdir ~/.config/ghostty/themes; fi; 
+    [ ! -d ~/.config/ghostty/themes ] && mkdir ~/.config/ghostty/themes
     cp ~/.cache/wal/ghostty.conf ~/.config/ghostty/themes/wal
     # river
-    awk 'NR==2 {print $1}' ~/.cache/wal/colors | sed 's/#/0x/' > ~/.config/river/colors
-    cat "$HOME"/.config/river/colors | xargs riverctl border-color-focused 
+    awk 'NR==2 {print $1}' ~/.cache/wal/colors | sed 's/#/0x/' >~/.config/river/colors
+    cat "$HOME"/.config/river/colors | xargs riverctl border-color-focused
     # fuzzel
     cp ~/.cache/wal/colors-fuzzel.ini ~/.config/fuzzel/colors
+}
+
+wallpapers_folder="$HOME/Pictures/wallpapers/"
+
+if [ -f "$1" ]; then
+    theme="$1"
+else
+    if [ -d "$1" ]; then
+        wallpapers_folder="$1"
+    fi
+    theme="${wallpapers_folder}$(
+        find "$wallpapers_folder" -type f -printf '%P\n' |
+            grep --invert-match "^$" | $DMENU --placeholder="Select a theme..."
+
+    )"
+fi
+
+if [ -f "$theme" ]; then
+    swww img "$theme" &&
+        exist wal && wal --cols16 lighten -tnqei "$theme"
+    pywal_update > /dev/null 2>&1
 fi
