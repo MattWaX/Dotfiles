@@ -7,11 +7,17 @@ power_off() { systemctl poweroff; }
 
 reboot() { systemctl reboot; }
 
-lock() { swaylock; }
+lock() {
+    query=$(swww query)
+
+    if ! swaylock -fi "${query##* }"; then
+        notify-send -a swaylock "ERROR" "swaylock may not be in path"
+    fi
+}
 
 sleep() { systemctl sleep; }
 
-logout() {  riverctl exit; }
+logout() { loginctl terminate-user ""; }
 
 options=$(printf "power_off\t󰐥\nreboot\t󰑧\nlock\t󰌾\nsleep\t󰒲\nlogout\t󰍃\n" | column -t -o '\t')
 lines="$(echo "$options" | wc -l)"
