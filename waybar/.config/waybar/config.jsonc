@@ -78,7 +78,8 @@
         "interval": 1800,                     // every half-hour
         "exec": "checkupdates | wc -l",       // # of updates
         "exec-if": "test $(checkupdates | wc -l) -gt 0",
-        "on-click": "pkill -RTMIN+8 waybar",
+        "on-click": "pkill -RTMIN+8 waybar && update_manager",
+        "on-click-right": "pkill -RTMIN+8 waybar",
         "signal": 8
     },
     "mpd": {

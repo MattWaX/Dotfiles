@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. "$HOME/.scripts/variables"
+
+$DMENU -l 0 -w 30 --placeholder="Sudo Password..." --password='*'

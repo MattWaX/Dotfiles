@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. "$HOME/.scripts/variables"
+
+# shellcheck disable=2046
+if [ $(printf "no\nyes" | $DMENU -l 2 -w 30 --placeholder="Update the system now?") = "yes" ]; then
+    tmux new -ds update ". $HOME/.scripts/variables && yes | $HOME/.scripts/update 2>&1 | tee $HOME/.cache/update_manager.log"
+fi

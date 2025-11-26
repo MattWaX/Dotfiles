@@ -1,0 +1,24 @@
+#!/bin/sh
+
+. "$HOME/.scripts/variables"
+
+sudo -A true && sudo_ok="true"
+if [ "$sudo_ok" = "true" ]; then
+    notify-send -a update_manager "System Update" \
+        "Updating $(checkupdates | wc -l) pakages"
+    paru -Syu --sudoloop --skipreview
+
+    echo "Clearing pacman cache"
+    pacman_cache_space_used="$(sudo du -sh /var/cache/pacman/pkg/)"
+    paccache -r
+    notify-send -a update_manager "Cleaned Pacman Cache" \
+        "Space saved: $pacman_cache_space_used"
+
+    paru -Qdtq |
+        tr '\n' ' ' |
+        xargs -I _ notify-send -a update_manager "Removing orphan packages" "_"
+    paru -Qdtq | paru -Rns -
+
+    notify-send -a update_manager "Clearing system logs"
+    sudo journalctl --vacuum-time=7d
+fi
