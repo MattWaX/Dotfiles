@@ -17,7 +17,7 @@ lock() {
 
 sleep() { systemctl sleep; }
 
-logout() { loginctl terminate-user ""; }
+logout() { uwsm stop; }
 
 options=$(printf "power_off\t󰐥\nreboot\t󰑧\nlock\t󰌾\nsleep\t󰒲\nlogout\t󰍃\n" | column -t -o '\t')
 lines="$(echo "$options" | wc -l)"

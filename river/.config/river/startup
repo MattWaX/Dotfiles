@@ -15,8 +15,8 @@ spawn mpd
 # startup applications
 spawn "$terminal --class=mpc.mpd --title=mpc -e ~/.scripts/tmux_rmpc.sh"
 spawn "$HOME/.scripts/browser_select"
-spawn "$terminal --class=general --title=general -e tmux new -s general"
+spawn "$terminal --class=general --title=general -e tmux new -As general"
 
-spawn "tmux new -ds mail 'while true; do; aerc; done'"
+spawn "tmux new -Ads mail 'while true; do; aerc; done'"
 
 riverctl set-focused-tags "$(get_tag 3)"
