@@ -1,0 +1,21 @@
+#!/bin/sh
+
+. "$HOME/.config/river/variables"
+
+# Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
+riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+
+# Super -/+ remove/add view to the master zone
+riverctl map normal Super Minus send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super Equal send-layout-cmd rivertile "main-count 1"
+riverctl map normal Super Plus send-layout-cmd rivertile "main-count +1"
+
+# Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
+riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+
+# Set the default layout generator to be rivertile and start it.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivertile
+rivertile -view-padding 2 -outer-padding 2 &

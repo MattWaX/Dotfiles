@@ -6,4 +6,5 @@ systemctl --user restart xdg-desktop-portal
 
 "$HOME/.config/river/general"
 "$HOME/.config/river/mappings"
+"$HOME/.config/river/layout"
 "$HOME/.config/river/startup"

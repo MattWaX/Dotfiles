@@ -29,4 +29,5 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # GTK theming
 export GTK_THEME=Adwaita-dark
+export ADW_DISABLE_PORTAL=1
 export QT_STYLE_OVERRIDE=adwaita-dark

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+. "$HOME/.config/river/variables"
+
+layout_dir="$HOME"/.config/river/layouts
+
+killall rivercarro
+killall rivertile
+
+if [ -e "$(which rivercarro)" ]; then 
+    "$layout_dir"/rivercarro
+else 
+    "$layout_dir"/rivertile
+fi

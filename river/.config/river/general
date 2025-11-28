@@ -45,10 +45,4 @@ riverctl rule-add -app-id "com.popup.app" dimensions 1000 500
 # server side border decorations
 riverctl rule-add ssd
 
-# Set the default layout generator to be rivertile and start it.
-# River will send the process group of the init executable SIGTERM on exit.
-killall rivertile
-riverctl default-layout rivertile
-rivertile -view-padding 2 -outer-padding 2 &
-
 riverctl default-attach-mode below

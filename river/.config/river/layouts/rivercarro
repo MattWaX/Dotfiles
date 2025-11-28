@@ -1,0 +1,42 @@
+#!/bin/sh
+
+. "$HOME/.config/river/variables"
+
+# Mod+H and Mod+L to decrease/increase the main ratio of rivercarro
+riverctl map normal Super H send-layout-cmd rivercarro "main-ratio -0.025"
+riverctl map normal Super L send-layout-cmd rivercarro "main-ratio +0.025"
+
+# Mod+Shift+H and Mod+Shift+L to increment/decrement the main count of rivercarro
+riverctl map normal Super+Shift H send-layout-cmd rivercarro "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd rivercarro "main-count -1"
+
+# Mod+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal Super Up    send-layout-cmd rivercarro "main-location top"
+riverctl map normal Super Right send-layout-cmd rivercarro "main-location right"
+riverctl map normal Super Down  send-layout-cmd rivercarro "main-location bottom"
+riverctl map normal Super Left  send-layout-cmd rivercarro "main-location left"
+riverctl map normal Super U    send-layout-cmd rivercarro "main-location top"
+riverctl map normal Super I  send-layout-cmd rivercarro "main-location left"
+# And for monocle
+riverctl map normal Super O     send-layout-cmd rivercarro "main-location monocle"
+# Cycle through layout
+riverctl map normal Super P     send-layout-cmd rivercarro "main-location-cycle top,left,monocle"
+
+# Add others rivercarro's commands the same way with the keybinds you'd like.
+# e.g.
+riverctl map normal Super Period send-layout-cmd rivercarro "gaps -10"
+riverctl map normal Super Comma send-layout-cmd rivercarro "gaps +10"
+riverctl map normal Super less send-layout-cmd rivercarro "width-ratio -0.05"
+riverctl map normal Super greater send-layout-cmd rivercarro "width-ratio +0.05"
+
+# Set the default layout generator to be rivercarro and start it.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivercarro
+rivercarro\
+    -inner-gaps 2\
+    -outer-gaps 2\
+    -main-location left\
+    -main-ratio 0.525\
+    -no-smart-gaps\
+    -width-ratio-centered\
+    -per-tag &
