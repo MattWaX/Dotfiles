@@ -1,0 +1,22 @@
+#!/bin/sh
+
+layout_name=$(river-bedload -print layout | jq '.[0].layout' | sed 's|\"||g')
+
+case "$layout_name" in
+    left)
+        echo "[]="
+        ;;
+    right)
+        echo "=[]"
+        ;;
+    top)
+        echo "TTT"
+        ;;
+    bottom)
+        echo "BBB"
+        ;;
+    monocle)
+        echo "[O]"
+        ;;
+    *) ;;
+esac

@@ -50,11 +50,11 @@ riverctl map normal Super+Shift J swap next
 riverctl map normal Super+Shift K swap previous
 
 # Super+; focus the last group of tags
-riverctl map normal Super semicolon focus-previous-tags
+riverctl map normal Super semicolon spawn "$sigwb focus-previous-tags"
 
 # Super+[ and Super+] to focus the next/previous output
-riverctl map normal Super bracketright focus-output next
-riverctl map normal Super bracketleft focus-output previous
+riverctl map normal Super bracketright spawn "$sigwb focus-output next"
+riverctl map normal Super bracketleft spawn "$sigwb focus-output previous"
 
 # Super+Shift+"["/"]" to send the focused view to the next/previous output
 riverctl map normal Super+Shift bracketright send-to-output next
@@ -95,7 +95,7 @@ riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 scratch_tag=$((1 << 30))
 
 # Toggle the scratchpad with Super+S
-riverctl map normal Super S toggle-focused-tags ${scratch_tag}
+riverctl map normal Super S spawn "$sigwb toggle-focused-tags ${scratch_tag}"
 
 # Send windows to the scratchpad with Super+Shift+S
 riverctl map normal Super+Shift S set-view-tags ${scratch_tag}
@@ -110,7 +110,7 @@ all_tags=$(((1 << 32) - 1))
 fixed_tag=$((1 << 31))
 all_but_fixed_tag=$(( $all_tags ^ $fixed_tag ))
 
-riverctl map normal Super X toggle-view-tags $fixed_tag
+riverctl map normal Super X spawn "$sigwb toggle-view-tags $fixed_tag"
 riverctl spawn-tagmask ${all_but_fixed_tag}
 
 for i in $(seq 1 10); do
@@ -120,20 +120,20 @@ for i in $(seq 1 10); do
     fi
 
     # Super+[1-9 & 0] to focus tag [0-9]
-    riverctl map normal Super "$i" set-focused-tags $(($fixed_tag + $tags))
+    riverctl map normal Super "$i" spawn "$sigwb set-focused-tags $(($fixed_tag + $tags))"
 
     # Super+Shift+[1-9 & 0] to tag focused view with tag [0-9]
     riverctl map normal Super+Shift "$i" set-view-tags $tags
 
     # Super+Control+[1-9 & 0] to toggle focus of tag [0-9]
-    riverctl map normal Super+Control "$i" toggle-focused-tags $tags
+    riverctl map normal Super+Control "$i" spawn "$sigwb toggle-focused-tags $tags"
 
     # Super+Shift+Control+[1-9 & 0] to toggle tag [0-9] of focused view
-    riverctl map normal Super+Shift+Control "$i" toggle-view-tags $tags
+    riverctl map normal Super+Shift+Control "$i" spawn "$sigwb toggle-view-tags $tags"
 done
 
 # Super+F to toggle float
-riverctl map normal Super F toggle-float
+riverctl map normal Super F spawn "$sigwb toggle-float"
 
 # F11 to toggle fullscreen
 riverctl map normal None F11 toggle-fullscreen

@@ -11,6 +11,7 @@
         "network",
         "hyprland/workspaces",
         "river/tags",
+        "custom/river-layout",
         "mpd"
 
     ],
@@ -62,6 +63,21 @@
         "num-tags": 10,
         "hide-vacant": true,
         "tag-labels": [ " ", " ", " ", "4", "5", "6", "7", "8", "9", "10" ]
+    },
+    "custom/river-layout": {
+        "format" : "{}",
+        "exec" : "~/.config/waybar/river_layout",
+        "tooltip": false,
+        "signal" : 10,
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/river_layout_menu.xml",
+        "menu-actions": {
+          "left": "riverctl send-layout-cmd rivercarro 'main-location left' && pkill -SIGRTMIN+10 waybar",
+          "right": "riverctl send-layout-cmd rivercarro 'main-location right' && pkill -SIGRTMIN+10 waybar",
+          "top": "riverctl send-layout-cmd rivercarro 'main-location top' && pkill -SIGRTMIN+10 waybar",
+          "bottom": "riverctl send-layout-cmd rivercarro 'main-location bottom' && pkill -SIGRTMIN+10 waybar",
+          "monocle": "riverctl send-layout-cmd rivercarro 'main-location monocle' && pkill -SIGRTMIN+10 waybar",
+        },
     },
     "hyprland/submap": {
         "format": "{}"

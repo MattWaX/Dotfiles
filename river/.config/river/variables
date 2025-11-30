@@ -9,6 +9,8 @@ terminal_launch="$terminal -e" # ghotty start
 drun="fuzzel"
 browser="zen-browser"
 
+sigwb="$HOME"/.config/river/signal_waybar
+
 get_tag() {
     tag=$((1 << ($1 - 1)))
     echo $tag

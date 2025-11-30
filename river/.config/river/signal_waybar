@@ -1,0 +1,5 @@
+#!/bin/sh
+
+riverctl "$@"
+
+pkill -SIGRTMIN+10 waybar &

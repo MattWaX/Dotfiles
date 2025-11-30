@@ -11,12 +11,12 @@ riverctl map normal Super+Shift H send-layout-cmd rivercarro "main-count +1"
 riverctl map normal Super+Shift L send-layout-cmd rivercarro "main-count -1"
 
 # Mod+{U,I,O} to change layout orientation
-riverctl map normal Super U     send-layout-cmd rivercarro "main-location top"
-riverctl map normal Super I     send-layout-cmd rivercarro "main-location left"
+riverctl map normal Super U spawn "$sigwb send-layout-cmd rivercarro 'main-location top'"
+riverctl map normal Super I spawn "$sigwb send-layout-cmd rivercarro 'main-location left'"
 # And for monocle
-riverctl map normal Super O     send-layout-cmd rivercarro "main-location monocle"
+riverctl map normal Super O spawn "$sigwb send-layout-cmd rivercarro 'main-location monocle'"
 # Cycle through layout
-riverctl map normal Super P     send-layout-cmd rivercarro "main-location-cycle top,left,monocle"
+riverctl map normal Super P spawn "$sigwb send-layout-cmd rivercarro 'main-location-cycle top,left,monocle'"
 
 # Add others rivercarro's commands the same way with the keybinds you'd like.
 # e.g.

@@ -13,10 +13,21 @@ tooltip label {
     margin: 0px;
 }
 
+menu,
 tooltip {
     background-color: @color0;
+    color: @color1;
     border: 2px solid @color1;
     border-radius: 0px;
+}
+
+menuitem {
+    padding: 3px;
+    margin: 0px;
+}
+menuitem:hover {
+    background-color: @color1;
+    color: @color0;
 }
 
 .modules-left, .modules-right, #workspace button, #tags button {
@@ -87,6 +98,7 @@ button:hover {
 
 #window,
 #custom-notification,
+#custom-river-layout,
 #clock,
 #battery,
 #cpu,
@@ -198,6 +210,7 @@ button:hover {
 
 #custom-notification:hover,
 #custom-pacman:hover,
+#custom-river-layout:hover,
 #tray:hover,
 #network:hover,
 #cpu:hover,
