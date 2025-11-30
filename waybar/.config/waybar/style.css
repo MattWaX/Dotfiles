@@ -84,7 +84,7 @@ button:hover {
 
 #workspaces button.active:hover, #tags button.focused:hover {
     color: @color0;
-    background-color: @color1;
+    background-color: @color10;
 }
 
 #workspaces button.urgent, #tags button.urgent {
