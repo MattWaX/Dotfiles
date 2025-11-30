@@ -10,13 +10,9 @@ riverctl map normal Super L send-layout-cmd rivercarro "main-ratio +0.025"
 riverctl map normal Super+Shift H send-layout-cmd rivercarro "main-count +1"
 riverctl map normal Super+Shift L send-layout-cmd rivercarro "main-count -1"
 
-# Mod+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal Super Up    send-layout-cmd rivercarro "main-location top"
-riverctl map normal Super Right send-layout-cmd rivercarro "main-location right"
-riverctl map normal Super Down  send-layout-cmd rivercarro "main-location bottom"
-riverctl map normal Super Left  send-layout-cmd rivercarro "main-location left"
-riverctl map normal Super U    send-layout-cmd rivercarro "main-location top"
-riverctl map normal Super I  send-layout-cmd rivercarro "main-location left"
+# Mod+{U,I,O} to change layout orientation
+riverctl map normal Super U     send-layout-cmd rivercarro "main-location top"
+riverctl map normal Super I     send-layout-cmd rivercarro "main-location left"
 # And for monocle
 riverctl map normal Super O     send-layout-cmd rivercarro "main-location monocle"
 # Cycle through layout
