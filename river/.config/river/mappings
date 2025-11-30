@@ -90,6 +90,29 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 # Super + Middle Mouse Button to toggle float
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
+# The scratchpad will live on an unused tag. Which tags are used depends on your
+# config, but rivers default uses the first 9 tags.
+scratch_tag=$((1 << 30))
+
+# Toggle the scratchpad with Super+S
+riverctl map normal Super S toggle-focused-tags ${scratch_tag}
+
+# Send windows to the scratchpad with Super+Shift+S
+riverctl map normal Super+Shift S set-view-tags ${scratch_tag}
+
+# Set spawn tagmask to ensure new windows don't have the scratchpad tag unless
+# explicitly set.
+all_but_scratch_tag=$((((1 << 32) - 1) ^ $scratch_tag))
+riverctl spawn-tagmask ${all_but_scratch_tag}
+
+# pinnes/fixed tag
+all_tags=$(((1 << 32) - 1))
+fixed_tag=$((1 << 31))
+all_but_fixed_tag=$(( $all_tags ^ $fixed_tag ))
+
+riverctl map normal Super X toggle-view-tags $fixed_tag
+riverctl spawn-tagmask ${all_but_fixed_tag}
+
 for i in $(seq 1 10); do
     tags=$((1 << ($i - 1)))
     if [ "$i" = 10 ]; then
@@ -97,7 +120,7 @@ for i in $(seq 1 10); do
     fi
 
     # Super+[1-9 & 0] to focus tag [0-9]
-    riverctl map normal Super "$i" set-focused-tags $tags
+    riverctl map normal Super "$i" set-focused-tags $(($fixed_tag + $tags))
 
     # Super+Shift+[1-9 & 0] to tag focused view with tag [0-9]
     riverctl map normal Super+Shift "$i" set-view-tags $tags
@@ -109,29 +132,8 @@ for i in $(seq 1 10); do
     riverctl map normal Super+Shift+Control "$i" toggle-view-tags $tags
 done
 
-# Super+F to focus all tags
-# Super+Shift+F to tag focused view with all tags
-all_tags=$(((1 << 32) - 1))
-riverctl map normal Super F set-focused-tags $all_tags
-riverctl map normal Super+Shift F set-view-tags $all_tags
-
-# The scratchpad will live on an unused tag. Which tags are used depends on your
-# config, but rivers default uses the first 9 tags.
-scratch_tag=$((1 << 20))
-
-# Toggle the scratchpad with Super+P
-riverctl map normal Super P toggle-focused-tags ${scratch_tag}
-
-# Send windows to the scratchpad with Super+Shift+P
-riverctl map normal Super+Shift P set-view-tags ${scratch_tag}
-
-# Set spawn tagmask to ensure new windows don't have the scratchpad tag unless
-# explicitly set.
-all_but_scratch_tag=$((((1 << 32) - 1) ^ $scratch_tag))
-riverctl spawn-tagmask ${all_but_scratch_tag}
-
-# Super+V to toggle float
-riverctl map normal Super V toggle-float
+# Super+F to toggle float
+riverctl map normal Super F toggle-float
 
 # F11 to toggle fullscreen
 riverctl map normal None F11 toggle-fullscreen
