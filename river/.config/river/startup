@@ -11,6 +11,7 @@ spawn swww-daemon
 spawn waybar
 spawn swaync
 spawn mpd
+spawn "wl-paste -w cliphist store"
 
 # startup applications
 spawn "$terminal --class=mpc.mpd --title=mpc -e ~/.scripts/tmux_rmpc.sh"

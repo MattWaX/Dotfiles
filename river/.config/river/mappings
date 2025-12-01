@@ -25,11 +25,17 @@ riverctl map normal None Stamp spawn "killall hyprshot; hyprshot -m region --cli
 riverctl map normal Super Home spawn "grim \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S).png\"; notify-send \"Screenshot saved\" \"Image writen in $HOME/Pictures/Screenshots/\""
 riverctl map normal Super Stamp spawn "grim \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S).png\"; notify-send \"Screenshot saved\" \"Image writen in $HOME/Pictures/Screenshots/\""
 
-#Super+N opens the notification center (swaync)
+# SwayNC
+#Super+N opens the notification center
 riverctl map normal Super N spawn "swaync-client -t -sw"
+#Super+Shift+N opens the notification center
+riverctl map normal Super+Shift N spawn "swaync-client -d"
 
 #Super+A opens the audio controller
 riverctl map normal Super A spawn "$terminal --class=com.popup.app -e pulsemixer"
+
+#Super+Y open the clipboard manager
+riverctl map normal Super Y spawn "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
 
 # Super+Shift+R reload the config
 riverctl map normal Super+Shift R spawn "$HOME/.config/river/reload"
