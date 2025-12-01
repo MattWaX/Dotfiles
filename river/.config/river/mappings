@@ -98,7 +98,7 @@ riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
 # The scratchpad will live on an unused tag. Which tags are used depends on your
 # config, but rivers default uses the first 9 tags.
-scratch_tag=$((1 << 30))
+scratch_tag=$((1 << 10))
 
 # Toggle the scratchpad with Super+S
 riverctl map normal Super S spawn "$sigwb toggle-focused-tags ${scratch_tag}"
