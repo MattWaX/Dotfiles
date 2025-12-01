@@ -6,11 +6,11 @@ font-size = 12
 
 window-decoration = none
 auto-update = off
-resize-overlay = never
-window-height = 30
-window-width = 130
+resize-overlay = after-first
 window-vsync = false
 background-opacity = 0.93
+
+confirm-close-surface = false
 
 # removing all keybinds
 keybind = clear
