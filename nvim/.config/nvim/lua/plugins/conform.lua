@@ -11,8 +11,10 @@ return {
                 r = { "air" },
                 css = { "prettier" },
                 html = { "prettier" },
-                -- xml = { "xmlformatter" },
-                php = { "pretty-php" }
+                xml = { "xmlformatter" },
+                php = { "pretty-php" },
+                json = { "clang-format" },
+                -- jsonc = { "prettier" }
             },
         },
     },

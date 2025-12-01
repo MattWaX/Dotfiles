@@ -1,4 +1,4 @@
 return {
     "norcalli/nvim-colorizer.lua",
-    lazy = false,
+    lazy = true,
 }
