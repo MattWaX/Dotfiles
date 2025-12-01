@@ -36,7 +36,6 @@ riverctl rule-add -title "Btop" tags "$(get_tag 10)"
 
 riverctl rule-add -app-id "Pinentry-gtk" float
 riverctl rule-add -app-id "mpv" float
-riverctl rule-add -app-id "mpv" dimensions 1500 800
 riverctl rule-add -app-id "vimiv" float
 
 riverctl rule-add -app-id "com.popup.app" float

@@ -35,7 +35,7 @@ riverctl map normal Super+Shift N spawn "swaync-client -d"
 riverctl map normal Super A spawn "$terminal --class=com.popup.app -e pulsemixer"
 
 #Super+Y open the clipboard manager
-riverctl map normal Super Y spawn "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
+riverctl map normal Super Y spawn "cliphist list | fuzzel --dmenu --placeholder='Clipboard history' | cliphist decode | wl-copy"
 
 # Super+Shift+R reload the config
 riverctl map normal Super+Shift R spawn "$HOME/.config/river/reload"
