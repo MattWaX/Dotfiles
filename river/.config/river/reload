@@ -9,6 +9,7 @@
 killall waybar; spawn waybar
 killall swww-daemon; spawn swww-daemon
 
+[ -e "$HOME/.config/river/monitors" ] && "$HOME/.config/river/monitors"
 "$HOME/.config/river/general"
 "$HOME/.config/river/mappings"
 "$HOME/.config/river/layout"

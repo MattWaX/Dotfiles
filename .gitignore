@@ -19,3 +19,4 @@ waybar/.config/waybar/colors.css
 fuzzel/.config/fuzzel/colors
 qutebrowser/.config/qutebrowser/autoconfig.yml
 qutebrowser/.config/qutebrowser/bookmarks/urls
+river/.config/river/monitors

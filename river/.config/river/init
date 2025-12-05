@@ -4,6 +4,7 @@ systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
 systemctl --user restart xdg-desktop-portal
 
+[ -e "$HOME/.config/river/monitors" ] && "$HOME/.config/river/monitors"
 "$HOME/.config/river/general"
 "$HOME/.config/river/mappings"
 "$HOME/.config/river/layout"
