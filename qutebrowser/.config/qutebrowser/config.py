@@ -23,8 +23,6 @@ c.url.searchengines = {
 
 c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']
 
-config.load_autoconfig() # load settings done via the gui
-
 c.auto_save.session = False 
 
 # keybinding changes
@@ -96,5 +94,7 @@ c.content.blocking.method = 'adblock' # uncomment this if you install python-adb
 #         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt",
 #         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
 #         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
+
+config.load_autoconfig() # load settings done via the gui
 
 config.source('qutewal.py')
