@@ -38,7 +38,7 @@ menuitem:hover {
 
 window#waybar {
     background-color: @background;
-    opacity: 0.8;
+    opacity: 1;
     color: @color1;
     transition-property: background-color;
     transition-duration: 0s;
