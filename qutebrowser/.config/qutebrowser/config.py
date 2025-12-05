@@ -38,6 +38,8 @@ config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('gJ', 'tab-move +')
 config.bind('gK', 'tab-move -')
 config.bind('gm', 'tab-move')
+config.bind('<ctrl-n>', 'completion-item-focus next', mode='command')
+config.bind('<ctrl-p>', 'completion-item-focus prev', mode='command')
 
 # dark mode setup
 c.colors.webpage.darkmode.enabled = True
