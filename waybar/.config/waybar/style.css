@@ -159,7 +159,7 @@ button:hover {
     color: @color10;
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging {
     color: @color10;
 }
 
