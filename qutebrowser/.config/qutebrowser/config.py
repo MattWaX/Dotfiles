@@ -9,16 +9,17 @@ c.tabs.show = "multiple"
 c.url.start_pages = "about:blank"
 # c.url.default_page = ""
 
-c.tabs.title.format = "{audio}{current_title}"
+c.tabs.title.format = "{audio}{index}:{current_title}"
 c.fonts.web.size.default = 18
 
 c.url.searchengines = {
-# note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
+        # note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
         'DEFAULT': 'https://duckduckgo.com/?q={}',
         '!aw': 'https://wiki.archlinux.org/?search={}',
         '!apkg': 'https://archlinux.org/packages/?sort=&q={}&maintainer=&flagged=',
         '!gh': 'https://github.com/search?o=desc&q={}&s=stars',
         '!yt': 'https://www.youtube.com/results?search_query={}',
+        '!wk': 'https://en.wikipedia.org/w/index.php?search={}'
         }
 
 c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']
@@ -26,7 +27,7 @@ c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'his
 c.auto_save.session = False 
 
 # keybinding changes
-config.bind('cs', 'cmd-set-text -s :config-source')
+config.bind('cs', 'config-source')
 config.bind('tH', 'config-cycle tabs.show multiple never')
 config.bind('sH', 'config-cycle statusbar.show always never')
 config.bind('pP', 'open -- {primary}')
@@ -38,8 +39,13 @@ config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('gJ', 'tab-move +')
 config.bind('gK', 'tab-move -')
 config.bind('gm', 'tab-move')
-config.bind('<ctrl-n>', 'completion-item-focus next', mode='command')
-config.bind('<ctrl-p>', 'completion-item-focus prev', mode='command')
+config.bind('<ctrl-n>', 'completion-item-focus --history next', mode='command')
+config.bind('<ctrl-p>', 'completion-item-focus --history prev', mode='command')
+# qute-pass bindings
+config.bind('<,><p>', 'spawn --userscript qute-pass -d \'fuzzel --dmenu\'')
+config.bind('<,><u><p>', 'spawn --userscript qute-pass --username-only -d \'fuzzel --dmenu\'')
+config.bind('<,><o><p>', 'spawn --userscript qute-pass --password-only -d \'fuzzel --dmenu\'')
+config.bind('<,><o><t>', 'spawn --userscript qute-pass --otp-only')
 
 # dark mode setup
 c.colors.webpage.darkmode.enabled = True
@@ -77,25 +83,30 @@ config.set("tabs.position", "left")
 # Adblocking 
 c.content.blocking.enabled = True
 c.content.blocking.method = 'adblock' # uncomment this if you install python-adblock
-# c.content.blocking.adblock.lists = [
-#         "https://github.com/ewpratten/youtube_ad_blocklist/blob/master/blocklist.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2022.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2023.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2024.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
-#         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
+c.content.blocking.adblock.lists = [
+        "https://easylist.to/easylist/easylist.txt",
+        "https://easylist.to/easylist/easyprivacy.txt",
+        "https://easylist-downloads.adblockplus.org/easylistdutch.txt",
+        "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
+        "https://www.i-dont-care-about-cookies.eu/abp/",
+        "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2022.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2023.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2024.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
 
 config.load_autoconfig() # load settings done via the gui
 
