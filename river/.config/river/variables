@@ -6,7 +6,7 @@
 
 terminal=ghostty
 terminal_launch="$terminal -e" # ghotty start
-drun="fuzzel"
+drun="zsh -ci fuzzel"
 browser="zen-browser"
 
 sigwb="$HOME"/.config/river/signal_waybar

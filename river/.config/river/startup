@@ -15,7 +15,7 @@ spawn "wl-paste -w cliphist store"
 
 # startup applications
 spawn "$terminal --class=mpc.mpd --title=mpc -e ~/.scripts/tmux_rmpc.sh"
-spawn "$HOME/.scripts/browser_select"
+spawn "qutebrowser"
 spawn "$terminal --class=general --title=general -e tmux new -As general"
 
 spawn "tmux new -Ads mail 'while true; do; aerc; done'"
