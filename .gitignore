@@ -20,3 +20,4 @@ fuzzel/.config/fuzzel/colors
 qutebrowser/.config/qutebrowser/autoconfig.yml
 qutebrowser/.config/qutebrowser/bookmarks/urls
 river/.config/river/monitors
+qutebrowser/.config/qutebrowser/quickmarks
