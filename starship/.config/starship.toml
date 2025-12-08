@@ -2,11 +2,11 @@
 
 # Use custom format
 format = '''
-[┌─\[$time\]─\[$username@$hostname\]─\[$directory\]](purple)
-[└](purple)${character}[─](purple)[>](red) 
+[$username@$hostname](purple) $directory $git_branch$git_state$git_metrics$git_status $fill$time  
+[\$](bold green) 
 '''
 
-right_format = "$cmd_duration"
+right_format = "$character"
 
 follow_symlinks = true
 
@@ -15,6 +15,9 @@ scan_timeout = 10
 
 # Disable the blank line at the start of the prompt
 add_newline = true
+
+[fill]
+symbol = " "
 
 [username]
 style_user = "cyan bold"
@@ -26,7 +29,7 @@ show_always = true
 [hostname]
 ssh_only = false
 format = '[$hostname$ssh_symbol](cyan bold)'
-ssh_symbol = " 󰢩 "
+ssh_symbol = " 󰣀 "
 disabled = false
 
 [time]
@@ -45,16 +48,19 @@ disabled = true
 
 [character]
 format = '$symbol'
-success_symbol = '[──────](purple)'
-error_symbol = '[──────](purple)'
-vimcmd_symbol = '[\[NORM\]](bold green)'
+success_symbol = ''
+error_symbol = ''
+vimcmd_symbol = '[--NORMAL--](bold green)'
+vimcmd_visual_symbol = '[--VISUAL--](bold purple)'
+vimcmd_replace_one_symbol = '[--REPLACE--](bold green)'
+vimcmd_replace_symbol = '[--REPLACE--](bold red)'
 disabled = false
 
 [directory]
 read_only = " 󰌾"
 format = '[$path$read_only]($style)'
-style = "cyan bold"
-repo_root_format = '[git://$repo_root]($repo_root_style)[$path$read_only]($style)'
+style = "purple bold"
+repo_root_format = '[$repo_root]($repo_root_style)[$path$read_only]($style)'
 repo_root_style = "yellow"
 truncate_to_repo = true
 truncation_length = 100
@@ -73,8 +79,8 @@ symbol = " "
 [c]
 symbol = " "
 
-# [cpp]
-# symbol = " "
+[cpp]
+symbol = " "
 
 [cmake]
 symbol = " "
@@ -111,9 +117,13 @@ symbol = "  "
 
 [git_branch]
 symbol = " "
+format = "on [$symbol$branch(:$remote_branch)]($style) "
 
-[git_commit]
-tag_symbol = '  '
+[git_state]
+format = "\\([$state( $progress_current/$progress_total)]($style)\\) "
+
+[git_metrics]
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
 
 [golang]
 symbol = " "
