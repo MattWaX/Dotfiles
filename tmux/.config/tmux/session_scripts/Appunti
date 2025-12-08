@@ -1,0 +1,14 @@
+#!/bin/sh
+
+SESSION_NAME=Appunti
+path_appunti="$HOME/Documents/Appunti"
+
+if ! tmux has-session -t $SESSION_NAME; then
+    tmux new -dc $path_appunti -s $SESSION_NAME &&
+        tmux switch-client -t $SESSION_NAME \;\
+        rename-window "Index" \;\
+        new-window -n "Dump" -c "$path_appunti/" \;\
+        select-window -t 0 \;\
+        select-window -t 1 \;\
+        send-keys "vi -S Session.vim" Enter
+fi
