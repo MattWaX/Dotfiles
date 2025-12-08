@@ -12,7 +12,7 @@ unsetopt PROMPT_SP 2>/dev/null
 # Default programs:
 export TERMINAL="ghostty"
 export EDITOR="nvim"
-export BROWSER="zen-browser"
+export BROWSER="qutebrowser"
 export MANPAGER='nvim +Man!'
 export SUDO_ASKPASS="$HOME/.scripts/askpass"
 export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share/applications"
