@@ -118,11 +118,11 @@
                 (size: "60%", pane: Split(
                         direction: Horizontal,
                         panes: [
-                        (borders: "ALL", size: "30%", pane: Pane(AlbumArt)),
-                        (borders: "ALL", size: "70%", pane: Pane(Queue)),
+                        (borders: "RIGHT", size: "30%", pane: Pane(AlbumArt)),
+                        (borders: "NONE", size: "70%", pane: Pane(Queue)),
                         ],
                     )),
-                (borders: "ALL", size: "40%", pane: Pane(Cava)),
+                (borders: "TOP", size: "40%", pane: Pane(Cava)),
                 ],
             ),
         ),

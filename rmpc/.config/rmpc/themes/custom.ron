@@ -109,9 +109,9 @@
         rows: [
         (
                 left: [
-                (kind: Text("["), style: (fg: "yellow", modifiers: "Bold")),
-                (kind: Property(Status(StateV2(playing_label: "Playing", paused_label: "Paused", stopped_label: "Stopped"))), style: (fg: "yellow", modifiers: "Bold")),
-                (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
+                (kind: Text("[Total: "), style: (fg: "yellow", modifiers: "Bold")),
+                (kind: Property(Status(QueueTimeTotal(separator: " "))), style: (fg: "yellow", modifiers: "Bold")),
+                (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold")),
                 ],
                 center: [
                 (kind: Property(Song(Title)), style: (modifiers: "Bold"),
@@ -120,7 +120,11 @@
                 ],
                 right: [
                 (kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
-                (kind: Property(Widget(Volume)), style: (fg: "blue"))
+                (kind: Property(Widget(Volume)), style: (fg: "blue")),
+                (kind: Text(" | ")),
+                (kind: Text("["), style: (fg: "yellow", modifiers: "Bold")),
+                (kind: Property(Status(StateV2(playing_label: "Playing", paused_label: "Paused", stopped_label: "Stopped"))), style: (fg: "yellow", modifiers: "Bold")),
+                (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
                 ]
             ),
         (
@@ -128,9 +132,9 @@
                 (kind: Property(Status(Elapsed))),
                 (kind: Text(" / ")),
                 (kind: Property(Status(Duration))),
-                (kind: Text(" (")),
+                (kind: Text(" | ")),
                 (kind: Property(Status(Bitrate))),
-                (kind: Text(" kbps)"))
+                (kind: Text(" kbps"))
                 ],
                 center: [
                 (kind: Property(Song(Artist)), style: (fg: "yellow", modifiers: "Bold"),
