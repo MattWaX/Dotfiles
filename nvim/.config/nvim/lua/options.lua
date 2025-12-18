@@ -8,6 +8,7 @@ opt.showmode = false
 opt.cursorline = true
 opt.cursorlineopt = "both"
 opt.cursorcolumn = true
+opt.winborder = "bold"
 
 -- Numbers
 opt.number = true
