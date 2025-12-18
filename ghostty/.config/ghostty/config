@@ -1,14 +1,17 @@
 # `ghostty +show-config --default --docs` to see the default config
 
 theme = wal
-background = #080808
 font-size = 12
+
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 
 window-decoration = none
 auto-update = off
 resize-overlay = after-first
 window-vsync = false
-background-opacity = 0.93
+background-opacity = 1
 
 confirm-close-surface = false
 

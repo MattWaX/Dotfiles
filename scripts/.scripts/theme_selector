@@ -9,6 +9,7 @@ pywal_update() {
     # color reload
     # waybar
     cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors.css
+    cp ~/.cache/wal/colors-waybar.css ~/.config/mango/waybar/colors.css
     # sway nc
     cp ~/.cache/wal/colors.css ~/.config/swaync/colors.css
     swaync-client --reload-css
@@ -18,6 +19,9 @@ pywal_update() {
     # river
     awk 'NR==2 {print $1}' ~/.cache/wal/colors | sed 's/#/0x/' >~/.config/river/colors
     cat "$HOME"/.config/river/colors | xargs riverctl border-color-focused
+    # mango
+    cp ~/.cache/wal/colors-mango.conf ~/.config/mango/colors.conf
+    mmsg -d reload_config 2>&1 /dev/null &
     # fuzzel
     cp ~/.cache/wal/colors-fuzzel.ini ~/.config/fuzzel/colors
 }

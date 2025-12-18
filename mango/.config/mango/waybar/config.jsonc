@@ -1,0 +1,209 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "spacing": 0, // Gaps between modules
+    "reload_style_on_change": true,
+    "modules-left": [
+        "network",
+        "ext/workspaces",
+        "dwl/window#layout",
+        "mpd"
+
+    ],
+    "modules-center": [
+        "dwl/window"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/pacman",
+        "memory",
+        "cpu",
+        "temperature",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "battery#bat2",
+        "custom/notification",
+        "clock"
+    ],
+    "dwl/window#layout": {
+        "format": "{layout}",
+        "icon-size": 0,
+        "tooltip": false,
+        "rewrite": {
+            "T": "[]=",
+            "S": "[][",
+            "M": "[O]",
+            "G": ":::",
+            "K": "[]-",
+            "CT": "|[]|",
+            "RT": "=[]",
+            "VT": "TTT",
+            "VS": "===",
+            "VG": "[#]",
+            "VK": "‾T‾",
+            "TG": "[]:",
+        }
+    },
+    "dwl/window": {
+        "format": "{title}",
+        "max-length": 34
+    },
+    "ext/workspaces": {
+        "format": "{icon}",
+        "ignore-hidden": true,
+        "on-click": "activate",
+        "on-click-right": "deactivate",
+        "sort-by-id": true,
+    },
+    "custom/pacman": {
+        "format": " {}",
+        "interval": 1800,                     // every half-hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "test $(checkupdates | wc -l) -gt 0",
+        "on-click": "pkill -RTMIN+8 waybar && ~/.scripts/update_manager",
+        "on-click-right": "pkill -RTMIN+8 waybar",
+        "signal": 8
+    },
+    "mpd": {
+        "max-length": 45,
+        "format": "{stateIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - \"{title}\" ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "",
+        "unknown-tag": "???",
+        "interval": 1,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": "󰑖 "
+        },
+        "single-icons": {
+            "on": "󰑘 "
+        },
+        "state-icons": {
+            "paused": " ",
+            "playing": " "
+        },
+        "tooltip-format": "MPD (connected)\n[ {elapsedTime:%M:%S} / {totalTime:%M:%S} ]\nPlaying: \"{title}\"\nby {artist} in \"{album}\"",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "mpc toggle"
+    },
+    "tray": {
+        "icon-size": 17,
+        "spacing": 5
+    },
+    "clock": {
+        "format": "{:%a %e %b %R}",
+        // "format-alt": "{:%d/%m/%Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months": "<span color='#e4a382'><b>{}</b></span>",
+                "days": "<span color='#cbced0'><b>{}</b></span>",
+                "weeks": "<span color='#24a8b4'><b>W{}</b></span>",
+                "weekdays": "<span color='#b072d1'><b>{}</b></span>",
+                "today": "<span color='#df5273'><b><u>{}</u></b></span>"
+            },
+            "actions": {
+                "on-click-right": "mode",
+                "on-scroll-up": "tz_up",
+                "on-scroll-down": "tz_down",
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down"
+            }
+        }
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": true
+    },
+    "memory": {
+        "format": " {}%",
+        "tooltip": true
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon}{temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󰂄{capacity}%",
+        "format-plugged": " {capacity}%",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "󰖩 {signalStrength}%",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "tooltip-format": "connected to {essid}\n{ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} 󰌹 ",
+        "format-disconnected": "󰖪 "
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon}{volume}%",
+        "format-bluetooth": "{icon}{volume}%",
+        "format-bluetootj-muted": " ",
+        "format-muted": " ",
+        "format-icons": {
+            "headphone": " ",
+            "default": ["", " ", " "]
+        },
+        "on-click": "ghostty --x11-instance-name=com.popup.app --class=com.popup.app -e pulsemixer"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂞 ",
+            "none": "󰂜 ",
+            "dnd-notification": "󰂛 ",
+            "dnd-none": "󰪑 "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/power": {
+        "format" : "  ",
+        "tooltip": false,
+        "on-click": "wlogout --protocol layer-shell -s"
+    },
+    "custom/openbr": {
+        "format": "[",
+            "tooltip": false
+    },
+    "custom/closebr": {
+        "format": "] ",
+        "tooltip": false
+    }
+}
+

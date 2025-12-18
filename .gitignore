@@ -23,3 +23,6 @@ river/.config/river/monitors
 qutebrowser/.config/qutebrowser/quickmarks
 qutebrowser/.config/qutebrowser/qsettings/QtProject.conf
 qutebrowser/.config/qutebrowser/bookmarks/urls
+scripts/.scripts/music_sync
+mango/.config/mango/waybar/colors.css
+mango/.config/mango/colors.conf

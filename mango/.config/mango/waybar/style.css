@@ -1,0 +1,242 @@
+@import url("colors.css");
+
+* {
+    font-family: JetBrainsMono Nerd Font, Blobmoji;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+tooltip label {
+    color: @color1;
+    padding: 0px;
+    margin: 0px;
+}
+
+menu,
+tooltip {
+    background-color: @color0;
+    color: @color1;
+    border: 2px solid @color1;
+    border-radius: 0px;
+}
+
+menuitem {
+    padding: 3px;
+    margin: 0px;
+}
+
+menuitem:hover {
+    background-color: @color1;
+    color: @color0;
+}
+
+.modules-left, .modules-right, #workspace button, #tags button {
+	background-color: @color1;
+	color: @color0;
+	padding: 0px 0px 0px 0px;
+        margin: 0px;
+}
+
+.modules-left #window {
+	background-color: @color1;
+	color: @color0;
+        padding: 0 9px;
+}
+
+.modules-left #window:hover {
+	background-color: @color0;
+	color: @color1;
+}
+
+.modules-center #window {
+	background-color: @color0;
+	color: @color1;
+        padding: 0 10px;
+}
+
+.modules-center #window:hover {
+	background-color: @color1;
+	color: @color0;
+}
+
+window#waybar {
+    background-color: @background;
+    opacity: 1;
+    color: @color1;
+    transition-property: background-color;
+    transition-duration: 0s;
+}
+
+button {
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    transition-duration: 0s;
+    color: @color1;
+    background: @color0;
+}
+
+#workspaces, #tags {
+    padding: 0px;
+    color: @color0;
+}
+
+#workspaces button, #tags button {
+    /* padding: 0px 11px 0px 11px;  */
+    /* min-width: 1px; */
+    color: @color0;
+    margin: 0;
+    border: none;
+    padding: 0 9px;
+}
+
+#workspaces button:hover, #tags button:hover {
+    /* padding: 0px 11px 0px 11px;  */
+    /* min-width: 1px; */
+    color: @color1;
+    background: @color0;
+}
+
+#workspaces button.active, #tags button.focused {
+    color: @color1;
+    background: @color0;  
+}
+
+#workspaces button.active:hover, #tags button.focused:hover {
+    color: @color0;
+    background-color: @color10;
+}
+
+#workspaces button.urgent, #tags button.urgent {
+    color: @color5;
+}
+
+#workspaces button.urgent:hover, #tags button.urgent:hover {
+    background-color: @color5;
+    color: @color0;
+}
+
+#custom-notification,
+#custom-river-layout,
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-pacman,
+#scratchpad,
+#mpd {
+    padding: 0 9px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:last-child {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#mpd.playing {
+    color: @color0;
+    background-color: @color10;    
+}
+
+#mpd.playing:hover {
+    color: @color10;
+    background-color: @color0;    
+}
+
+#mpd:hover {
+    color: @color1;
+    background-color: @color0;
+}
+
+#clock {
+    background-color: @color10;
+    color: @color0;
+}
+
+#clock:hover {
+    background-color: @color0;
+    color: @color10;
+}
+
+#battery.charging {
+    color: @color10;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    color: @color5;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+    background-color: @color10;
+    color: @color0;
+}
+
+#network.wifi:hover {
+    color: @color10;
+    background-color: @color0;
+}
+
+#network.disconnected {
+    color: @color14;
+}
+
+#network.disconnected:hover {
+    color: @color0;
+    background-color: @color14;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: @color5;
+}
+
+#custom-notification:hover,
+#custom-pacman:hover,
+#custom-river-layout:hover,
+#tray:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#battery:hover,
+#pulseaudio:hover {
+    color: @color1;
+    background-color: @color0;  
+}

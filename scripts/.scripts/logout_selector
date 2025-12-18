@@ -17,7 +17,10 @@ lock() {
 
 sleep() { systemctl sleep; }
 
-logout() { uwsm stop; }
+logout() { 
+    [ $XDG_CURRENT_DESKTOP == "mango" ] && mmsg -d quit;
+    uwsm stop; 
+}
 
 options=$(printf "power_off\t󰐥\nreboot\t󰑧\nlock\t󰌾\nsleep\t󰒲\nlogout\t󰍃\n" | column -t -o '\t')
 lines="$(echo "$options" | wc -l)"
