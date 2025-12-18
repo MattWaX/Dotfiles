@@ -3,6 +3,8 @@ c = c  # noqa: F821 pylint: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 # pylint settings included to disable linting errors
 
+config.load_autoconfig() # load settings done via the gui
+
 # c.statusbar.show = "always"
 c.tabs.show = "multiple"
 
@@ -39,13 +41,17 @@ config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('gJ', 'tab-move +')
 config.bind('gK', 'tab-move -')
 config.bind('gm', 'tab-move')
+config.bind('gi', 'hint inputs')
 config.bind('<ctrl-n>', 'completion-item-focus --history next', mode='command')
 config.bind('<ctrl-p>', 'completion-item-focus --history prev', mode='command')
 # qute-pass bindings
-config.bind('<,><p>', 'spawn --userscript qute-pass -d \'fuzzel --dmenu\'')
-config.bind('<,><u><p>', 'spawn --userscript qute-pass --username-only -d \'fuzzel --dmenu\'')
-config.bind('<,><o><p>', 'spawn --userscript qute-pass --password-only -d \'fuzzel --dmenu\'')
-config.bind('<,><o><t>', 'spawn --userscript qute-pass --otp-only')
+config.bind(',p', 'spawn --userscript qute-pass -d \'fuzzel --dmenu\'')
+config.bind(',up', 'spawn --userscript qute-pass --username-only -d \'fuzzel --dmenu\'')
+config.bind(',op', 'spawn --userscript qute-pass --password-only -d \'fuzzel --dmenu\'')
+config.bind(',ot', 'spawn --userscript qute-pass --otp-only -d \'fuzzel --dmenu\'')
+
+config.bind(',m', 'spawn mpv {url}')
+config.bind(',M', 'hint links spawn mpv {hint-url}')
 
 # dark mode setup
 c.colors.webpage.darkmode.enabled = True
@@ -106,8 +112,7 @@ c.content.blocking.adblock.lists = [
         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt",
         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
-        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
-
-config.load_autoconfig() # load settings done via the gui
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"
+]
 
 config.source('qutewal.py')
