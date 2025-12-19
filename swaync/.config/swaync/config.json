@@ -48,7 +48,6 @@
     }
   },
   "widgets": [
-    "mpris",
     "inhibitors",
     "title",
     "dnd",
