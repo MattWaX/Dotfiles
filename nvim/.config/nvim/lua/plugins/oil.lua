@@ -3,11 +3,20 @@ return {
         "stevearc/oil.nvim",
         ---@module 'oil'
         ---@type oil.SetupOpts
-        opts = {},
-        -- Optional dependencies
-        -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
         dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-        -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+        opts = {
+            lsp_file_methods = {
+                enabled = true,
+                timeout_ms = 1000,
+                autosave_changes = true,
+            },
+            skip_confirm_for_simple_edits = true,
+            columns = {
+                "permissions",
+                "size",
+                "icon",
+            },
+        },
         lazy = false,
     },
 }
