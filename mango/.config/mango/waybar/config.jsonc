@@ -56,6 +56,11 @@
         "on-click": "activate",
         "on-click-right": "deactivate",
         "sort-by-id": true,
+        "format-icons": {
+             "1": " ",
+             "2": " ",
+             "3": " ",
+        }
     },
     "custom/pacman": {
         "format": " {}",
