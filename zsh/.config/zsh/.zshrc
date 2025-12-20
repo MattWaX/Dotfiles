@@ -34,8 +34,8 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-bindkey '^H' backward-kill-word
-bindkey -M vicmd '^H' backward-kill-word
+bindkey '^H' vi-backward-kill-word
+bindkey -M vicmd '^H' vi-backward-kill-word
 
 preexec() { echo -ne '\e[3 q'; } # Use _ shape cursor for each new prompt.
 
@@ -51,7 +51,7 @@ preexec() { echo -ne '\e[3 q'; } # Use _ shape cursor for each new prompt.
 bindkey '^[[P' delete-char
 
 # starship init
-eval "$(starship init zsh)"
+[ -e "$(which starship)" ] && eval "$(starship init zsh)"
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line
@@ -74,19 +74,6 @@ if [ -e "$(which fzf)" ]; then
     # Set up fzf key bindings and fuzzy completion
     bindkey -r '^I'
     eval "$(fzf --zsh)"
-    bindkey '^F' fzf-history-widget
-    bindkey -M vicmd '^F' fzf-history-widget
-    bindkey -r '^R'
-    bindkey '^R' clear-screen
-    bindkey -M vicmd '^R' clear-screen
-fi
-
-if [ -e "$(which carapace)" ]; then
-    export CARAPACE_BRIDGES='zsh'
-    zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-    source <(carapace _carapace)
-    export CARAPACE_MATCH=1
-    export CARAPACE_LENIENT=1
 fi
 
 # Load syntax highlighting; should be last.
