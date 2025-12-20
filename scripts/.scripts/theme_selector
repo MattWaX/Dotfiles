@@ -24,6 +24,8 @@ pywal_update() {
     mmsg -d reload_config 2>&1 /dev/null &
     # fuzzel
     cp ~/.cache/wal/colors-fuzzel.ini ~/.config/fuzzel/colors
+    # telegram
+    walogram 2&>1 /dev/null &
 }
 
 wallpapers_folder="$HOME/Pictures/wallpapers/"
