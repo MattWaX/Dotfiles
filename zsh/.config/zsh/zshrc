@@ -74,6 +74,7 @@ if [ -e "$(which fzf)" ]; then
     # Set up fzf key bindings and fuzzy completion
     bindkey -r '^I'
     eval "$(fzf --zsh)"
+    export FZF_DEFAULT_OPTS=--color=16
 fi
 
 # Load syntax highlighting; should be last.
