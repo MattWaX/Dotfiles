@@ -14,6 +14,7 @@ return {
                 xml = { "xmlformatter" },
                 php = { "pretty-php" },
                 json = { "clang-format" },
+                typst = { "typstyle" }
                 -- jsonc = { "prettier" }
             },
         },
