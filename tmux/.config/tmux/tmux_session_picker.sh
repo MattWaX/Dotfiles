@@ -33,6 +33,8 @@ fi
 
 selected_name=$(basename "$selected" | tr . _)
 
+[ $selected_name == $USER ] && selected_name=home
+
 for session in `fd . $HOME/.config/tmux/session_scripts/ --full-path`; do
     if [ $selected_name == $(basename "$session") ]; then
         $session
