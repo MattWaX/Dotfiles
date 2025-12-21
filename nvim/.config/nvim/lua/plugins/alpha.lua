@@ -20,9 +20,9 @@ return {
         -- dashboard.file_icons.provider = "devicons"
         dashboard.section.header.val = header
         dashboard.section.buttons.val = {
-            dashboard.button( "-", "  Open file explorer", ":Oil<CR>"),
-            dashboard.button( "p", "  Open fuzzy picker", " fs"),
-            dashboard.button( "q", " 󰩈 Quit NVIM", ":qa<CR>"),
+            dashboard.button( "-", "  Open file explorer", "<CMD>Oil<CR>"),
+            dashboard.button( "p", "  Open fuzzy picker", "<leader>ff"),
+            dashboard.button( "q", " 󰩈 Quit NVIM", "<CMD>qa<CR>"),
         }
         require("alpha").setup(dashboard.config)
 

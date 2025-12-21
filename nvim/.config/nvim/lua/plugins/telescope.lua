@@ -29,7 +29,7 @@ return {
 
             -- telescope
             map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
-            map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>", { desc = "telescope find all files" })
+            map("n", "<leader>fa", "<cmd>Telescope find_files no_ignore=true hidden=true<CR>", { desc = "telescope find all files" })
             map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
             map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
             map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
