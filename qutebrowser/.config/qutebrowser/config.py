@@ -78,7 +78,7 @@ c.fonts.web.family.standard = 'JetBrainsMono Nerd Font'
 # config.set("completion.cmd_history_max_items", 0)
 # config.set("content.private_browsing", True)
 config.set("content.webgl", False, "*")
-config.set("content.canvas_reading", False)
+config.set("content.canvas_reading", True)
 config.set("content.geolocation", False)
 config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
 config.set("content.cookies.accept", "all")
