@@ -11,7 +11,7 @@ define hookpost-step
   refresh
 end
 
-set confirm on
+set confirm off
 set verbose off
 
 set extended-prompt \[\e[0;34m\]gdb (\f)\[\e[0m\]> 
