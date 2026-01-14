@@ -1,7 +1,10 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter"
+        },
         lazy = false,
         cmd = "Telescope",
         config = function()

@@ -21,7 +21,7 @@ return {
                 },
             },
             heading = {
-                enabled = true,
+                enabled = false,
                 atx = true,
                 setext = true,
                 sign = true,

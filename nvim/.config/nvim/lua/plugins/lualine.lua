@@ -48,7 +48,7 @@ return {
         local diff = {
             "diff",
             colored = false,
-            symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+            symbols = { added = "+", modified = "~", removed = "-" }, -- changes diff symbols
             cond = hide_in_width,
         }
 

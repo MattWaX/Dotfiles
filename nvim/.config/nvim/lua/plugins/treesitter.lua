@@ -6,18 +6,19 @@ return {
         build = ":TSUpdate",
         opts = {
             ensure_installed = {
-                "lua",
-                "luadoc",
-                "printf",
-                "vim",
-                "vimdoc",
-                "markdown",
-                "markdown_inline",
-                "latex",
                 "c",
                 "cpp",
-                "rust",
                 "java",
+                "latex",
+                "lua",
+                "luadoc",
+                "markdown",
+                "markdown_inline",
+                "printf",
+                "rust",
+                "typst",
+                "vim",
+                "vimdoc",
             },
 
             highlight = {
