@@ -6,6 +6,7 @@ font-size = 12
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+font-family = FiraCode Nerd Font Ret
 
 window-decoration = none
 auto-update = off
