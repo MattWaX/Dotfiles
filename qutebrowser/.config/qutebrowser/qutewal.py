@@ -119,6 +119,8 @@ if os.path.isfile(colors_absolute):
     # Type: QssColor
     c.colors.hints.match.fg = blue
 
+    c.hints.border = "1px solid " + black
+
     # Background color of the keyhint widget.
     # Type: QssColor
     c.colors.keyhint.bg = background

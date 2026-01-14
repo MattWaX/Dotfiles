@@ -65,9 +65,10 @@ c.tabs.padding = {'top': 5, 'bottom': 5, 'left': 9, 'right': 9}
 c.tabs.indicator.width = 0 # no tab indicators
 # c.window.transparent = True # apparently not needed
 c.tabs.width = '7%'
+c.hints.radius = 0
 
 # fonts
-c.fonts.default_family = []
+c.fonts.default_family = ['JetBrainsMono Nerd Font']
 c.fonts.default_size = '11pt'
 c.fonts.web.family.fixed = 'JetBrainsMono Nerd Font'
 c.fonts.web.family.sans_serif = 'JetBrainsMono Nerd Font'
@@ -85,6 +86,13 @@ config.set("content.cookies.accept", "all")
 config.set("content.cookies.store", True)
 config.set("tabs.position", "left")
 # config.set("content.javascript.enabled", False) # tsh keybind to toggle
+
+# nnn as filepicker
+c.fileselect.handler = "external"
+filepicker_command = ["xterm", "-e", "nnn", "-CUdp", "{}"]
+c.fileselect.folder.command = filepicker_command
+c.fileselect.single_file.command = filepicker_command
+c.fileselect.multiple_files.command = filepicker_command
 
 # Adblocking 
 c.content.blocking.enabled = True
