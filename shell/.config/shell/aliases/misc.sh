@@ -33,6 +33,17 @@ album-art-update() {
 alias home='cd ~'
 alias ..='cd ..'
 
+# img viewer aliases
+if exist nsxiv; then
+    alias img='nsxiv'
+fi
+
+# nnn aliases
+if exist nnn; then
+    alias nnn='nnn -CUde'
+    alias n='nnn'
+fi
+
 # yazi aliases
 if exist yazi; then
     alias y='yazi'

@@ -27,6 +27,11 @@ export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
+# nnn exports
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_PLUG='p:preview-tui;i:imgview;x:xdgdefault'
+export NNN_PREVIEWIMGPROG='chafa -f kitty --passthrough=tmux '
+
 # GTK theming
 export GTK_THEME=Adwaita-dark
 export ADW_DISABLE_PORTAL=1
