@@ -9,6 +9,9 @@ return {
         "TmuxNavigatePrevious",
         "TmuxNavigatorProcessList",
     },
+    init = function ()
+        vim.g.tmux_navigator_no_mappings = 1
+    end,
     keys = {
         { "<A-h>", "<cmd>TmuxNavigateLeft<cr>" },
         { "<A-j>", "<cmd>TmuxNavigateDown<cr>" },

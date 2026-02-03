@@ -21,5 +21,3 @@ require("lazy").setup({
 require "options"
 require "mappings"
 require "lsp"
-
-vim.cmd 'colorscheme wal'

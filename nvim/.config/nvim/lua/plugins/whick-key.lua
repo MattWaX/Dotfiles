@@ -9,6 +9,7 @@ return {
                 triggers = {
                     { "m", mode = { "n", "v" } },
                     { "g", mode = { "n", "v" } },
+                    { "<leader>", mode = { "n", "v" } },
                 },
             }
         end,

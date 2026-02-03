@@ -1,5 +1,8 @@
 return {
-  "saeedvaziry/wal.nvim",
-  lazy = false,
-  priority = 1000,
+    "uZer/pywal16.nvim",
+    lazy = false,
+    config = function()
+        vim.cmd.colorscheme "pywal16"
+    end,
+    priority = 1000,
 }

@@ -56,6 +56,7 @@ return {
             options = {
                 icons_enabled = true,
                 -- theme = auto, -- Set theme based on environment variable
+                theme = "pywal16-nvim",
                 section_separators = { left = "", right = "" },
                 component_separators = { left = "", right = "" },
                 disabled_filetypes = { "alpha" },
