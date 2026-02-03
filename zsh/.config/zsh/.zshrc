@@ -7,7 +7,7 @@ setopt interactive_comments
 
 # setting the title of the current shell session
 precmd() {
-    echo -n -e "\033]0;$(dirs)\007"
+    echo -ne "\033]0;$(dirs)\007"
 }
 
 # History in cache directory:
@@ -17,16 +17,32 @@ HISTFILE="$HOME/.history"
 setopt inc_append_history
 
 # Basic auto/tab complete:
+zmodload zsh/complist
 autoload -Uz +X compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
+setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
+setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
+setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
 _comp_options+=(globdots) # Include hidden files.
 
 # vi mode
 bindkey -v
-export KEYTIMEOUT=1
+export KEYTIMEOUT=0
+
+function zle-keymap-select { 
+  if [[ $KEYMAP == vicmd ]]; then 
+    echo -ne "\e[2 q" 
+  fi 
+  if [[ $KEYMAP == viins ]] || 
+     [[ $KEYMAP == main ]]; then 
+    echo -ne "\e[6 q" 
+  fi 
+} 
+zle -N zle-keymap-select 
+
+_fix_cursor() { echo -ne '\e[6 q' } 
+precmd_functions+=(_fix_cursor) 
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -37,21 +53,7 @@ bindkey -v '^?' backward-delete-char
 bindkey '^H' vi-backward-kill-word
 bindkey -M vicmd '^H' vi-backward-kill-word
 
-preexec() { echo -ne '\e[3 q'; } # Use _ shape cursor for each new prompt.
-
-# function zle-line-init zle-keymap-select {
-# PS1="$PS1FALLBACK${${KEYMAP/vicmd/=!=}/(main|viins)/~~>}%{$reset_color%} "
-# PS2=$PS1
-# zle reset-prompt
-# }
-
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-
 bindkey '^[[P' delete-char
-
-# starship init
-[ -e "$(which starship)" ] && eval "$(starship init zsh)"
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line
@@ -66,6 +68,9 @@ bindkey '^P' history-search-backward
 
 # importing aliases
 source ~/.config/shell/aliases.sh
+
+# starship init
+[ -e "$(which starship)" ] && eval "$(starship init zsh)"
 
 # zoxide setup
 [ -e "$(which zoxide)" ] && eval "$(zoxide init zsh)"
