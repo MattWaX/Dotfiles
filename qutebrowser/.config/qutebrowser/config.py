@@ -67,6 +67,8 @@ c.tabs.indicator.width = 0 # no tab indicators
 c.tabs.width = '7%'
 c.hints.radius = 0
 
+c.hints.auto_follow = "always"
+
 # fonts
 c.fonts.default_family = ['JetBrainsMono Nerd Font']
 c.fonts.default_size = '11pt'
