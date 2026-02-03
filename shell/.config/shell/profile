@@ -28,6 +28,8 @@ export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # nnn exports
+export NNN_OPTS="CUder"	
+export NNN_TRASH='trash'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_PLUG='p:preview-tui;i:imgview;x:xdgdefault'
 export NNN_PREVIEWIMGPROG='chafa -f kitty --passthrough=tmux '

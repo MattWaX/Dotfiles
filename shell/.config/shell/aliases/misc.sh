@@ -7,7 +7,11 @@ src() {
     echo $shell | grep zsh &>/dev/null && source ~/.zshrc
 }
 
-alias syctl='systemctl'
+alias system='systemctl'
+alias sctl='system'
+
+alias please='sudo'
+alias pls='please'
 
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 if exist bat; then
@@ -40,7 +44,7 @@ fi
 
 # nnn aliases
 if exist nnn; then
-    alias nnn='nnn -CUde'
+    # alias nnn='nnn -CUde'
     alias n='nnn'
 fi
 
