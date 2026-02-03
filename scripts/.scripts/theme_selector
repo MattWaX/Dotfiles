@@ -16,6 +16,8 @@ pywal_update() {
     # ghostty
     [ ! -d ~/.config/ghostty/themes ] && mkdir ~/.config/ghostty/themes
     cp ~/.cache/wal/ghostty.conf ~/.config/ghostty/themes/wal
+    # foot
+    [ -d ~/.config/foot ] && cp ~/.cache/wal/colors-foot.ini ~/.config/foot/colors
     # river
     awk 'NR==2 {print $1}' ~/.cache/wal/colors | sed 's/#/0x/' >~/.config/river/colors
     cat "$HOME"/.config/river/colors | xargs riverctl border-color-focused
