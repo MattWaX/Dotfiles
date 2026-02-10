@@ -2,6 +2,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()
         vim.api.nvim_set_hl(0, "CursorLineSign", { link =  "Normal" })
         vim.api.nvim_set_hl(0, "SignColumn", { link =  "Normal" })
+        vim.api.nvim_set_hl(0, "Visual", {reverse = true})
     end,
 })
 
