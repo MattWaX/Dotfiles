@@ -5,10 +5,18 @@ setopt autocd   # Automatically cd into typed directory.
 stty stop undef # Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
-# setting the title of the current shell session
-precmd() {
-    echo -ne "\033]0;$(dirs)\007"
+PROMPT='%F{green}%(!.#.$)%f '
+_prompt_preambole() {
+    blue=$(tput setaf 4)
+    magenta=$(tput setaf 5)
+    cyan=$(tput setaf 6)
+    normal=$(tput sgr0)
+    printf "\n%*s\r%s\n"\
+    "$(($(tput cols) + 7))"\
+    "$blue$(date +%T)$normal"\
+    "$cyan$USER$magenta@$cyan$HOST $magenta~${PWD##$HOME}$normal"
 }
+precmd_functions=(_prompt_preambole) 
 
 # History in cache directory:
 HISTSIZE=10000000
@@ -28,18 +36,24 @@ _comp_options+=(globdots) # Include hidden files.
 
 # vi mode
 bindkey -v
-export KEYTIMEOUT=0
+export KEYTIMEOUT=1
 
+VINOR="%F{cyan}--NORMAL--%f"
+VIINS="%F{green}--INSERT--%f"
+RPROMPT=$VIINS
 function zle-keymap-select { 
-  if [[ $KEYMAP == vicmd ]]; then 
-    echo -ne "\e[2 q" 
-  fi 
-  if [[ $KEYMAP == viins ]] || 
-     [[ $KEYMAP == main ]]; then 
-    echo -ne "\e[6 q" 
-  fi 
+    if [[ $KEYMAP == vicmd ]]; then 
+      echo -ne "\e[2 q" 
+    fi 
+    if [[ $KEYMAP == viins ]] || 
+       [[ $KEYMAP == main ]]; then 
+      echo -ne "\e[6 q" 
+    fi 
+    RPROMPT="${${KEYMAP/vicmd/$VINOR}/(main|viins)/$VIINS}"
+    zle reset-prompt
 } 
-zle -N zle-keymap-select 
+zle -N zle-keymap-select
+
 
 _fix_cursor() { echo -ne '\e[6 q' } 
 precmd_functions+=(_fix_cursor) 
@@ -70,7 +84,7 @@ bindkey '^P' history-search-backward
 source ~/.config/shell/aliases.sh
 
 # starship init
-[ -e "$(which starship)" ] && eval "$(starship init zsh)"
+# [ -e "$(which starship)" ] && eval "$(starship init zsh)"
 
 # zoxide setup
 [ -e "$(which zoxide)" ] && eval "$(zoxide init zsh)"
