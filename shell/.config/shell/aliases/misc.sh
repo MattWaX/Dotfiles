@@ -7,6 +7,12 @@ src() {
     echo $shell | grep zsh &>/dev/null && source ~/.zshrc
 }
 
+if exist xdg-open; then
+    open() {
+        (xdg-open "$@" &>/dev/null &) &>/dev/null
+    }
+fi
+
 alias system='systemctl'
 alias sctl='system'
 
