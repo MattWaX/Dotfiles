@@ -4,7 +4,7 @@
 # VARIABLES #
 #############
 
-terminal=ghostty
+terminal=foot
 terminal_launch="$terminal -e" # ghotty start
 drun="zsh -ci fuzzel"
 browser="zen-browser"
