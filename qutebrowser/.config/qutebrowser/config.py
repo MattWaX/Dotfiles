@@ -31,6 +31,7 @@ c.auto_save.session = False
 # keybinding changes
 config.bind('cs', 'config-source')
 config.bind('tH', 'config-cycle tabs.show multiple never')
+config.bind('td', 'config-cycle colors.webpage.darkmode.enabled false true')
 config.bind('sH', 'config-cycle statusbar.show always never')
 config.bind('pP', 'open -- {primary}')
 config.bind('pp', 'open -- {clipboard}')
