@@ -29,6 +29,7 @@
     ],
     "dwl/window#layout": {
         "format": "{layout}",
+        "icon": false,
         "icon-size": 0,
         "tooltip": false,
         "rewrite": {
