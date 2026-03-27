@@ -15,6 +15,6 @@ if exist lsd; then
     alias lm='ls -al | more' # pipe through 'more'
     alias lo='ls -laSFh'     # sort by size largest to smallest
     alias lr='ls -lR'        # recursive ls
-    alias ld='ls -ltr'       # sort by date
+    # alias ld='ls -ltr'       # sort by date
     alias lu='ls -lur'       # sort by access time
 fi

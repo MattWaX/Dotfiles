@@ -10,14 +10,14 @@ unsetopt PROMPT_SP 2>/dev/null
 
 
 # Default programs:
-export TERMINAL="ghostty"
+export TERMINAL="foot"
 export EDITOR="nvim"
 export BROWSER="qutebrowser"
 export MANPAGER='nvim +Man!'
 export SUDO_ASKPASS="$HOME/.scripts/askpass"
 export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share/applications"
 
-export PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.scripts"
+export PATH="$PATH:$HOME/.local/share/nvim/mason/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.scripts"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
