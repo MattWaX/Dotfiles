@@ -4,7 +4,7 @@
   all: unset;
   font-size: 16px;
   font-family:
-    JetBrainsMono Nerd Font,
+    FiraCodeNerdFont,
     Blobmoji;
   transition: 200ms;
   box-shadow: none;
