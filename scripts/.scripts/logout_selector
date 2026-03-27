@@ -8,7 +8,7 @@ power_off() { systemctl poweroff; }
 reboot() { systemctl reboot; }
 
 lock() {
-    query=$(swww query)
+    query=$(awww query)
 
     if ! swaylock -fi "${query##* }"; then
         notify-send -a swaylock "ERROR" "swaylock may not be in path"
@@ -18,7 +18,7 @@ lock() {
 sleep() { systemctl sleep; }
 
 logout() { 
-    [ $XDG_CURRENT_DESKTOP == "mango" ] && mmsg -d quit;
+    [ $XDG_CURRENT_DESKTOP = "mango" ] && mmsg -d quit;
     uwsm stop; 
 }
 
