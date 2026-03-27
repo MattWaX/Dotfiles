@@ -71,12 +71,13 @@ c.hints.radius = 0
 c.hints.auto_follow = "always"
 
 # fonts
-c.fonts.default_family = ['JetBrainsMono Nerd Font']
+font = 'FiraCodeNerdFont'
+c.fonts.default_family = [font]
 c.fonts.default_size = '11pt'
-c.fonts.web.family.fixed = 'JetBrainsMono Nerd Font'
-c.fonts.web.family.sans_serif = 'JetBrainsMono Nerd Font'
-c.fonts.web.family.serif = 'JetBrainsMono Nerd Font'
-c.fonts.web.family.standard = 'JetBrainsMono Nerd Font'
+c.fonts.web.family.fixed = font
+c.fonts.web.family.sans_serif = font
+c.fonts.web.family.serif = font
+c.fonts.web.family.standard = font
 
 # privacy - adjust these settings based on your preference
 # config.set("completion.cmd_history_max_items", 0)
