@@ -180,7 +180,7 @@
             "headphone": " ",
             "default": ["", " ", " "]
         },
-        "on-click": "ghostty --x11-instance-name=com.popup.app --class=com.popup.app -e pulsemixer"
+        "on-click": "foot --app-id=com.popup.app -e wiremix"
     },
     "custom/notification": {
         "tooltip": false,
@@ -198,18 +198,4 @@
         "on-click-right": "sleep 0.1 && swaync-client -d -sw",
         "escape": true
     },
-    "custom/power": {
-        "format" : "  ",
-        "tooltip": false,
-        "on-click": "wlogout --protocol layer-shell -s"
-    },
-    "custom/openbr": {
-        "format": "[",
-            "tooltip": false
-    },
-    "custom/closebr": {
-        "format": "] ",
-        "tooltip": false
-    }
 }
-
