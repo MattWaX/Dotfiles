@@ -22,7 +22,9 @@ precmd_functions=(_prompt_preambole)
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="$HOME/.history"
+HISTORY_IGNORE="(clear|c|cd|exit|history)"
 setopt inc_append_history
+setopt HIST_IGNORE_SPACE
 
 # Basic auto/tab complete:
 zmodload zsh/complist
