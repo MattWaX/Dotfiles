@@ -22,7 +22,7 @@ DIRS=(
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd . "${DIRS[@]}" --type=dir --max-depth=1 --full-path --base-directory $HOME |
+    selected=$(fd . "${DIRS[@]}" --type=dir --max-depth=1 --full-path --base-directory $HOME 2>/dev/null |
         sed "s|^$HOME/||" |
         $fuzzy --margin 10% --color="16")
 
