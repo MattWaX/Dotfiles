@@ -66,8 +66,8 @@
     "custom/pacman": {
         "format": " {}",
         "interval": 1800,                     // every half-hour
-        "exec": "checkupdates | wc -l",       // # of updates
-        "exec-if": "test $(checkupdates | wc -l) -gt 0",
+        "exec": "paru -Qu | wc -l",       // # of updates
+        "exec-if": "test $(paru -Qu | wc -l) -gt 0",
         "on-click": "pkill -RTMIN+8 waybar && ~/.scripts/update_manager",
         "on-click-right": "pkill -RTMIN+8 waybar",
         "signal": 8
@@ -104,7 +104,7 @@
         "spacing": 5
     },
     "clock": {
-        "format": "{:%a %e %b %R}",
+        "format": "{:%a %d %b %R}",
         // "format-alt": "{:%d/%m/%Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
@@ -113,11 +113,11 @@
             "weeks-pos"     : "right",
             "on-scroll"     : 1,
             "format": {
-                "months": "<span color='#e4a382'><b>{}</b></span>",
-                "days": "<span color='#cbced0'><b>{}</b></span>",
-                "weeks": "<span color='#24a8b4'><b>W{}</b></span>",
-                "weekdays": "<span color='#b072d1'><b>{}</b></span>",
-                "today": "<span color='#df5273'><b><u>{}</u></b></span>"
+                "months": "<span color='#ffffff'><b>{}</b></span>",
+                "days": "<b>{}</b>",
+                "weeks": "<span color='#ffffff'><b>W{}</b></span>",
+                "weekdays": "<b>{}</b>",
+                "today": "<span color='#ffffff'><b><u>{}</u></b></span>"
             },
             "actions": {
                 "on-click-right": "mode",

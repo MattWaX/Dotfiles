@@ -30,33 +30,37 @@ menuitem:hover {
     color: @color0;
 }
 
-.modules-left, .modules-right, #workspace button, #tags button {
-	background-color: @color1;
-	color: @color0;
-	padding: 0px 0px 0px 0px;
-        margin: 0px;
+.modules-left,
+.modules-right,
+#workspace button,
+#tags button {
+    background-color: @color1;
+    color: @color0;
+    padding: 0px 0px 0px 0px;
+    margin: 0px;
 }
 
 .modules-left #window {
-	background-color: @color1;
-	color: @color0;
-        padding-right: 8px; /* fix the weird left padding */
+    background-color: @color1;
+    color: @color0;
+    padding-right: 8px;
+    /* fix the weird left padding */
 }
 
 .modules-left #window:hover {
-	background-color: @color0;
-	color: @color1;
+    background-color: @color0;
+    color: @color1;
 }
 
 .modules-center #window {
-	background-color: @color0;
-	color: @color1;
-        padding: 0 10px;
+    background-color: @color0;
+    color: @color1;
+    padding: 0 10px;
 }
 
 .modules-center #window:hover {
-	background-color: @color1;
-	color: @color0;
+    background-color: @color1;
+    color: @color0;
 }
 
 window#waybar {
@@ -80,12 +84,14 @@ button:hover {
     background: @color0;
 }
 
-#workspaces, #tags {
+#workspaces,
+#tags {
     padding: 0px;
     color: @color0;
 }
 
-#workspaces button, #tags button {
+#workspaces button,
+#tags button {
     /* padding: 0px 11px 0px 11px;  */
     /* min-width: 1px; */
     color: @color0;
@@ -94,28 +100,33 @@ button:hover {
     padding: 0 9px;
 }
 
-#workspaces button:hover, #tags button:hover {
+#workspaces button:hover,
+#tags button:hover {
     /* padding: 0px 11px 0px 11px;  */
     /* min-width: 1px; */
-    color: @color1;
-    background: @color0;
-}
-
-#workspaces button.active, #tags button.focused {
-    color: @color1;
-    background: @color0;  
-}
-
-#workspaces button.active:hover, #tags button.focused:hover {
     color: @color0;
     background-color: @color10;
 }
 
-#workspaces button.urgent, #tags button.urgent {
+#workspaces button.active,
+#tags button.focused {
+    color: @color1;
+    background: @color0;
+}
+
+#workspaces button.active:hover,
+#tags button.focused:hover {
+    color: @color0;
+    background-color: @color10;
+}
+
+#workspaces button.urgent,
+#tags button.urgent {
     color: @color5;
 }
 
-#workspaces button.urgent:hover, #tags button.urgent:hover {
+#workspaces button.urgent:hover,
+#tags button.urgent:hover {
     background-color: @color5;
     color: @color0;
 }
@@ -142,24 +153,24 @@ button:hover {
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:last-child {
+.modules-left>widget:last-child {
     margin-left: 0;
     padding-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
+.modules-right>widget:last-child>#workspaces {
     margin-right: 0;
 }
 
 #mpd.playing {
     color: @color0;
-    background-color: @color10;    
+    background-color: @color10;
 }
 
 #mpd.playing:hover {
     color: @color10;
-    background-color: @color0;    
+    background-color: @color0;
 }
 
 #mpd:hover {
@@ -217,11 +228,11 @@ button:hover {
     background-color: @color14;
 }
 
-#tray > .passive {
+#tray>.passive {
     -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
     -gtk-icon-effect: highlight;
     color: @color5;
 }
@@ -238,5 +249,9 @@ button:hover {
 #battery:hover,
 #pulseaudio:hover {
     color: @color1;
-    background-color: @color0;  
+    background-color: @color0;
+}
+
+#clock tooltip .months {
+    color: @color1;
 }
