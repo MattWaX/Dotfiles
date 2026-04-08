@@ -16,6 +16,7 @@ export BROWSER="qutebrowser"
 export MANPAGER='nvim +Man!'
 export SUDO_ASKPASS="$HOME/.scripts/askpass"
 export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share/applications"
+export QTWEBENGINE_FORCE_USE_GBM=0
 
 export PATH="$PATH:$HOME/.local/share/nvim/mason/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.scripts"
 
@@ -35,6 +36,7 @@ export NNN_PLUG='p:preview-tui;i:imgview;x:xdgdefault'
 export NNN_PREVIEWIMGPROG='chafa -f kitty --passthrough=tmux '
 
 # GTK theming
+export GTK_USE_PORTAL=1
 export GTK_THEME=Adwaita-dark
 export ADW_DISABLE_PORTAL=1
 export QT_STYLE_OVERRIDE=adwaita-dark
