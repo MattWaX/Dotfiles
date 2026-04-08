@@ -6,3 +6,4 @@ killall waybar; waybar -c ~/.config/mango/waybar/config.jsonc -s ~/.config/mango
 killall awww-daemon; awww-daemon &
 killall swaync; swaync &
 killall wlsunset; wlsunset -T 5001 -t 5000 -S 06:30 -s 20:00 &
+killall kanshi; kanshi &

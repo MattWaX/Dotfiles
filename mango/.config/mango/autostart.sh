@@ -8,5 +8,6 @@ systemctl --user enable opentabletdriver.service --now
 
 /usr/lib/xdg-desktop-portal-wlr &
 
+kanshi &
 mpd &
 wl-paste -w cliphist store & 
