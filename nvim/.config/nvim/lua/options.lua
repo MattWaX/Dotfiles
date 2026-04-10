@@ -2,6 +2,13 @@ local option = vim.opt
 local opt = vim.o
 local g = vim.g
 
+-- Autocompletion
+opt.completeopt = "menu,menuone,noinsert,popup,fuzzy,preview"
+opt.wildoptions = "pum,tagfile,fuzzy"
+opt.pumborder = "single"
+opt.pumheight = 10
+opt.pummaxwidth = 60
+
 -- Cosmetics
 opt.termguicolors = true
 opt.showmode = false
@@ -9,6 +16,7 @@ opt.cursorline = true
 opt.cursorlineopt = "both"
 opt.cursorcolumn = true
 opt.winborder = "bold"
+option.listchars = { space = "•", tab = "> ", eol = "$" }
 
 -- Numbers
 opt.number = true

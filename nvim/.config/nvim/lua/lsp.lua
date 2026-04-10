@@ -1,7 +1,5 @@
 local M = {}
 
-vim.g.inlay_hints = false
-
 -- Set up LSP servers.
 vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
     once = true,
@@ -17,6 +15,9 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
+        vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, {
+            autotrigger = true,
+        })
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         if not client then
             return
