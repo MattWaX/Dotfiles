@@ -4,5 +4,6 @@ require("which-key").setup {
         { "m", mode = { "n", "v" } },
         { "g", mode = { "n", "v" } },
         { "<leader>", mode = { "n", "v" } },
+        { "<auto>", mode = { "o" } },
     },
 }

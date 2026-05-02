@@ -11,6 +11,7 @@ autocmd("TextYankPost", {
     group = highlight_group,
 })
 
+-- Highlight fixes
 autocmd("ColorScheme", {
     callback = function()
         vim.api.nvim_set_hl(0, "CursorLineSign", { link = "Normal" })
@@ -20,4 +21,15 @@ autocmd("ColorScheme", {
         vim.api.nvim_set_hl(0, "Pmenu", { link = "Title" })
         vim.api.nvim_set_hl(0, "PmenuSel", { link = "Visual" })
     end,
+})
+
+-- Filetype autocommands
+autocmd("BufEnter", {
+    pattern = "*",
+    command = "set formatoptions=cjnqrt"
+})
+-- typst
+autocmd("BufWritePost", {
+    pattern = "*.typ",
+    command = "Make! compile",
 })

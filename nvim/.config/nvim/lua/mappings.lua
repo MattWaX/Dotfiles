@@ -9,18 +9,39 @@ map("i", "<C-e>", "<End>", { desc = "move end of line" })
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
+-- delete matching
+map("n", "dm", "%%%x``x", { desc = "matching pair" })
+-- vim.keymap.set({ "o", "x" }, "i,", "<CMD><C-u>norm f,F,lvt,<CR>", { silent = true })
+
 -- formatting on request
 map("n", "<leader>fm", function()
     require("conform").format { lsp_fallback = true }
 end, { desc = "general format file" })
 
 -- buffer actions
-map("n", "gb", "<cmd>BufferLinePick<CR>", { desc = "buffer goto prev" })
 map("n", "<leader>bo", "<cmd>%bd|e#|bd#<CR>", { desc = "close all buffers exept current one" })
 
--- commenting
--- map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
--- map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
+-- move lines
+map("n", "<C-n>", function()
+    return "<CMD>move +"
+        .. ((vim.v.count == 0) and 1 or 0) * 1 + ((vim.v.count ~= 0) and 1 or 0) * vim.v.count
+        .. "<CR>"
+end, { desc = "move current line down", silent = true, remap = true, expr = true })
+map("n", "<C-p>", function()
+    return "<CMD>move -"
+        .. ((vim.v.count == 0) and 1 or 0) * 2 + ((vim.v.count ~= 0) and 1 or 0) * (vim.v.count + 1)
+        .. "<CR>"
+end, { desc = "move current line down", silent = true, remap = true, expr = true })
+map("v", "<C-n>", function()
+    return ":move'> +"
+        .. ((vim.v.count == 0) and 1 or 0) * 1 + ((vim.v.count ~= 0) and 1 or 0) * vim.v.count
+        .. "<CR>gv"
+end, { desc = "move current line down", silent = true, remap = true, expr = true })
+map("v", "<C-p>", function()
+    return ":move -"
+        .. ((vim.v.count == 0) and 1 or 0) * 2 + ((vim.v.count ~= 0) and 1 or 0) * (vim.v.count + 1)
+        .. "<CR>gv"
+end, { desc = "move current line down", silent = true, remap = true, expr = true })
 
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
@@ -66,6 +87,41 @@ map("n", "grh", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_en
 map("i", "<c-space>", function()
     vim.lsp.completion.get()
 end)
+
+map("i", "<CR>", function()
+    local char = {
+        vim.fn.strcharpart(vim.fn.getline ".", vim.fn.getpos(".")[3] - 2, 1),
+        vim.fn.strcharpart(vim.fn.getline ".", vim.fn.getpos(".")[3] - 1, 1),
+    }
+    local special_indent = false
+    for _, pair in ipairs(vim.g.expand_pairs_list) do
+        if char[1] == string.sub(pair[1], 1, 1) and char[2] == string.sub(pair[1], 2, 2) then
+            special_indent = true
+            break
+        end
+    end
+
+    if special_indent then
+        return "<CR><esc>==O"
+    else
+        return "<CR>"
+    end
+end, { expr = true })
+
+-- custom commands
+function Scratch()
+    vim.cmd [[
+        enew
+        setlocal buftype=nofile
+        setlocal bufhidden=wipe
+        setlocal nobuflisted
+        setlocal noswapfile
+        setlocal winbar=[Scratch]
+        file [Scratch]
+    ]]
+end
+vim.api.nvim_create_user_command("Scratch", "lua Scratch()", { desc = "Create a temporary scratch buffer" })
+map("n", "gs", "<cmd>Scratch<CR>", { desc = "Create a temporary scratch buffer" })
 
 -- DBUI
 map("n", "<Leader>db", "<cmd>DBUIToggle<CR>", { desc = "Toggle DBUI" })

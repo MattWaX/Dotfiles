@@ -2,7 +2,12 @@ local option = vim.opt
 local opt = vim.o
 local g = vim.g
 
+-- enable localconfig
+opt.exrc = true
+
 -- Autocompletion
+opt.complete = "o,.,b,u,f"
+-- opt.autocomplete = true
 opt.completeopt = "menu,menuone,noinsert,popup,fuzzy,preview"
 opt.wildoptions = "pum,tagfile,fuzzy"
 opt.pumborder = "single"
@@ -16,7 +21,7 @@ opt.cursorline = true
 opt.cursorlineopt = "both"
 opt.cursorcolumn = true
 opt.winborder = "bold"
-option.listchars = { space = "•", tab = "> ", eol = "$" }
+option.listchars = { space = "·", tab = "> ", eol = "$" }
 
 -- Numbers
 opt.number = true
@@ -26,6 +31,7 @@ opt.ruler = false
 
 -- Indenting
 opt.expandtab = true
+opt.autoindent = true
 opt.smartindent = true
 opt.tabstop = 8
 opt.softtabstop = 4
@@ -35,10 +41,23 @@ option.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
+opt.jumpoptions = "stack,view"
+
+opt.formatoptions = "cjnqrt"
 
 -- Text wrap
 opt.wrap = true
 opt.linebreak = true
+
+-- Fold
+opt.foldenable = true
+opt.foldlevel = 99
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+-- Grep
+opt.grepprg = "rg --field-match-separator \" : \" --vimgrep "
+opt.grepformat = "%f : %l : %c : %m"
 
 -- Misc
 opt.clipboard = "unnamedplus"
@@ -84,3 +103,14 @@ vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave" }, {
         end
     end,
 })
+
+g.expand_pairs_list = {
+    { "()" },
+    { "[]" },
+    { "{}" },
+    { "><" },
+    { "<>" },
+    { "$$" },
+}
+
+require('vim._core.ui2').enable()

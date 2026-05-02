@@ -80,6 +80,25 @@ require("lualine").setup {
         lualine_y = { "location" },
         lualine_z = { "progress" },
     },
-    tabline = {},
+    tabline = {
+        lualine_a = {
+            {
+                "buffers",
+                filetype_names = {
+                    oil = "",
+                },
+                symbols = {
+                    modified = " [+]",
+                    alternate_file = "#",
+                    directory = "",
+                },
+            },
+        },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+    },
     extensions = { "quickfix", "oil", "mason", "man", "nvim-dap-ui" },
 }

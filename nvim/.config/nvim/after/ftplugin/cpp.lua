@@ -3,9 +3,9 @@ require "options"
 local opt = vim.o
 local map = vim.keymap.set
 
-opt.tabstop = 8
-opt.softtabstop = 8
-opt.shiftwidth = 8
+-- opt.tabstop = 8
+-- opt.softtabstop = 8
+-- opt.shiftwidth = 8
 
 opt.makeprg = "make"
 
