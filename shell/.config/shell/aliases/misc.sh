@@ -97,3 +97,6 @@ if exist presenterm; then
     alias presenterm='presenterm -x --image-protocol auto'
     alias slide='presenterm'
 fi
+
+# random
+alias poly='rlwrap poly'
