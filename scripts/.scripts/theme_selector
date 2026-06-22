@@ -5,31 +5,6 @@ exist() {
     command -v "$1" >/dev/null 2>&1
 }
 
-pywal_update() {
-    # color reload
-    # waybar
-    cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors.css
-    cp ~/.cache/wal/colors-waybar.css ~/.config/mango/waybar/colors.css
-    # sway nc
-    cp ~/.cache/wal/colors.css ~/.config/swaync/colors.css
-    swaync-client --reload-css
-    # ghostty
-    [ ! -d ~/.config/ghostty/themes ] && mkdir ~/.config/ghostty/themes
-    cp ~/.cache/wal/ghostty.conf ~/.config/ghostty/themes/wal
-    # foot
-    [ -d ~/.config/foot ] && cp ~/.cache/wal/colors-foot-dark.ini ~/.config/foot/colors
-    # river
-    awk 'NR==2 {print $1}' ~/.cache/wal/colors | sed 's/#/0x/' >~/.config/river/colors
-    cat "$HOME"/.config/river/colors | xargs riverctl border-color-focused
-    # mango
-    cp ~/.cache/wal/colors-mango.conf ~/.config/mango/colors.conf
-    mmsg -d reload_config 2>&1 /dev/null &
-    # fuzzel
-    cp ~/.cache/wal/colors-fuzzel.ini ~/.config/fuzzel/colors
-    # telegram
-    walogram 2>&1 /dev/null &
-}
-
 wallpapers_folder="$HOME/Pictures/wallpapers/"
 
 if [ -f "$1" ]; then
@@ -38,15 +13,19 @@ else
     if [ -d "$1" ]; then
         wallpapers_folder="$1"
     fi
-    theme="${wallpapers_folder}$(
-        find "$wallpapers_folder" -type f -printf '%P\n' |
-            grep --invert-match "^$" | $DMENU --placeholder="Select a theme..."
+    if exist nsxiv; then
+        theme="$(nsxiv -N "com.popup.app" -rotb $wallpapers_folder/*)"
+    elif exist $DMENU; then
+        theme="${wallpapers_folder}$(
+            find "$wallpapers_folder" -type f -printf '%P\n' |
+                grep --invert-match "^$" | $DMENU --placeholder="Select a theme..."
 
-    )"
+        )"
+    fi
 fi
 
 if [ -f "$theme" ]; then
     awww img "$theme" &&
         exist wal && wal --cols16 lighten --backend colorthief -tnqei "$theme"
-    pywal_update > /dev/null 2>&1
+    ~/.scripts/pywal_update > /dev/null 2>&1
 fi

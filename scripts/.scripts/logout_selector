@@ -18,7 +18,7 @@ lock() {
 sleep() { systemctl sleep; }
 
 logout() { 
-    [ $XDG_CURRENT_DESKTOP = "mango" ] && mmsg -d quit;
+    [ $XDG_CURRENT_DESKTOP = "mango" ] && mmsg dispatch quit;
     uwsm stop; 
 }
 

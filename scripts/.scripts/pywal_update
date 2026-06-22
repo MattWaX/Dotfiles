@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# color reload
+# waybar
+cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors.css
+cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors.css
+cp ~/.cache/wal/colors-waybar.css ~/.config/mango/waybar/colors.css
+cp ~/.cache/wal/colors-waybar.css ~/.config/mango/waybar/colors.css
+# sway nc
+cp ~/.cache/wal/colors.css ~/.config/swaync/colors.css
+swaync-client --reload-css
+# ghostty
+[ ! -d ~/.config/ghostty/themes ] && mkdir ~/.config/ghostty/themes
+cp ~/.cache/wal/ghostty.conf ~/.config/ghostty/themes/wal
+# foot
+[ -d ~/.config/foot ] && cp ~/.cache/wal/colors-foot-dark.ini ~/.config/foot/colors
+# river
+awk 'NR==2 {print $1}' ~/.cache/wal/colors | sed 's/#/0x/' >~/.config/river/colors
+cat "$HOME"/.config/river/colors | xargs riverctl border-color-focused
+# mango
+cp ~/.cache/wal/colors-mango.conf ~/.config/mango/colors.conf
+mmsg dispatch reload_config 2>&1 >/dev/null &
+# fuzzel
+cp ~/.cache/wal/colors-fuzzel.ini ~/.config/fuzzel/colors
+# qutebrowser
+qutebrowser :config-source 2>&1 >/dev/null &
+# telegram
+walogram 2>&1 >/dev/null &
