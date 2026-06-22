@@ -1,4 +1,4 @@
-@import url("colors.css");
+@import "./colors.css";
 
 * {
     font-family: FiraCodeNerdFont, Blobmoji;
