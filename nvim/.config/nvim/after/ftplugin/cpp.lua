@@ -3,12 +3,6 @@ require "options"
 local opt = vim.o
 local map = vim.keymap.set
 
--- opt.tabstop = 8
--- opt.softtabstop = 8
--- opt.shiftwidth = 8
-
-opt.makeprg = "make"
-
 map("n", "m<CR>", ":Make run<CR>", { desc = "Build and run the cpp project"})
 
 map("n", "<F5>", ":Start -wait=always make -s run<CR>", { desc = "Build and run the cpp project"})

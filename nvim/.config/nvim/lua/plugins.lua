@@ -3,6 +3,7 @@ vim.pack.add {
     "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/b0o/SchemaStore.nvim",
     "https://github.com/nvim-lua/plenary.nvim",
+    -- "https://github.com/nvim-neotest/nvim-nio",
     -- core
     "https://github.com/nvim-treesitter/nvim-treesitter",
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
@@ -17,6 +18,9 @@ vim.pack.add {
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/RaafatTurki/hex.nvim",
+    -- "https://github.com/mfussenegger/nvim-dap",
+    -- "https://github.com/rcarriga/nvim-dap-ui",
+    -- "https://github.com/theHamsta/nvim-dap-virtual-text",
     -- cosmetics
     "https://github.com/goolord/alpha-nvim",
     -- "https://github.com/akinsho/bufferline.nvim",
@@ -30,19 +34,6 @@ vim.pack.add {
 vim.cmd.packadd "nvim.difftool"
 vim.cmd.packadd "nvim.undotree"
 
-require "plugins/alpha"
-require "plugins/bufferline"
-require "plugins/conform"
-require "plugins/dadbod"
-require "plugins/dap"
-require "plugins/git"
-require "plugins/hex"
-require "plugins/lualine"
-require "plugins/mason"
-require "plugins/oil"
-require "plugins/telescope"
-require "plugins/tex"
-require "plugins/tmux-integration"
-require "plugins/treesitter"
-require "plugins/wal"
-require "plugins/whick-key"
+vim.iter(vim.api.nvim_get_runtime_file("lua/plugins/*.lua", true)):map(function(file)
+    require("plugins/" .. vim.fn.fnamemodify(file, ":t:r"))
+end)

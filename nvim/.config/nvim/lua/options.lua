@@ -8,7 +8,7 @@ opt.exrc = true
 -- Autocompletion
 opt.complete = "o,.,b,u,f"
 -- opt.autocomplete = true
-opt.completeopt = "menu,menuone,noinsert,popup,fuzzy,preview"
+opt.completeopt = "menu,menuone,noinsert,noinsert,popup,fuzzy,preview"
 opt.wildoptions = "pum,tagfile,fuzzy"
 opt.pumborder = "single"
 opt.pumheight = 10
@@ -33,6 +33,7 @@ opt.ruler = false
 opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
+opt.breakindent = true
 opt.tabstop = 8
 opt.softtabstop = 4
 opt.shiftwidth = 4

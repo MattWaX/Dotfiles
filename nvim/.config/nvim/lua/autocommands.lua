@@ -19,14 +19,17 @@ autocmd("ColorScheme", {
         vim.api.nvim_set_hl(0, "Visual", { reverse = true })
         vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
         vim.api.nvim_set_hl(0, "Pmenu", { link = "Title" })
+        vim.api.nvim_set_hl(0, "PmenuKind", { link = "LineNr" })
+        vim.api.nvim_set_hl(0, "PmenuMatch", { link = "diffLine" })
         vim.api.nvim_set_hl(0, "PmenuSel", { link = "Visual" })
+        vim.api.nvim_set_hl(0, "QuickFixLine", { link = "Visual" })
     end,
 })
 
 -- Filetype autocommands
 autocmd("BufEnter", {
     pattern = "*",
-    command = "set formatoptions=cjnqrt"
+    command = "set formatoptions=cjnqrt",
 })
 -- typst
 autocmd("BufWritePost", {

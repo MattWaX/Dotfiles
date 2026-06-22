@@ -14,6 +14,9 @@ return {
         "java.base/java.util=ALL-UNNAMED",
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
+        "--module-path",
+        "~/.local/lib/jvm/javafx-sdk-26.0.1/lib/",
+        "--add-modules=javafx.controls",
     },
     init_options = {
         extendedClientCapabilities = {
