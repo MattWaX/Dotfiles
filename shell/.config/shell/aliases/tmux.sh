@@ -6,8 +6,6 @@ if exist tmux; then
     alias tma='tmux attach-session'
     alias tmd='tmux detach-client'
 
-    alias tmls='tmux list-sessions'
-
     tmrunh() {
         if [ -z $2 ]; then 
             time=2
