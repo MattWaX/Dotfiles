@@ -13,6 +13,7 @@ else
 fi
 
 DIRS=(
+    "$HOME/code"
     $(fd . "$HOME/code/" --type=dir)
     "$HOME"
     "$HOME/Documents"
