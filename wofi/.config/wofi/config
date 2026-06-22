@@ -1,7 +1,0 @@
-mode=drun
-matching=fuzzy
-insensitive=true
-allow_images=true
-prompt=Search...
-key_down=Ctrl-n
-key_up=Ctrl-p
