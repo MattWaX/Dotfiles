@@ -6,13 +6,13 @@
     "reload_style_on_change": true,
     "modules-left": [
         "network",
-        "ext/workspaces",
-        "dwl/window#layout",
+        "mango/workspaces",
+        "mango/layout",
         "mpd"
 
     ],
     "modules-center": [
-        "dwl/window"
+        "mango/window"
     ],
     "modules-right": [
         "tray",
@@ -27,38 +27,34 @@
         "custom/notification",
         "clock"
     ],
-    "dwl/window#layout": {
-        "format": "{layout}",
-        "icon": false,
-        "icon-size": 0,
-        "tooltip": false,
-        "rewrite": {
-            "T": "[]=",
-            "S": "[][",
-            "M": "[O]",
-            "G": ":::",
-            "K": "[]-",
-            "CT": "|[]|",
-            "RT": "=[]",
-            "VT": "TTT",
-            "VS": "===",
-            "VG": "[#]",
-            "VK": "‾T‾",
-            "DW": "[]+",
-            "F": "[F]",
-            "VF": "[VF]",
-        }
+    "mango/layout": {
+        "format": "{}",
+        "format-T": "[]=",
+        "format-S": "[][",
+        "format-M": "[O]",
+        "format-G": ":::",
+        "format-K": "[]-",
+        "format-CT": "|[]|",
+        "format-RT": "=[]",
+        "format-VT": "TTT",
+        "format-VS": "===",
+        "format-VG": "[#]",
+        "format-VK": "‾T‾",
+        "format-DW": "[]+",
+        "format-F": "[F]",
+        "format-VF": "[VF]"
     },
-    "dwl/window": {
+    "mango/window": {
         "format": "{title}",
         "max-length": 34
     },
-    "ext/workspaces": {
+    "mango/workspaces": {
         "format": "{icon}",
-        "ignore-hidden": true,
+        "hide-empty": true,
         "on-click": "activate",
-        "on-click-right": "deactivate",
+        "on-click-right": "toggle",
         "sort-by-id": true,
+        "overview-label": "OVERVIEW",
         "format-icons": {
              "1": " ",
              "2": " ",
@@ -170,7 +166,8 @@
         "format-ethernet": "󰈀 {ipaddr}/{cidr}",
         "tooltip-format": "connected to {essid}\n{ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}",
         "format-linked": "{ifname} 󰌹 ",
-        "format-disconnected": "󰖪 "
+        "format-disconnected": "󰖪 ",
+        "on-click": "nmcli device wifi rescan"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
