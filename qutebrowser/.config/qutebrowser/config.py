@@ -26,6 +26,8 @@ c.url.searchengines = {
 
 c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']
 
+c.qt.args=["enable-zero-copy","enable-features=FluentOverlayScrollbar,MiddleClickAutoscroll,VaapiIgnoreDriverChecks,VaapiVideoDecoder,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoEncoder,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE","enable-gpu-rasterization","ignore-gpu-blocklist","enable-native-gpu-memory-buffers","num-raster-threads=4"]
+
 c.auto_save.session = False 
 
 # keybinding changes
@@ -82,11 +84,11 @@ c.fonts.web.family.standard = font
 # privacy - adjust these settings based on your preference
 # config.set("completion.cmd_history_max_items", 0)
 # config.set("content.private_browsing", True)
-config.set("content.webgl", False, "*")
+config.set("content.webgl", True, "*")
 config.set("content.canvas_reading", True)
 config.set("content.geolocation", False)
 config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
-config.set("content.cookies.accept", "all")
+config.set("content.cookies.accept", "no-unknown-3rdparty")
 config.set("content.cookies.store", True)
 config.set("tabs.position", "left")
 # config.set("content.javascript.enabled", False) # tsh keybind to toggle
