@@ -4,8 +4,9 @@
 if exist nvim; then
     alias vim='nvim'
     alias vi='vim'
+    alias v='vi'
+    alias e='v'
     alias vidb='vi -c DBUI'
-    alias nzo="~/.scripts/zoxide_openfiles_nvim.sh"
 
     alias sudovi='sudo -E -s nvim'
     alias svi='sudovi'

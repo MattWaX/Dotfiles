@@ -35,6 +35,9 @@ export NNN_FIFO=/tmp/nnn.fifo
 export NNN_PLUG='p:preview-tui;i:imgview;x:xdgdefault'
 export NNN_PREVIEWIMGPROG='chafa -f kitty --passthrough=tmux '
 
+export FZF_DEFAULT_OPTS=--color=16
+export SKIM_DEFAULT_OPTIONS=--color=16
+
 # GTK theming
 export GTK_USE_PORTAL=1
 export GTK_THEME=Adwaita-dark
