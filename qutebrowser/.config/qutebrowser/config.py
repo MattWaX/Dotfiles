@@ -85,6 +85,7 @@ c.fonts.web.family.standard = font
 # config.set("completion.cmd_history_max_items", 0)
 # config.set("content.private_browsing", True)
 config.set("content.webgl", True, "*")
+config.set("content.headers.user_agent", "Mozilla/5.0 (X11; Linux x86_64; rv:156.0) Gecko/20100101 Firefox/156.0", "web.whatsapp.com")
 config.set("content.canvas_reading", True)
 config.set("content.geolocation", False)
 config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
