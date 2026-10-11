@@ -4,6 +4,7 @@ autoload -U colors && colors # Load colors
 setopt autocd   # Automatically cd into typed directory.
 stty stop undef # Disable ctrl-s to freeze terminal.
 setopt interactive_comments
+setopt GLOB
 
 PROMPT='%F{green}%(!.#.$)%f '
 _prompt_preambole() {
@@ -91,11 +92,10 @@ source ~/.config/shell/aliases.sh
 # zoxide setup
 [ -e "$(which zoxide)" ] && eval "$(zoxide init zsh)"
 
-if [ -e "$(which fzf)" ]; then
+if [ -e "$(which sk)" ]; then
     # Set up fzf key bindings and fuzzy completion
     bindkey -r '^I'
-    eval "$(fzf --zsh)"
-    export FZF_DEFAULT_OPTS=--color=16
+    eval "$(sk --shell zsh --shell-bindings)"
 fi
 
 # Load syntax highlighting; should be last.
