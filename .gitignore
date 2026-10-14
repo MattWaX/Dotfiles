@@ -28,3 +28,4 @@ mango/.config/mango/waybar/colors.css
 mango/.config/mango/colors.conf
 foot/.config/foot/colors
 /nvim/.config/nvim/nvim-pack-lock.json
+/mango/.config/mango/hardware.sh

@@ -2,7 +2,6 @@
 
 systemctl --user enable opentabletdriver.service --now
 
-mpd &
 wl-paste -w cliphist store & 
 
 ~/.config/mango/hard_reload.sh &
