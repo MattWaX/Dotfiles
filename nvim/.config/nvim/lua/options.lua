@@ -86,7 +86,7 @@ option.whichwrap:append "<>[]hl"
 
 -- disable some default providers
 g.loaded_node_provider = 0
-g.loaded_python3_provider = 0
+-- g.loaded_python3_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
@@ -96,6 +96,10 @@ vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, "/") .. "
 -- (if these two events will bug out a bit i'll add again "TextChanged" event)
 vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave" }, {
     callback = function()
+        local buftype = vim.api.nvim_get_option_value("buftype", {buf = 0})
+        if buftype == "terminal" or "prompt" or "nofile" then
+            return
+        end
         local win_amount = #vim.api.nvim_tabpage_list_wins(0)
         if win_amount <= 1 then
             opt.winbar = ""
