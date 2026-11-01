@@ -14,13 +14,16 @@ vim.pack.add {
     -- extra
     "https://github.com/williamboman/mason.nvim",
     "https://github.com/stevearc/conform.nvim",
-    "https://github.com/nvim-telescope/telescope.nvim",
+    -- "https://github.com/nvim-telescope/telescope.nvim",
+    "https://github.com/ibhagwan/fzf-lua",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/RaafatTurki/hex.nvim",
-    -- "https://github.com/mfussenegger/nvim-dap",
-    -- "https://github.com/rcarriga/nvim-dap-ui",
-    -- "https://github.com/theHamsta/nvim-dap-virtual-text",
+    "https://github.com/lervag/vimtex",
+    -- dap
+    "https://github.com/mfussenegger/nvim-dap",
+    "https://github.com/igorlfs/nvim-dap-view",
+    "https://github.com/theHamsta/nvim-dap-virtual-text",
     -- cosmetics
     "https://github.com/goolord/alpha-nvim",
     -- "https://github.com/akinsho/bufferline.nvim",
@@ -29,6 +32,12 @@ vim.pack.add {
     "https://github.com/norcalli/nvim-colorizer.lua",
     "https://github.com/Oniup/ignite.nvim",
     "https://github.com/TaurusOlson/basalt.vim",
+    -- lsp
+    "https://github.com/AlexandrosAlexiou/kotlin.nvim",
+    -- database
+    "https://github.com/tpope/vim-dadbod",
+    "https://github.com/kristijanhusak/vim-dadbod-ui",
+    "https://github.com/kristijanhusak/vim-dadbod-completion"
 }
 
 vim.cmd.packadd "nvim.difftool"
