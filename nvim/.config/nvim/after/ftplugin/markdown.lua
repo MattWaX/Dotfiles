@@ -7,6 +7,7 @@ opt.spell = true
 
 opt.textwidth = 79
 opt.colorcolumn = "+1"
+opt.concealcursor = "n"
 
 local setreg = vim.fn.setreg
 setreg("b", "ciw****hhpb") -- bold macro
