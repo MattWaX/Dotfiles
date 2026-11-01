@@ -36,9 +36,9 @@ Also please read the stow man pages before using it.
 
 The modules I'm currently using are:
 ```sh
-stow river nvim tmux zsh shell scripts starship lsd ghostty yazi\
+stow mango nvim tmux zsh shell scripts lsd\
 makeinit aerc fastfetch clang gdb git rmpc sc-im\
-vimiv swaync wallpapers waybar wlogout fuzzel pywal 
+swaync wallpapers waybar fuzzel pywal 
 ```
 
 ### Using wofi to launch terminal application
