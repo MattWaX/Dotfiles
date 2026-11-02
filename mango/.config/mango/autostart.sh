@@ -9,6 +9,4 @@ wl-paste -w cliphist store &
 
 mmsg dispatch spawn,foot --app-id=mpc.mpd -e rmpc
 
-tmux new -ds 'netscreend' '~/.scripts/netscreend' &
-
 ~/.config/mango/hardware.sh

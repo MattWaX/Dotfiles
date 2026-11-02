@@ -1,0 +1,52 @@
+# wallust v3.5
+
+# How the image is parse, in order to get the colors:
+# full - resized - wal - thumb -  fastresize - kmeans
+backend = "fastresize"
+
+# What color space to use to produce and select the most prominent colors:
+# lab - labmixed - lch - lchmixed - salience
+color_space = "lch"
+
+# Use the most prominent colors in a way that makes sense, a scheme color palette:
+# dark - dark16 - darkcomp - darkcomp16
+# light - light16 - lightcomp - lightcomp16
+# harddark - harddark16 - harddarkcomp - harddarkcomp16
+# softdark - softdark16 - softdarkcomp - softdarkcomp16
+# softlight - softlight16 - softlightcomp - softlightcomp16
+# saliencedark - saliencedarkbalanced - saliencedarkdistributed - saliencedarklow (each has the 16 variations)
+# salienceligh - saliencelightbalanced - saliencelightdistributed - saliencelightlow (each has the 16 variations)
+palette = "saliencedarkdistributed16"
+
+# Ensures a "readable contrast" (OPTIONAL, disabled by default)
+# Should only be enabled when you notice an unreadable contrast frequently happening
+# with your images. The reference color for the contrast is the background color.
+check_contrast = true
+
+# Color saturation, between [1% and 100%] (OPTIONAL, disabled by default)
+# usually something higher than 50 increases the saturation and below
+# decreases it (on a scheme with strong and vivid colors)
+# saturation = 1
+
+# Alpha value for templating, by default 100 (no other use whatsoever)
+#alpha = 100
+
+# Disables hooks completly
+#no_hooks = true
+
+[templates]
+colors = { template = 'colors', target = '~/.cache/wal/colors' }
+mango = { template = 'colors-mango.conf', target = '~/.config/mango/colors.conf' }
+mango-waybar = { template = 'waybar.css', target = '~/.config/mango/waybar/colors.css' }
+swaync = { template = 'colors.css', target = '~/.config/swaync/colors.css' }
+fuzzel = { template = 'fuzzel.ini', target = '~/.config/fuzzel/colors' }
+foot = { template = "foot.ini", target = "~/.config/foot/colors" }
+json = { template = 'colors.json', target = '~/.cache/wal/colors.json' }
+vim = { template = 'colors-wal.vim', target = '~/.cache/wal/colors-wal.vim' }
+
+[hooks]
+mango = """ mmsg dispatch reload_config 2>&1 >/dev/null """
+waybar = """ bash -c "kill -s SIGUSR2 $(pgrep waybar) 2>&1 >/dev/null" """
+swaync = """ swaync-client --reload-css """
+qutebrowser = """ qutebrowser :config-source 2>&1 >/dev/null """
+telegram = """ walogram 2>&1 >/dev/null """
