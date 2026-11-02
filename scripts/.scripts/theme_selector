@@ -25,7 +25,5 @@ else
 fi
 
 if [ -f "$theme" ]; then
-    awww img "$theme" &&
-        exist wal && wal --cols16 lighten --backend colorthief -tnqei "$theme"
-    ~/.scripts/pywal_update > /dev/null 2>&1
+    exist wallust && wallust run "$theme" && awww img "$theme"
 fi
