@@ -125,3 +125,6 @@ map("n", "gs", "<cmd>Scratch<CR>", { desc = "Create a temporary scratch buffer" 
 
 -- DBUI
 map("n", "<Leader>db", "<cmd>DBUIToggle<CR>", { desc = "Toggle DBUI" })
+
+-- Git
+map("n", "g<space>", ":Git<space>", {desc = "git commands"})
