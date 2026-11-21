@@ -12,7 +12,8 @@ if ! tmux has-session -t $SESSION_NAME; then
         # select-window -t 1 \;\
         # send-keys "vi -S Session.vim" Enter
 
-        for i in `ls $path_appunti/Uni/`; do
+        current_subjects="ASD Database Reti Reti_Logiche"
+        for i in $current_subjects; do
             tmux switch-client -t $SESSION_NAME \;\
             neww -c "$path_appunti/Uni/$i" -n "$i"
         done
