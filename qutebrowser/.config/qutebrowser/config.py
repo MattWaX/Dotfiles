@@ -103,7 +103,7 @@ c.fileselect.multiple_files.command = filepicker_command
 
 # Adblocking 
 c.content.blocking.enabled = True
-c.content.blocking.method = 'adblock' # uncomment this if you install python-adblock
+c.content.blocking.method = 'both' # uncomment this if you install python-adblock
 c.content.blocking.adblock.lists = [
         "https://easylist.to/easylist/easylist.txt",
         "https://easylist.to/easylist/easyprivacy.txt",
