@@ -6,7 +6,7 @@ stty stop undef # Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 setopt GLOB
 
-[[ -n $SSH_CONNECTION ]] && PROMPT='%F{green}%(!.#.$)%f ' || PROMPT='%F{red}%(!.#.::)%f '
+[[ -z $SSH_CONNECTION ]] && PROMPT='%F{green}%(!.#.$)%f ' || PROMPT='%F{red}%(!.#.::)%f '
 _prompt_preambole() {
     blue=$(tput setaf 4)
     magenta=$(tput setaf 5)
